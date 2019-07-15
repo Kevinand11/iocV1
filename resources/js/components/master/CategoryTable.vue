@@ -1,0 +1,97 @@
+<template>
+    <table-extend>
+        <tr slot="headers">
+            <th>Id</th>
+            <th>Name</th>
+            <th>Parent</th>
+            <th>Created</th>
+            <th>Updated</th>
+            <th>Modifiers</th>
+        </tr>
+        <tbody slot="rows">
+            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)">
+                <td>{{category.id}}</td>
+                <td>{{category.name}}</td>
+                <td>{{category.parent}}</td>
+                <td>{{category.created_at | myDate}}</td>
+                <td>{{category.updated_at | myDate}}</td>
+                <td>
+                    <a @click.prevent="viewModal(category.id)"><i class="fas fa-eye text-blue"></i></a>
+                    &nbsp;|&nbsp;
+                    <a @click.prevent="emitUpdate(category)"><i class="fas fa-pen text-orange"></i></a>
+                    &nbsp;|&nbsp;
+                    <a @click.prevent="emitDelete(category.id)"><i class="fas fa-trash text-red"></i></a>
+                </td>
+            </tr>
+        </tbody>
+        <div slot="pagination">
+            <pagination :data="categories" align="center" :limit="limit" @pagination-change-page="getCategories">
+                <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
+                <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
+            </pagination>
+        </div>
+    </table-extend>
+</template>
+
+<script>
+    import TableEx from "../Table.vue"
+    import Pagination from 'laravel-vue-pagination'
+
+    export default {
+        name:"CategoriesTable",
+        data(){
+            return {
+                limit:2,
+                categories:{},
+            }
+        },
+        components:{
+            "table-extend":TableEx,
+            "pagination" : Pagination,
+        },
+        mounted(){
+            this.loadCategories();
+            Fire.$on('Reload',() => {
+               this.loadCategories();
+            });
+        },
+        methods:{
+            emitCurr(category){
+                Fire.$emit("SetCurrentCategory",category);
+            },
+            loadCategories(url="/api/categories/paginate"){
+                axios.get(url).then((response)=>{
+                    this.categories = response.data;
+                    $("nav").get(0).scrollIntoView();
+                })
+            },
+            getCategories(page = 1) {
+                this.loadCategories('/api/categories/paginate?page=' + page);
+            },
+            viewModal(id){
+                axios.get("/api/categories/"+id).then((response)=>{
+                    this.category = response.data;
+                    $('#view').modal('show');
+                }).catch({});
+            },
+            emitUpdate(category){
+                Fire.$emit("BeforeUpdateCategory",category);
+            },
+            emitDelete(id){
+                new swal({
+                    title: 'Are you sure?',
+                    text: "You won't be able to revert this!",
+                    type: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Yes, delete it!'
+                }).then((result) => {
+                    if (result.value) {
+                        Fire.$emit("DeleteCategory",id)
+                    }
+                })
+            },
+        }
+    }
+</script>
