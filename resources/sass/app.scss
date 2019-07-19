@@ -6,11 +6,8 @@
 
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
-@import "~admin-lte/dist/css/adminlte.css";
-@import "~@fortawesome/fontawesome-free/css/all.css";
-@import "~sweetalert2/dist/sweetalert2.css";
-
-.router-link-exact-active{
-    background-color: #3f31ff;
-    color: #fff;
-}
+@import "~admin-lte/dist/css/adminlte.min.css";
+@import "~@fortawesome/fontawesome-free/css/all.min.css";
+@import "~sweetalert2/dist/sweetalert2.min.css";
+@import "~vuetify/dist/vuetify.min.css";
+@import "~material-design-icons-iconfont/dist/material-design-icons.css";

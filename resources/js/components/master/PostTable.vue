@@ -12,7 +12,8 @@
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
-            <tr v-for="post in posts.data" :key="post.id" @click="emitCurr(post)">
+            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
+            <tr v-for="post in posts.data" :key="post.id" @click="emitCurr(post)" v-if="!fetching">
                 <td>{{post.id}}</td>
                 <td>{{post.name}}</td>
                 <td>{{post.description | first100}}</td>
@@ -42,7 +43,6 @@
 
 <script>
     import TableEx from "../Table.vue"
-    import Pagination from 'laravel-vue-pagination'
 
     export default {
         name:"PostTable",
@@ -50,11 +50,14 @@
             return {
                 limit:2,
                 posts:{},
+                fetch:false,
             }
+        },
+        computed:{
+            fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
-            "pagination" : Pagination,
         },
         mounted(){
             this.loadPosts();
@@ -67,10 +70,14 @@
                 Fire.$emit("SetCurrentPost",post);
             },
             loadPosts(url="/api/posts/paginate"){
+                this.fetch = true;
                 axios.get(url)
                 .then((response)=>{
+                    this.fetch = false;
                     this.posts = response.data;
                     $("nav").get(0).scrollIntoView();
+                }).catch(error=>{
+                    this.fetch = false;
                 })
             },
             getPosts(page = 1) {

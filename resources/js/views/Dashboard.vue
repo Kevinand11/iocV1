@@ -1,31 +1,33 @@
 <template>
     <div class="container">
-        <div class="row justify-content-center">
+        <router-view></router-view>
+        <!-- <div class="row justify-content-center">
+            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
             <div class="card-group">
                 <div class="col-md-6" v-for="curr in posts.data":key="curr.id" @click="viewModal(curr)">
                     <div class="card">
                         <div class="card-header">
-                            <span class="lead">{{curr.name}}</span>
-                            <span class="float-right">{{curr.price | addNairaSign}}</span>
+                            <img src="../img/logo.png" class="card-img-top" />
                         </div>
                         <div class="card-body">
-                            <p>{{curr.description | first100}}</p><hr>
+                            <span class="lead">{{curr.name}}</span>
+                            <span class="float-right">{{curr.price | addNairaSign}}</span>
                         </div>
                     </div>
                 </div>
             </div>
             <pagination :data="posts" align="center" :limit="limit" @pagination-change-page="getPosts">
-                    <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
-                    <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
-                </pagination>
+                <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
+                <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
+            </pagination>
         </div>
-        <post-modal :post="post"/>
+        <post-modal :post="post"/> -->
     </div>
 </template>
 
 <script>
-    import Pagination from 'laravel-vue-pagination'
     import PostModal from "../components/master/PostModal.vue"
+    import { mapActions,mapGetters } from "vuex"
 
     export default {
         name:"Dashboard",
@@ -43,18 +45,27 @@
                     user: {}
                 },
                 categories:[],
+                fetch:false,
             }
         },
         mounted(){
             this.loadPosts();
             this.getCategories("/api/categories/");
         },
+        computed:{
+            ...mapGetters(['getHistory',"getLastRoute","getLastNonAuthRoute"]),
+            fetching(){return this.fetch}
+        },
         methods:{
             loadPosts(url="/api/posts/paginate"){
+                this.fetch = true
                 axios.get(url)
                 .then((response)=>{
+                    this.fetch = false
                     this.posts = response.data;
                     $("nav").get(0).scrollIntoView();
+                }).catch(error=>{
+                    this.fetch = false
                 })
             },
             getCategories(url){
@@ -71,7 +82,6 @@
             },
         },
         components:{
-            "pagination" : Pagination,
             "post-modal" : PostModal,
         }
     }

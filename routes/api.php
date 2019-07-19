@@ -21,6 +21,10 @@ Route::get('users/paginate', "API\UsersController@paginate");
 Route::get('posts/paginate', "API\PostsController@paginate");
 Route::get('categories/paginate', "API\CategoriesController@paginate");
 
+Route::post("users/login","API\UsersController@login");
+Route::post("users/register","API\UsersController@register");
+Route::post("users/logout","API\UsersController@logout");
+
 Route::apiResources([
     "users" => "API\UsersController", 
     "posts" => "API\PostsController", 

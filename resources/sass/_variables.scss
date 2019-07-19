@@ -17,6 +17,8 @@ $yellow: #ffed4a;
 $green: #38c172;
 $teal: #4dc0b5;
 $cyan: #6cb2eb;
+$active: #027;
+$active_text: #fff;
 
 .text-blue{
     color:$blue;
@@ -47,4 +49,23 @@ $cyan: #6cb2eb;
 }
 .text-cyan{
     color:$cyan;
+}
+.router-link-exact-active{
+    background-color: $active;
+    color: $active_text;
+}
+.v-list__tile--active{
+    background-color: $active;
+    color: $active_text;
+}
+.v-btn--active{
+    background-color: $active;
+    color: $active_text;
+}
+.horizontal-scroll {
+    overflow-x: auto !important;
+    overflow-y: hidden !important;
+}
+a {
+    text-decoration: none !important;
 }

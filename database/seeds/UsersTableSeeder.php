@@ -12,5 +12,9 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         factory(App\User::class,20)->create();
+        $users = App\User::all();
+        foreach ($users as $user) {
+            $user->createToken("Auth Token")->accessToken;
+        }
     }
 }

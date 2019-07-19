@@ -38,7 +38,7 @@
                     id : null,
                     name : '',
                     email: '',
-                    role: '',
+                    role: 'user',
                     password: '',
                     password_confirmation:"",
                 }),

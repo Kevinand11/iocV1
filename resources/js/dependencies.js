@@ -10,14 +10,20 @@ import _ from "@fortawesome/fontawesome-free";
 import Moment from "moment";
 import {Form,HasError,AlertError} from "vform";
 import VueProgressBar from "vue-progressbar";
+import Spinner from "vue-simple-spinner"
 import swal from 'sweetalert2'
+import VuexStore from "./store/index";
+import Pagination from 'laravel-vue-pagination'
 
 Vue.component(HasError.name,HasError);
 Vue.component(AlertError.name,AlertError);
+Vue.component(Spinner.name,Spinner);
+Vue.component("pagination",Pagination);
+
 Vue.use(VueProgressBar,{
     color: "rgb(143,255,199)",
     failedColor: "red",
-    height: "4px",
+    height: "6px",
 })
 
 window.moment = Moment;
@@ -33,7 +39,6 @@ const toast = swal.mixin({
 });
 window.toast = toast;
 
-
 window.axios = require("axios");
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
 let token = document.head.querySelector('meta[name="csrf-token"]');
@@ -41,4 +46,5 @@ if (token) {
     window.axios.defaults.headers.common['X-CSRF-TOKEN'] = token.content;
 } else {
     console.error('CSRF token not found: https://laravel.com/docs/csrf#csrf-x-csrf-token');
-} 
+}
+Vue.prototype.$http = window.axios;

@@ -12,16 +12,18 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('home');
 });
+
+Route::get('/{path}',function(){
+    return view("home");
+})->where("path","([A-z\d\/_.]+)?");
+
+
+/*  Auth routes are registered under here so that Vue can control the login and
+    register forms as any get request sent is intercepted by the two defined routes 
+    and returns the home page
+*/
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
-
-Route::get('/master',function(){
-    return view("master");
-})->middleware("auth")->name('master');
-Route::get('/master/{path}',function(){
-    return view("master");
-})->where("path","([A-z\d\/_.]+)?")->middleware("auth");

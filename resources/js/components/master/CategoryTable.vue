@@ -9,7 +9,8 @@
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
-            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)">
+            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
+            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
                 <td>{{category.id}}</td>
                 <td>{{category.name}}</td>
                 <td>{{category.parent}}</td>
@@ -35,7 +36,6 @@
 
 <script>
     import TableEx from "../Table.vue"
-    import Pagination from 'laravel-vue-pagination'
 
     export default {
         name:"CategoriesTable",
@@ -43,11 +43,14 @@
             return {
                 limit:2,
                 categories:{},
+                fetch:false,
             }
+        },
+        computed:{
+            fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
-            "pagination" : Pagination,
         },
         mounted(){
             this.loadCategories();
@@ -60,9 +63,13 @@
                 Fire.$emit("SetCurrentCategory",category);
             },
             loadCategories(url="/api/categories/paginate"){
+                this.fetch = true;
                 axios.get(url).then((response)=>{
+                    this.fetch = false;
                     this.categories = response.data;
                     $("nav").get(0).scrollIntoView();
+                }).catch(error=>{
+                    this.fetch = false;
                 })
             },
             getCategories(page = 1) {

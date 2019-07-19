@@ -2,22 +2,29 @@
     <form-extend data-name="User" :mode="mode">
         <div slot="inputFields">
             <div class="form-group">
-                <input v-model="form.name" type="text" name="name" placeholder="Name"
+                <input v-model="form.name" type="text" name="name" placeholder="Name" autocomplete="name"
                     class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
                 <has-error :form="form" field="name"></has-error>
             </div>
             <div class="form-group">
-                <input v-model="form.email" name="email" type="email" placeholder="Email"
+                <input v-model="form.email" name="email" type="email" placeholder="Email" autocomplete="email"
                 class="form-control" :class="{ 'is-valid': !form.errors.has('email') && isSubmitted,'is-invalid': form.errors.has('email') }">
                 <has-error :form="form" field="email"></has-error>
             </div>
             <div class="form-group">
-                <input v-model="form.password" type="password" name="password" placeholder="Password"
+                <select v-model="form.role" name="role" class="form-control">
+                    <option value="user">user</option>
+                    <option value="admin">admin</option>
+                </select>
+                <has-error :form="form" field="category_id"></has-error>
+            </div>
+            <div class="form-group">
+                <input v-model="form.password" type="password" name="password" placeholder="Password" autocomplete="password"
                     class="form-control" :class="{ 'is-valid': !form.errors.has('password') && isSubmitted,'is-invalid': form.errors.has('password') }">
                 <has-error :form="form" field="password"></has-error>
             </div>
             <div class="form-group">
-                <input v-model="form.password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password"
+                <input v-model="form.password_confirmation" type="password" name="password_confirmation" placeholder="Confirm Password" autocomplete="password_confirmation"
                     class="form-control" :class="{ 'is-valid': !form.errors.has('password_confirmation') && isSubmitted,'is-invalid': form.errors.has('password_confirmation') }">
                 <has-error :form="form" field="password_confirmation"></has-error>
             </div>
@@ -58,6 +65,7 @@
                 this.$Progress.start();
                 this.form.post('/api/users/').then((response)=>{
                     Fire.$emit('Reload');
+                    Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
@@ -66,6 +74,7 @@
                     this.$Progress.finish();
                 }).catch((error)=>{
                     Fire.$emit('AfterCreate');
+                    Fire.$emit('Enable');
                     this.$Progress.fail();
                 })
             },
@@ -74,6 +83,7 @@
                 this.$Progress.start();
                 this.form.patch('/api/users/'+id).then((response)=>{
                     Fire.$emit('Reload');
+                    Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
@@ -82,6 +92,7 @@
                     this.$Progress.finish();
                 }).catch((error)=>{
                     Fire.$emit('AfterCreate');
+                    Fire.$emit('Enable');
                     this.$Progress.fail();
                 })
             },

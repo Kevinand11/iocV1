@@ -11,7 +11,8 @@
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
-            <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)">
+            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
+            <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
                 <td>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
@@ -39,7 +40,6 @@
 
 <script>
     import TableEx from "../Table.vue"
-    import Pagination from 'laravel-vue-pagination'
 
     export default {
         name:"UserTable",
@@ -47,11 +47,14 @@
             return {
                 limit:2,
                 users:{},
+                fetch: false,
             }
+        },
+        computed:{
+            fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
-            "pagination" : Pagination,
         },
         mounted(){
             this.loadUsers();
@@ -64,10 +67,14 @@
                 Fire.$emit("SetCurrentUser",user);
             },
             loadUsers(url="/api/users/paginate"){
+                this.fetch = true;
                 axios.get(url)
                 .then((response)=>{
+                    this.fetch = false;
                     this.users = response.data;
                     $("nav").get(0).scrollIntoView();
+                }).catch(error=>{
+                    this.fetch = false;
                 })
             },
             getUsers(page = 1) {
