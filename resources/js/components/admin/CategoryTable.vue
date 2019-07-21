@@ -79,7 +79,7 @@
             },
             viewModal(id){
                 axios.get(this.categoriesRoutes.show+id).then((response)=>{
-                    this.category = response.data;
+                    this.category = response.data.data;
                     $('#view').modal('show');
                 }).catch({});
             },

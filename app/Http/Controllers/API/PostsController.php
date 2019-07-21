@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\API;
 
 use App\Post;
+use App\Http\Resources\PostsResource;
+use App\Http\Resources\PostsCollection;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,12 +17,14 @@ class PostsController extends Controller
 
     public function index()
     {
-        return Post::orderBy("created_at","desc")->with("category","user")->get();
+        $posts = Post::latest()->with("category","user")->get();
+        return PostsResource::collection($posts);
     }
 
     public function paginate()
     {
-        return Post::orderBy("created_at","desc")->with("category","user")->paginate(10);
+        $posts = Post::latest()->with("category","user")->paginate(10);
+        return PostsResource::collection($posts);
     }
 
     public function store(Request $request)
@@ -28,21 +32,23 @@ class PostsController extends Controller
         $this->validate($request,[
             "name" => "required|string|min:3",
             "desciption" => "string",
-            "price" => "numeric",
-            "category_id" => "required"
+            "price" => "required|numeric",
+            "category_id" => "required|numeric"
         ]);
-        return Post::create([
+        $post =  Post::create([
             "name" => $request["name"],
             "description" => $request["description"],
             "price" => $request["price"],
             "category_id" => $request["category_id"],
             "user_id" => auth()->user()->id
         ]);
+        return new PostsResource($post);
     }
 
     public function show(Post $post)
     {
-        return Post::where("id",$post->id)->with("category","user")->with("user")->first();
+        $post = Post::where("id",$post->id)->with("category","user")->first();
+        return new PostsResource($post);
     }
 
     public function update(Request $request, Post $post)
@@ -51,7 +57,7 @@ class PostsController extends Controller
             "name" => "required|string|min:3",
             "desciption" => "string",
             "category_id" => "required|numeric",
-            "price" => "numeric"
+            "price" => "required|numeric"
         ]);
         $post->update([
             "name" => $request["name"],
@@ -60,14 +66,14 @@ class PostsController extends Controller
             "category_id" => $request["category_id"],
             "updated_at" => now()
         ]);
-        return $post;
+        return new PostsResource($post);
     }
 
     public function destroy(Post $post)
-    {   
+    {
         if($post->delete()){
-            return "true";
+            return response()->json(["success"=>"true"]);
         }
-        return "false";
+        return response()->json(["error"=>"false"]);
     }
 }

@@ -22,7 +22,7 @@
         </v-list>
         <v-divider></v-divider>
         <v-list class="pt-0" dense>
-            <v-list-tile v-for="link in getLinks(isLoggedIn,isAdmin)" :key="link.id" v-if="link.showIf" :to="link.route">
+            <v-list-tile v-for="link in getLinks()" :key="link.id" v-if="link.showIf" :to="link.route">
                 <v-list-tile-action>
                     <v-icon :color="link.color">{{link.icon}}</v-icon>
                 </v-list-tile-action>
@@ -99,12 +99,11 @@
                     }
                 })
             },
-            getLinks(logged,admin){
+            getLinks(){
                 return [
                     {id:1, name:"Dashboard", icon:'apps', color:"white", route:'/', showIf:true},
                     {id:2, name:'Store', icon:'shop', color:"white", route:'/store', showIf:true},
                     {id:3, name:'Profile', icon:'account_circle', color:"white", route:'/profile', showIf:true},
-                    {id:4, name:'Developer', icon:'developer_mode', color:"white", route:'/admin/developer', showIf:(logged && admin)},
                 ];
             },
             getAuths(logged){
@@ -117,9 +116,10 @@
             getManagements(logged,admin){
                 return [
                     {id:21, name:"Admin", icon:"supervised_user_circle", color:"white", model:this.admin,showIf:(logged && admin),subs:[
-                            {id:31, name:'Users', icon:'group', route:'/admin/users', color:"white"},
-                            {id:32, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
-                            {id:43, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
+                            {id:31, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
+                            {id:32, name:'Users', icon:'group', route:'/admin/users', color:"white"},
+                            {id:33, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
+                            {id:34, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
                         ]
                     }
                 ];

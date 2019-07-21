@@ -16,17 +16,14 @@ class CategoriesController extends Controller
 
     public function index()
     {
-        return Category::orderBy("created_at","desc")->with("posts.user")->get();
+        $categories = Category::latest()->with("posts.user")->get();
+        return CategoriesResource::collection($categories);
     }
 
     public function paginate()
     {
-        return Category::orderBy("created_at","desc")->with("posts.user")->paginate(10);
-    }
-
-    public function all()
-    {
-        return Category::orderBy("created_at","desc")->get();
+        $categories = Category::latest()->with("posts.user")->paginate(10);
+        return CategoriesResource::collection($categories);
     }
 
     public function store(Request $request)
@@ -35,15 +32,17 @@ class CategoriesController extends Controller
             "name" => "required|string|min:3|unique:categories",
             "parent" => "string"
         ]);
-        return Category::create([
+        $category = Category::create([
             "name" => $request["name"],
             "parent" => $request["parent"]
         ]);
+        return new CategoriesResource($category);
     }
 
     public function show(Category $category)
     {
-        return Category::where("id",$category->id)->with("posts.user")->first();
+        $category = Category::where("id",$category->id)->with("posts.user")->first();
+        return new CategoriesResource($category);
     }
 
     public function update(Request $request, Category $category)
@@ -57,7 +56,7 @@ class CategoriesController extends Controller
             "parent" => $request["parent"],
             "updated_at" => now()
         ]);
-        return $category;
+        return new CategoriesResource($category);
     }
 
     public function destroy(Category $category)
@@ -66,8 +65,8 @@ class CategoriesController extends Controller
             $post->delete();
         }
         if($category->delete()){
-            return "true";
+            return response()->json(["success"=>"true"]);
         }
-        return "false";
+        return response()->json(["error"=>"false"]);
     }
 }

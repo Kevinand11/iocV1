@@ -4,6 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\User;
 use App\Http\Controllers\Controller;
+use App\Http\Resources\UsersResource;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
@@ -17,12 +18,14 @@ class UsersController extends Controller
 
     public function index()
     {
-        return User::orderBy("created_at","desc")->with("posts.category")->get();
+        $users = User::latest()->with("posts.category")->get();
+        return UsersResource::collection($users);
     }
 
     public function paginate()
     {
-        return User::orderBy("created_at","desc")->with("posts.category")->paginate(10);
+        $users = User::latest()->with("posts.category")->paginate(10);
+        return UsersResource::collection($users);
     }
 
     public function login(Request $request)
@@ -43,7 +46,17 @@ class UsersController extends Controller
 
     public function register(Request $request)
     {
-        $user = $this->store($request);
+        $this->validate($request,[
+            "name" => "required|string|min:3",
+            "email" => "required|email|unique:users",
+            "password" => "required|min:6|string|confirmed"
+        ]);
+        $user = User::create([
+            "name" => $request["name"],
+            "email" => $request["email"],
+            "password" => Hash::make($request["password"]),
+            "role" => $request["role"] ?: "user"
+        ]);
         Auth::login($user);
         $success["token"] = $user->createToken("Auth Token")->accessToken;
         $success["user"] = $user;
@@ -52,7 +65,7 @@ class UsersController extends Controller
 
     public function logout(){
         Auth::logout();
-        return "true";
+        return response()->json(["success"=>"true"]);
     }
 
     public function store(Request $request)
@@ -68,12 +81,13 @@ class UsersController extends Controller
             "password" => Hash::make($request["password"]),
             "role" => $request["role"] ?: "user"
         ]);
-        return $user;
+        return new UsersResource($user);
     }
 
     public function show(User $user)
     {
-        return User::where("id",$user->id)->with("posts.category")->first();
+        $user = User::where("id",$user->id)->with("posts.category")->first();
+        return new UsersResource($user);
     }
 
     public function update(Request $request, User $user)
@@ -93,7 +107,7 @@ class UsersController extends Controller
             $user->role = $request["role"];
             $user->save();
         }
-        return $user;
+        return new UsersResource($user);
     }
 
     public function destroy(User $user)
@@ -102,8 +116,8 @@ class UsersController extends Controller
             $post->delete();
         }
         if($user->delete()){
-            return "true";
+            return response()->json(["success"=>"true"]);
         }
-        return "false";
+        return response()->json(["error"=>"false"]);
     }
 }

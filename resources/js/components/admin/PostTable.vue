@@ -87,7 +87,7 @@
             },
             viewModal(id){
                 axios.get(this.postsRoutes.show+id).then((response)=>{
-                    this.post = response.data;
+                    this.post = response.data.data;
                     $('#view').modal('show');
                 }).catch({});
             },

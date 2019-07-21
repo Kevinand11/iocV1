@@ -4641,7 +4641,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         }
       });
     },
-    getLinks: function getLinks(logged, admin) {
+    getLinks: function getLinks() {
       return [{
         id: 1,
         name: "Dashboard",
@@ -4663,13 +4663,6 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         color: "white",
         route: '/profile',
         showIf: true
-      }, {
-        id: 4,
-        name: 'Developer',
-        icon: 'developer_mode',
-        color: "white",
-        route: '/admin/developer',
-        showIf: logged && admin
       }];
     },
     getAuths: function getAuths(logged) {
@@ -4705,18 +4698,24 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
         showIf: logged && admin,
         subs: [{
           id: 31,
+          name: 'Developer',
+          icon: 'laptop',
+          color: "white",
+          route: '/admin/developer'
+        }, {
+          id: 32,
           name: 'Users',
           icon: 'group',
           route: '/admin/users',
           color: "white"
         }, {
-          id: 32,
+          id: 33,
           name: 'Posts',
           icon: 'shopping_basket',
           route: '/admin/posts',
           color: "white"
         }, {
-          id: 43,
+          id: 34,
           name: 'Categories',
           icon: 'category',
           route: '/admin/categories',
@@ -5143,7 +5142,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       axios.get(this.categoriesRoutes.show + id).then(function (response) {
-        _this3.category = response.data;
+        _this3.category = response.data.data;
         $('#view').modal('show');
       })["catch"]({});
     },
@@ -5482,7 +5481,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       axios.get(this.postsRoutes.show + id).then(function (response) {
-        _this3.post = response.data;
+        _this3.post = response.data.data;
         $('#view').modal('show');
       })["catch"]({});
     },
@@ -5806,7 +5805,7 @@ function _defineProperty(obj, key, value) { if (key in obj) { Object.definePrope
       var _this3 = this;
 
       axios.get(this.usersRoutes.show + id).then(function (response) {
-        _this3.user = response.data;
+        _this3.user = response.data.data;
         $('#view').modal('show');
       })["catch"]({});
     },
@@ -67113,7 +67112,7 @@ var render = function() {
         "v-list",
         { staticClass: "pt-0", attrs: { dense: "" } },
         [
-          _vm._l(_vm.getLinks(_vm.isLoggedIn, _vm.isAdmin), function(link) {
+          _vm._l(_vm.getLinks(), function(link) {
             return link.showIf
               ? _c(
                   "v-list-tile",
@@ -115041,7 +115040,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("myDate", function (date) {
-  return moment(date).format("MMMM Do YYYY");
+  return moment(date.date).format("MMMM Do YYYY");
 });
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.filter("first100", function (text) {
   return text.length > 100 ? text.slice(0, 100) + "...." : text;
@@ -115245,8 +115244,8 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! vue */ "./node_modules/vue/dist/vue.common.js");
 /* harmony import */ var vue__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(vue__WEBPACK_IMPORTED_MODULE_0__);
 /* harmony import */ var vuex__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vuex */ "./node_modules/vuex/dist/vuex.esm.js");
-/* harmony import */ var _modules_users_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/users.js */ "./resources/js/store/modules/users.js");
-/* harmony import */ var _modules_routehistory_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/routehistory.js */ "./resources/js/store/modules/routehistory.js");
+/* harmony import */ var _modules_auth_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/auth.js */ "./resources/js/store/modules/auth.js");
+/* harmony import */ var _modules_history_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/history.js */ "./resources/js/store/modules/history.js");
 /* harmony import */ var _modules_routes_js__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./modules/routes.js */ "./resources/js/store/modules/routes.js");
 
 
@@ -115256,18 +115255,96 @@ __webpack_require__.r(__webpack_exports__);
 vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vuex__WEBPACK_IMPORTED_MODULE_1__["default"]);
 /* harmony default export */ __webpack_exports__["default"] = (new vuex__WEBPACK_IMPORTED_MODULE_1__["default"].Store({
   modules: {
-    users: _modules_users_js__WEBPACK_IMPORTED_MODULE_2__["default"],
+    auth: _modules_auth_js__WEBPACK_IMPORTED_MODULE_2__["default"],
     routes: _modules_routes_js__WEBPACK_IMPORTED_MODULE_4__["default"],
-    routeHistory: _modules_routehistory_js__WEBPACK_IMPORTED_MODULE_3__["default"]
+    history: _modules_history_js__WEBPACK_IMPORTED_MODULE_3__["default"]
   }
 }));
 
 /***/ }),
 
-/***/ "./resources/js/store/modules/routehistory.js":
-/*!****************************************************!*\
-  !*** ./resources/js/store/modules/routehistory.js ***!
-  \****************************************************/
+/***/ "./resources/js/store/modules/auth.js":
+/*!********************************************!*\
+  !*** ./resources/js/store/modules/auth.js ***!
+  \********************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+var state = {
+  auth: {
+    id: "",
+    name: "",
+    email: "",
+    password: "",
+    role: ""
+  },
+  token: ""
+};
+var getters = {
+  getAuth: function getAuth(state) {
+    return state.auth;
+  },
+  getToken: function getToken(state) {
+    return state.token;
+  }
+};
+var actions = {
+  setAuth: function setAuth(_ref, user) {
+    var commit = _ref.commit;
+
+    this._vm.$cookies.set("user", user, "0");
+
+    commit("authorized", user);
+  },
+  setToken: function setToken(_ref2, token) {
+    var commit = _ref2.commit;
+
+    this._vm.$cookies.set("oauth", token, "0");
+
+    commit("oauth", token);
+  },
+  logout: function logout(_ref3) {
+    var commit = _ref3.commit;
+
+    this._vm.$cookies.remove("oauth");
+
+    this._vm.$cookies.remove("user");
+
+    commit("clearAuth");
+  }
+};
+var mutations = {
+  authorized: function authorized(state, user) {
+    state.auth = user;
+  },
+  oauth: function oauth(state, token) {
+    state.token = token;
+  },
+  clearAuth: function clearAuth(state) {
+    state.auth = {
+      id: "",
+      name: "",
+      email: "",
+      password: "",
+      role: ""
+    };
+  }
+};
+/* harmony default export */ __webpack_exports__["default"] = ({
+  state: state,
+  getters: getters,
+  actions: actions,
+  mutations: mutations
+});
+
+/***/ }),
+
+/***/ "./resources/js/store/modules/history.js":
+/*!***********************************************!*\
+  !*** ./resources/js/store/modules/history.js ***!
+  \***********************************************/
 /*! exports provided: default */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
@@ -115426,84 +115503,6 @@ var getters = {
 };
 var actions = {};
 var mutations = {};
-/* harmony default export */ __webpack_exports__["default"] = ({
-  state: state,
-  getters: getters,
-  actions: actions,
-  mutations: mutations
-});
-
-/***/ }),
-
-/***/ "./resources/js/store/modules/users.js":
-/*!*********************************************!*\
-  !*** ./resources/js/store/modules/users.js ***!
-  \*********************************************/
-/*! exports provided: default */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-var state = {
-  auth: {
-    id: "",
-    name: "",
-    email: "",
-    password: "",
-    role: ""
-  },
-  token: ""
-};
-var getters = {
-  getAuth: function getAuth(state) {
-    return state.auth;
-  },
-  getToken: function getToken(state) {
-    return state.token;
-  }
-};
-var actions = {
-  setAuth: function setAuth(_ref, user) {
-    var commit = _ref.commit;
-
-    this._vm.$cookies.set("user", user, "0");
-
-    commit("authorized", user);
-  },
-  setToken: function setToken(_ref2, token) {
-    var commit = _ref2.commit;
-
-    this._vm.$cookies.set("oauth", token, "0");
-
-    commit("oauth", token);
-  },
-  logout: function logout(_ref3) {
-    var commit = _ref3.commit;
-
-    this._vm.$cookies.remove("oauth");
-
-    this._vm.$cookies.remove("user");
-
-    commit("clearAuth");
-  }
-};
-var mutations = {
-  authorized: function authorized(state, user) {
-    state.auth = user;
-  },
-  oauth: function oauth(state, token) {
-    state.token = token;
-  },
-  clearAuth: function clearAuth(state) {
-    state.auth = {
-      id: "",
-      name: "",
-      email: "",
-      password: "",
-      role: ""
-    };
-  }
-};
 /* harmony default export */ __webpack_exports__["default"] = ({
   state: state,
   getters: getters,
