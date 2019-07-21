@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Register</div>
+                    <h3 class="card-header">Register</h3>
                     <div class="card-body">
                         <form method="POST" action="/register" @submit.prevent="regUser">
                             <div class="form-group row">
@@ -74,7 +74,7 @@
             }
         },
         computed:{
-            ...mapGetters(["getIntended"]),
+            ...mapGetters(["getIntended","authRoutes"]),
             isDisabled(){return this.disabled},
             isSubmitted(){return this.submitted},
             isEmpty(){ return !(this.form.name && this.form.email && this.form.password && this.form.password_confirmation) }
@@ -85,7 +85,7 @@
                 this.disabled = true;
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post("/api/users/register").then(response=>{
+                this.form.post(this.authRoutes.register).then(response=>{
                     this.setAuth(response.data.success.user);
                     this.setToken(response.data.success.token);
                     this.$Progress.finish();

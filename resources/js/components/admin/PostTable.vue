@@ -3,34 +3,37 @@
         <tr slot="headers">
             <th>Id</th>
             <th>Name</th>
-            <th>Email</th>
-            <th>Role</th>
-            <th>Password</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Poster</th>
+            <th>Category</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
             <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
-            <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
-                <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.role}}</td>
-                <td>{{user.password}}</td>
-                <td>{{user.created_at | myDate}}</td>
-                <td>{{user.updated_at | myDate}}</td>
+            <tr v-for="post in posts.data" :key="post.id" @click="emitCurr(post)" v-if="!fetching">
+                <td>{{post.id}}</td>
+                <td>{{post.name}}</td>
+                <td>{{post.description | first100}}</td>
+                <td>{{post.price | addNairaSign}}</td>
+                <td>{{post.user.name}}</td>
+                <td>{{post.category.name}}</td>
+                <td>{{post.created_at | myDate}}</td>
+                <td>{{post.updated_at | myDate}}</td>
                 <td>
-                    <a @click.prevent="viewModal(user.id)"><i class="fas fa-eye text-blue"></i></a>
+                <td>
+                    <a @click.prevent="viewModal(post.id)"><i class="fas fa-eye text-blue"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitUpdate(user)"><i class="fas fa-pen text-orange"></i></a>
+                    <a @click.prevent="emitUpdate(post)"><i class="fas fa-pen text-orange"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitDelete(user.id)"><i class="fas fa-trash text-red"></i></a>
+                    <a @click.prevent="emitDelete(post.id)"><i class="fas fa-trash text-red"></i></a>
                 </td>
             </tr>
         </tbody>
         <div slot="pagination">
-            <pagination :data="users" align="center" :limit="limit" @pagination-change-page="getUsers">
+            <pagination :data="posts" align="center" :limit="limit" @pagination-change-page="getPosts">
                 <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
                 <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
             </pagination>
@@ -39,55 +42,57 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex"
     import TableEx from "../Table.vue"
 
     export default {
-        name:"UserTable",
+        name:"PostTable",
         data(){
             return {
                 limit:2,
-                users:{},
-                fetch: false,
+                posts:{},
+                fetch:false,
             }
         },
         computed:{
+            ...mapGetters(["postsRoutes"]),
             fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
         },
         mounted(){
-            this.loadUsers();
+            this.getPosts();
             Fire.$on('Reload',() => {
-               this.loadUsers();
+               this.getPosts();
             });
         },
         methods:{
-            emitCurr(user){
-                Fire.$emit("SetCurrentUser",user);
+            emitCurr(post){
+                Fire.$emit("SetCurrentPost",post);
             },
-            loadUsers(url="/api/users/paginate"){
+            loadPosts(url){
                 this.fetch = true;
+                $("body").get(0).scrollIntoView();
                 axios.get(url)
                 .then((response)=>{
                     this.fetch = false;
-                    this.users = response.data;
-                    $("nav").get(0).scrollIntoView();
+                    this.posts = response.data;
                 }).catch(error=>{
                     this.fetch = false;
                 })
             },
-            getUsers(page = 1) {
-                this.loadUsers('/api/users/paginate?page=' + page);
+            getPosts(page = 1) {
+                this.loadPosts(this.postsRoutes.paginate + page);
             },
             viewModal(id){
-                axios.get("/api/users/"+id).then((response)=>{
-                    this.user = response.data;
+                axios.get(this.postsRoutes.show+id).then((response)=>{
+                    this.post = response.data;
                     $('#view').modal('show');
                 }).catch({});
             },
-            emitUpdate(user){
-                Fire.$emit("BeforeUpdateUser",user);
+            emitUpdate(post){
+                Fire.$emit("BeforeUpdatePost",post);
             },
             emitDelete(id){
                 new swal({
@@ -100,7 +105,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        Fire.$emit("DeleteUser",id)
+                        Fire.$emit("DeletePost",id)
                     }
                 })
             },

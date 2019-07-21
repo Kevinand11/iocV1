@@ -19,9 +19,10 @@
 </template>
 
 <script>
-    import PostTable from '../components/master/PostTable.vue'
-    import PostForm from '../components/master/PostForm.vue'
-    import PostModal from '../components/master/PostModal.vue'
+    import { mapGetters } from "vuex"
+    import PostTable from '../../components/admin/PostTable.vue'
+    import PostForm from '../../components/admin/PostForm.vue'
+    import PostModal from '../../components/admin/PostModal.vue'
 
     export default {
         name:"Posts",
@@ -48,6 +49,7 @@
             }
         },
         computed:{
+            ...mapGetters(["postsRoutes"]),
             theForm(){return this.form},
             isEdit(){return this.editmode},
             isSubmitted(){return this.submitted},
@@ -80,7 +82,7 @@
                 $('#form').modal('show');
             },
             deletePost(id){
-                this.form.delete('/api/posts/'+id).then((response)=>{
+                this.form.delete(this.postsRoutes.delete+id).then((response)=>{
                     new swal('Deleted!','Post deleted.','success');
                     Fire.$emit('Reload');
                 }).catch(()=> {

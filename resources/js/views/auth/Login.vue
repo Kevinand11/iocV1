@@ -3,7 +3,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">Login</div>
+                    <h3 class="card-header">Login</h3>
                     <div class="card-body">
                         <form method="POST" action="/login" @submit.prevent="loginUser">
                             <div class="form-group row">
@@ -17,7 +17,7 @@
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
-                                    <input id="password" type="password" class="form-control" name="password" :class="{ 'is-valid': !(form.errors.has('password') || form.errors.has('email')) && isSubmitted,'is-invalid': form.errors.has('password') || form.errors.has('email') }"
+                                    <input id="password" type="password" class="form-control" name="password" :class="{ 'is-valid': !form.errors.has('password') && isSubmitted,'is-invalid': form.errors.has('password') || form.errors.has('email') }"
                                     v-model="form.password" autocomplete="password" autofocus>
                                     <has-error :form="form" field="password"></has-error>
                                 </div>
@@ -30,18 +30,15 @@
                                     </div>
                                 </div>
                             </div>
-
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary" :disabled="isDisabled || isEmpty">
                                         <span v-if="!isDisabled">Login</span>
                                         <i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
                                     </button>
-                                    <!-- @if (Route::has('password.request'))
-                                        <a class="btn btn-link" href="{{ route('password.request') }}">
-                                            {{ __('Forgot Your Password?') }}
-                                        </a>
-                                    @endif -->
+                                    <!-- <a class="btn btn-link" href='password/request'>
+                                        Forgot Your Password?
+                                    </a> -->
                                 </div>
                             </div>
                         </form>
@@ -50,9 +47,61 @@
             </div>
         </div>
     </div>
+    <!-- <v-container grid-list-xs>
+        <v-card>
+            <v-card-title primary-title>
+                <h3>Login</h3>
+            </v-card-title>
+            <v-card-text>
+                <v-form method="POST" action="/login" @submit.prevent="loginUser">
+                    <v-layout row wrap>
+                        <v-flex xs8 offset-xs2>
+                            <v-text-field name="email" label="Email Address"
+                                autocomplete="email" min="4" clearable 
+                                :success = "isSubmitted && !hasErrors('email')"
+                                :error = "isSubmitted && hasErrors('email')"
+                                :error-messages="form.errors.get('email')"
+                                type ="email" v-model="form.email"
+                            ></v-text-field>
+                        </v-flex>
+                    </v-layout>
+                    <v-layout row wrap>
+                        <v-flex xs8 offset-xs2>
+                            <v-text-field name="password" label="Password"
+                                hint="Password should be up at least characters"
+                                autocomplete="password" min="6" clearable 
+                                :success = "isSubmitted && !hasErrors('password')"
+                                :error = "isSubmitted && hasErrors('password')"
+                                :error-messages="form.errors.get('password')"
+                                :append-icon ="visible ? 'visibility_off' : 'visibility'"
+                                @click:append ="() => (visible = !visible)"
+                                :type ="visible ? 'text' : 'password'"
+                                v-model="form.password"
+                            ></v-text-field>
+                        </v-flex>
+                    </v-layout>
+                    <v-layout row wrap>
+                        <v-flex xs6 offset-xs2>
+                            <v-checkbox label="Remember Me?" v-model="form.remember" value="value"></v-checkbox>
+                        </v-flex>
+                    </v-layout>
+                </v-form>
+            </v-card-text>
+            <v-card-actions>
+                <v-layout row wrap>
+                    <v-flex xs6 offset-xs6>
+                        <v-btn color="primary" @click="loginUser" :disabled="isDisabled || isEmpty">
+                            <span v-if="!isDisabled">Login</span>
+                            <i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
+                        </v-btn>
+                    </v-flex>
+                </v-layout>
+            </v-card-actions>
+        </v-card>
+    </v-container> -->
 </template>
 
-<<script>
+<script>
     import { mapActions,mapGetters } from "vuex"
 
     export default {
@@ -68,10 +117,11 @@
                 }),
                 submitted:false,
                 disabled:false,
+                visible:false,
             }
         },
         computed:{
-            ...mapGetters(["getIntended","getAuth"]),
+            ...mapGetters(["getIntended","getAuth","authRoutes"]),
             isDisabled(){return this.disabled},
             isSubmitted(){return this.submitted},
             isEmpty(){ return !(this.form.email && this.form.password) }
@@ -82,7 +132,7 @@
                 this.disabled = true;
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post("/api/users/login").then(response=>{
+                this.form.post(this.authRoutes.login).then(response=>{
                     this.setAuth(response.data.success.user);
                     this.setToken(response.data.success.token);
                     this.$Progress.finish();
@@ -93,7 +143,10 @@
                     this.$Progress.fail();
                     this.disabled = false;
                 })
-            },
+            }, 
+            hasErrors(field){
+                return this.form.errors.has(field)
+            }
         }
     }
 </script>

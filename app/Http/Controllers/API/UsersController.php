@@ -28,16 +28,16 @@ class UsersController extends Controller
     public function login(Request $request)
     {
         $this->validate($request, [
-            "email" => 'required|string',
+            "email" => 'required|string|email',
             'password' => 'required|string',
         ]);
         if(Auth::attempt(['email' => request("email"), 'password' => request("password")])){
             $user = Auth::user();
-            $success["token"] = $user->tokens->last();
+            $success["token"] = $user->createToken("Auth Token")->accessToken;
             $success["user"] = $user;
             return response()->json(["success"=>$success],200);
         }else{
-            return response()->json(["email" => trans("auth.failed")],422);
+            return response()->json(["password" => trans("auth.failed")],422);
         }
     }
 
@@ -45,7 +45,7 @@ class UsersController extends Controller
     {
         $user = $this->store($request);
         Auth::login($user);
-        $success["token"] = $user->tokens->last();
+        $success["token"] = $user->createToken("Auth Token")->accessToken;
         $success["user"] = $user;
         return response()->json(["success"=>$success],200);
     }
@@ -65,13 +65,9 @@ class UsersController extends Controller
         $user = User::create([
             "name" => $request["name"],
             "email" => $request["email"],
-            "password" => Hash::make($request["password"])
+            "password" => Hash::make($request["password"]),
+            "role" => $request["role"] ?: "user"
         ]);
-        if($request->has('role')){
-            $user->role = $request(["role"]);
-            $user->save();
-        }
-        $user->createToken("Auth Token")->accessToken;
         return $user;
     }
 

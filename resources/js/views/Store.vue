@@ -4,7 +4,7 @@
             <div class="col-md-8">
                 <div class="card">
                     <div class="card-header">Store Component</div>
-            
+
                     <div class="card-body">
                         I'm a store component.
                     </div>

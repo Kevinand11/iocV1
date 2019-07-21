@@ -20,6 +20,15 @@ const getters = {
         }
         return "/"
     }),
+    getPreviousNonAuthRoute:((state)=>{
+        let filtered = state.history.filter( x => {
+            return !(x == "/login" || x=="/register")
+        });
+        if(filtered.length>1){
+            return filtered[1]
+        }
+        return "/"
+    }),
     getIntended:((state)=>{
         if(state.intended !== ""){
             return state.intended

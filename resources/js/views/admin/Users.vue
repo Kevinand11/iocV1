@@ -19,9 +19,10 @@
 </template>
 
 <script>
-    import UserForm from '../components/master/UserForm.vue'
-    import UserModal from '../components/master/UserModal.vue'
-    import UserTable from "../components/master/UserTable.vue"
+    import { mapGetters } from "vuex"
+    import UserForm from '../../components/admin/UserForm.vue'
+    import UserModal from '../../components/admin/UserModal.vue'
+    import UserTable from "../../components/admin/UserTable.vue"
 
     export default {
         name:"Users",
@@ -47,6 +48,7 @@
             }
         },
         computed:{
+            ...mapGetters(["usersRoutes"]),
             theForm(){return this.form},
             isEdit(){return this.editmode},
             isSubmitted(){return this.submitted},
@@ -79,7 +81,7 @@
                 $('#form').modal('show');
             },
             deleteUser(id){      
-                this.form.delete('/api/users/'+id).then((response)=>{
+                this.form.delete(this.usersRoutes.delete +id).then((response)=>{
                     new swal('Deleted!','User deleted.','success');
                     Fire.$emit('Reload');
                 }).catch(()=> {

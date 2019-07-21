@@ -3,37 +3,30 @@
         <tr slot="headers">
             <th>Id</th>
             <th>Name</th>
-            <th>Description</th>
-            <th>Price</th>
-            <th>Poster</th>
-            <th>Category</th>
+            <th>Parent</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
             <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
-            <tr v-for="post in posts.data" :key="post.id" @click="emitCurr(post)" v-if="!fetching">
-                <td>{{post.id}}</td>
-                <td>{{post.name}}</td>
-                <td>{{post.description | first100}}</td>
-                <td>{{post.price | addNairaSign}}</td>
-                <td>{{post.user.name}}</td>
-                <td>{{post.category.name}}</td>
-                <td>{{post.created_at | myDate}}</td>
-                <td>{{post.updated_at | myDate}}</td>
+            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
+                <td>{{category.id}}</td>
+                <td>{{category.name}}</td>
+                <td>{{category.parent}}</td>
+                <td>{{category.created_at | myDate}}</td>
+                <td>{{category.updated_at | myDate}}</td>
                 <td>
-                <td>
-                    <a @click.prevent="viewModal(post.id)"><i class="fas fa-eye text-blue"></i></a>
+                    <a @click.prevent="viewModal(category.id)"><i class="fas fa-eye text-blue"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitUpdate(post)"><i class="fas fa-pen text-orange"></i></a>
+                    <a @click.prevent="emitUpdate(category)"><i class="fas fa-pen text-orange"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitDelete(post.id)"><i class="fas fa-trash text-red"></i></a>
+                    <a @click.prevent="emitDelete(category.id)"><i class="fas fa-trash text-red"></i></a>
                 </td>
             </tr>
         </tbody>
         <div slot="pagination">
-            <pagination :data="posts" align="center" :limit="limit" @pagination-change-page="getPosts">
+            <pagination :data="categories" align="center" :limit="limit" @pagination-change-page="getCategories">
                 <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
                 <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
             </pagination>
@@ -42,55 +35,56 @@
 </template>
 
 <script>
+     import { mapGetters } from "vuex"
     import TableEx from "../Table.vue"
 
     export default {
-        name:"PostTable",
+        name:"CategoriesTable",
         data(){
             return {
                 limit:2,
-                posts:{},
+                categories:{},
                 fetch:false,
             }
         },
         computed:{
+            ...mapGetters(["categoriesRoutes"]),
             fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
         },
         mounted(){
-            this.loadPosts();
+            this.getCategories();
             Fire.$on('Reload',() => {
-               this.loadPosts();
+               this.getCategories();
             });
         },
         methods:{
-            emitCurr(post){
-                Fire.$emit("SetCurrentPost",post);
+            emitCurr(category){
+                Fire.$emit("SetCurrentCategory",category);
             },
-            loadPosts(url="/api/posts/paginate"){
+            loadCategories(url){
                 this.fetch = true;
-                axios.get(url)
-                .then((response)=>{
+                $("body").get(0).scrollIntoView();
+                axios.get(url).then((response)=>{
                     this.fetch = false;
-                    this.posts = response.data;
-                    $("nav").get(0).scrollIntoView();
+                    this.categories = response.data;
                 }).catch(error=>{
                     this.fetch = false;
                 })
             },
-            getPosts(page = 1) {
-                this.loadPosts('/api/posts/paginate?page=' + page);
+            getCategories(page = 1) {
+                this.loadCategories(this.categoriesRoutes.paginate + page);
             },
             viewModal(id){
-                axios.get("/api/posts/"+id).then((response)=>{
-                    this.post = response.data;
+                axios.get(this.categoriesRoutes.show+id).then((response)=>{
+                    this.category = response.data;
                     $('#view').modal('show');
                 }).catch({});
             },
-            emitUpdate(post){
-                Fire.$emit("BeforeUpdatePost",post);
+            emitUpdate(category){
+                Fire.$emit("BeforeUpdateCategory",category);
             },
             emitDelete(id){
                 new swal({
@@ -103,7 +97,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        Fire.$emit("DeletePost",id)
+                        Fire.$emit("DeleteCategory",id)
                     }
                 })
             },

@@ -1,0 +1,2 @@
+Authorization Token is still giving problem, probable cos an object is being returned instead of a string.
+Fix that in login and register controllers

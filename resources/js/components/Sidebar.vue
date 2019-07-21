@@ -75,7 +75,7 @@
             isAdmin(){ return this.getAuth.role == "admin" ? true : false },
         },
         methods:{
-            ...mapActions(["logout"]),
+            ...mapActions(["logout","authRoutes"]),
             logoutUser(){
                 new swal({
                     title: 'Logout?',
@@ -87,7 +87,7 @@
                 }).then((result) => {
                     if (result.value) {
                         this.logout();
-                        axios.post("/api/users/logout").then(response=>{
+                        axios.post(this.authRoutes.logout).then(response=>{
                             this.drawer = !(this.drawer)
                             this.$router.push("/login")
                             new toast({
@@ -104,7 +104,7 @@
                     {id:1, name:"Dashboard", icon:'apps', color:"white", route:'/', showIf:true},
                     {id:2, name:'Store', icon:'shop', color:"white", route:'/store', showIf:true},
                     {id:3, name:'Profile', icon:'account_circle', color:"white", route:'/profile', showIf:true},
-                    {id:4, name:'Developer', icon:'developer_mode', color:"white", route:'/developer', showIf:(logged && admin)},
+                    {id:4, name:'Developer', icon:'developer_mode', color:"white", route:'/admin/developer', showIf:(logged && admin)},
                 ];
             },
             getAuths(logged){
@@ -117,9 +117,9 @@
             getManagements(logged,admin){
                 return [
                     {id:21, name:"Admin", icon:"supervised_user_circle", color:"white", model:this.admin,showIf:(logged && admin),subs:[
-                            {id:31, name:'Users', icon:'group', route:'/users', color:"white"},
-                            {id:32, name:'Posts', icon:'shopping_basket', route:'/posts', color:"white"},
-                            {id:43, name:'Categories', icon:'category', route:'/categories', color:"white"},
+                            {id:31, name:'Users', icon:'group', route:'/admin/users', color:"white"},
+                            {id:32, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
+                            {id:43, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
                         ]
                     }
                 ];

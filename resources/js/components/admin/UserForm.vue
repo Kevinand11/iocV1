@@ -33,6 +33,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex"
     import FormEx from "../Form.vue"
 
     export default {
@@ -59,11 +60,14 @@
                this.updateUser(this.form.id);
             });
         },
+        computed:{
+            ...mapGetters(["usersRoutes"]),
+        },
         methods:{  
             createUser(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post('/api/users/').then((response)=>{
+                this.form.post(this.usersRoutes.store).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -81,7 +85,7 @@
             updateUser(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch('/api/users/'+id).then((response)=>{
+                this.form.patch(this.usersRoutes.update+id).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');

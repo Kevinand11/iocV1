@@ -19,9 +19,10 @@
 </template>
 
 <script>
-    import CategoryTable from "../components/master/CategoryTable.vue"
-    import CategoryForm from '../components/master/CategoryForm.vue'
-    import CategoryModal from '../components/master/CategoryModal.vue'
+    import { mapGetters } from "vuex"
+    import CategoryTable from "../../components/admin/CategoryTable.vue"
+    import CategoryForm from '../../components/admin/CategoryForm.vue'
+    import CategoryModal from '../../components/admin/CategoryModal.vue'
 
     export default {
         name:"Categories",
@@ -44,6 +45,7 @@
             }
         },
         computed:{
+            ...mapGetters(["categoriesRoutes"]),
             theForm(){return this.form},
             isEdit(){return this.editmode},
             isSubmitted(){return this.submitted},
@@ -76,7 +78,7 @@
                 $('#form').modal('show');
             },
             deleteCategory(id){
-                this.form.delete('/api/categories/'+id).then((response)=>{
+                this.form.delete(this.categoriesRoutes.delete +id).then((response)=>{
                     new swal('Deleted!','Category deleted.','success');
                     Fire.$emit('Reload');
                 }).catch(()=> {

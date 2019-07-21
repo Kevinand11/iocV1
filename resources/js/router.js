@@ -1,28 +1,39 @@
 import Vue from "vue";
 import Router from "vue-router";
 
-import Dashboard from "./views/Dashboard.vue";
-import Developer from "./views/Developer.vue";
+import Dashboard from "./views/Dashboard/index.vue";
+import NewIn from "./views/Dashboard/NewIn.vue";
+import Post from "./views/Dashboard/Post.vue";
+
 import Profile from "./views/Profile.vue";
-import Store from "./views/Profile.vue";
-import Posts from "./views/Posts.vue";
-import Users from "./views/Users.vue";
-import Categories from "./views/Categories.vue";
-import Login from "./views/Login.vue";
-import Register from "./views/Register.vue";
+import Store from "./views/Store.vue";
 import NotFound from "./views/NotFound.vue";
+
+import Developer from "./views/Admin/Developer.vue";
+import Posts from "./views/Admin/Posts.vue";
+import Users from "./views/Admin/Users.vue";
+import Categories from "./views/Admin/Categories.vue";
+
+import Login from "./views/Auth/Login.vue";
+import Register from "./views/Auth/Register.vue";
+
 import VuexStore from "./store/index";
 
 Vue.use(Router);
 
 let routes = [
     { path: '/', component: Dashboard, children: [
-        { path: '/new', component: Profile }
+        { path: '/', component: NewIn },
+        { path: '/stores', component: Store },
+        { path: '/trending', component: Store },
+        { path: '/services', component: Store },
+        { path: '/posts/', component: NewIn },
+        { path: '/posts/:id', component: Post },
     ]},
-    { path: '/developer', component: Developer },
-    { path: '/users', component: Users },
-    { path: '/posts', component: Posts },
-    { path: '/categories', component: Categories },
+    { path: '/admin/developer', component: Developer },
+    { path: '/admin/users', component: Users },
+    { path: '/admin/posts', component: Posts },
+    { path: '/admin/categories', component: Categories },
     { path: '/store', component: Store },
     { path: '/profile', component: Profile },
     { path: '/login', component: Login },

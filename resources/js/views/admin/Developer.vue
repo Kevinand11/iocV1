@@ -11,9 +11,9 @@
 </template>
 
 <script>
-    import PassportClients from '../components/passport/Clients.vue'
-    import PassportAuthorizedClients from '../components/passport/AuthorizedClients.vue'
-    import PassportPersonalAccessTokens from '../components/passport/PersonalAccessTokens.vue'
+    import PassportClients from '../../components/passport/Clients.vue'
+    import PassportAuthorizedClients from '../../components/passport/AuthorizedClients.vue'
+    import PassportPersonalAccessTokens from '../../components/passport/PersonalAccessTokens.vue'
 
     export default {
         name:"example",

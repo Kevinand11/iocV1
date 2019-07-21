@@ -23,10 +23,10 @@
             return {
                 search: "",
                 navlinks:[
-                    {id:51, name:'Trending', icon:'local_offer', route:'/', color:"white"},
+                    {id:51, name:'Trending', icon:'local_offer', route:'/trending', color:"white"},
                     {id:52, name:'New In', icon:'new_releases', route:'/', color:"white"},
-                    {id:53, name:'Store', icon:'shop_two', route:'/', color:"white"},
-                    {id:54, name:'Services', icon:'event', route:'/', color:"white"},
+                    {id:53, name:'Store', icon:'shop_two', route:'/stores', color:"white"},
+                    {id:54, name:'Services', icon:'event', route:'/services', color:"white"},
                 ],
             }
         },

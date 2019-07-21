@@ -38,6 +38,7 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex"
     import FormEx from "../Form.vue"
 
     export default {
@@ -63,13 +64,14 @@
             }
         },
         computed:{
+            ...mapGetters(["postsRoutes","categoriesRoutes"]),
             fetching(){return this.fetch}
         },
         components:{
             "form-extend": FormEx
         },
         mounted(){
-            this.getCategories("/api/categories/");
+            this.getCategories(this.categoriesRoutes.index);
             Fire.$on('CreatePost',() => {
                this.createPost();
             });
@@ -90,7 +92,7 @@
             createPost(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post('/api/posts').then((response)=>{
+                this.form.post(this.postsRoutes.store).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -99,7 +101,6 @@
                         title: 'Post created successfully'
                     });
                     this.$Progress.finish();
-                    
                 }).catch((error)=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
@@ -109,7 +110,7 @@
             updatePost(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch('/api/posts/'+id).then((response)=>{
+                this.form.patch(this.postsRoutes.update+id).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');

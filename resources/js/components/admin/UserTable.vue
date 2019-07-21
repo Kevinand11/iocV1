@@ -3,30 +3,32 @@
         <tr slot="headers">
             <th>Id</th>
             <th>Name</th>
-            <th>Parent</th>
+            <th>Email</th>
+            <th>Role</th>
             <th>Created</th>
             <th>Updated</th>
             <th>Modifiers</th>
         </tr>
         <tbody slot="rows">
             <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
-            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
-                <td>{{category.id}}</td>
-                <td>{{category.name}}</td>
-                <td>{{category.parent}}</td>
-                <td>{{category.created_at | myDate}}</td>
-                <td>{{category.updated_at | myDate}}</td>
+            <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>{{user.role}}</td>
+                <td>{{user.created_at | myDate}}</td>
+                <td>{{user.updated_at | myDate}}</td>
                 <td>
-                    <a @click.prevent="viewModal(category.id)"><i class="fas fa-eye text-blue"></i></a>
+                    <a @click.prevent="viewModal(user.id)"><i class="fas fa-eye text-blue"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitUpdate(category)"><i class="fas fa-pen text-orange"></i></a>
+                    <a @click.prevent="emitUpdate(user)"><i class="fas fa-pen text-orange"></i></a>
                     &nbsp;|&nbsp;
-                    <a @click.prevent="emitDelete(category.id)"><i class="fas fa-trash text-red"></i></a>
+                    <a @click.prevent="emitDelete(user.id)"><i class="fas fa-trash text-red"></i></a>
                 </td>
             </tr>
         </tbody>
         <div slot="pagination">
-            <pagination :data="categories" align="center" :limit="limit" @pagination-change-page="getCategories">
+            <pagination :data="users" align="center" :limit="limit" @pagination-change-page="getUsers">
                 <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
                 <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
             </pagination>
@@ -35,54 +37,57 @@
 </template>
 
 <script>
+    import { mapGetters } from "vuex"
     import TableEx from "../Table.vue"
 
     export default {
-        name:"CategoriesTable",
+        name:"UserTable",
         data(){
             return {
                 limit:2,
-                categories:{},
-                fetch:false,
+                users:{},
+                fetch: false,
             }
         },
         computed:{
+            ...mapGetters(["usersRoutes"]),
             fetching(){return this.fetch}
         },
         components:{
             "table-extend":TableEx,
         },
         mounted(){
-            this.loadCategories();
+            this.getUsers();
             Fire.$on('Reload',() => {
-               this.loadCategories();
+               this.getUsers();
             });
         },
         methods:{
-            emitCurr(category){
-                Fire.$emit("SetCurrentCategory",category);
+            emitCurr(user){
+                Fire.$emit("SetCurrentUser",user);
             },
-            loadCategories(url="/api/categories/paginate"){
+            loadUsers(url){
                 this.fetch = true;
-                axios.get(url).then((response)=>{
+                $("body").get(0).scrollIntoView();
+                axios.get(url)
+                .then((response)=>{
                     this.fetch = false;
-                    this.categories = response.data;
-                    $("nav").get(0).scrollIntoView();
+                    this.users = response.data;
                 }).catch(error=>{
                     this.fetch = false;
                 })
             },
-            getCategories(page = 1) {
-                this.loadCategories('/api/categories/paginate?page=' + page);
+            getUsers(page = 1) {
+                this.loadUsers(this.usersRoutes.paginate + page);
             },
             viewModal(id){
-                axios.get("/api/categories/"+id).then((response)=>{
-                    this.category = response.data;
+                axios.get(this.usersRoutes.show+id).then((response)=>{
+                    this.user = response.data;
                     $('#view').modal('show');
                 }).catch({});
             },
-            emitUpdate(category){
-                Fire.$emit("BeforeUpdateCategory",category);
+            emitUpdate(user){
+                Fire.$emit("BeforeUpdateUser",user);
             },
             emitDelete(id){
                 new swal({
@@ -95,7 +100,7 @@
                     confirmButtonText: 'Yes, delete it!'
                 }).then((result) => {
                     if (result.value) {
-                        Fire.$emit("DeleteCategory",id)
+                        Fire.$emit("DeleteUser",id)
                     }
                 })
             },

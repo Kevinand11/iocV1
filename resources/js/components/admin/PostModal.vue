@@ -7,7 +7,7 @@
         <div slot="body">
             <p class="lead">{{post.description}}</p><hr>
             <p class="lead">Only for #{{ post.price }}</p><hr>
-            <p>Posted by {{post.user.name}}(<a :href="'mailto:'+post.user.email">{{post.user.email}}</a>) on {{post.created_at | myDate}}</p>
+            <p>Posted by {{post.user.name}} (<a :href="'mailto:'+post.user.email">{{post.user.email}}</a>) on {{post.created_at | myDate}}</p>
             <p>Last updated on {{post.updated_at|myDate}}</p>
         </div>
     </modal>
