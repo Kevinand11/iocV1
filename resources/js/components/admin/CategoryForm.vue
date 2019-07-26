@@ -11,8 +11,8 @@
                 <div class="form-group">
                     <select v-model="form.parent" name="parent" class="form-control" :class="{ 'is-valid': !form.errors.has('parent') && isSubmitted,'is-invalid': form.errors.has('parent') }">
                         <option disabled>Select Parent Category</option>
-                        <option value="None">None</option>
-                        <option v-for="category in categories" :value="category.name">{{category.name}}</option>
+                        <option value=0>None</option>
+                        <option v-for="category in categories" :value="category.id">{{category.name}}</option>
                     </select>
                     <has-error :form="form" field="parent"></has-error>
                 </div>

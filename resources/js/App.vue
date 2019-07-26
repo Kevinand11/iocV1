@@ -22,8 +22,8 @@ import { mapGetters,mapActions } from "vuex";
 export default {
   name: "App",
   components: {
-    "app-toolbar": Toolbar,
     "app-sidebar": Sidebar,
+    "app-toolbar": Toolbar,
     "app-footer": Footer
   },
   mounted() {

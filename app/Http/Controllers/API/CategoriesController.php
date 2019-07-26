@@ -30,11 +30,11 @@ class CategoriesController extends Controller
     {
         $this->validate($request,[
             "name" => "required|string|min:3|unique:categories",
-            "parent" => "string"
+            "parent" => "number"
         ]);
         $category = Category::create([
             "name" => $request["name"],
-            "parent" => $request["parent"]
+            "parent_id" => $request["parent"]
         ]);
         return new CategoriesResource($category);
     }
@@ -53,7 +53,7 @@ class CategoriesController extends Controller
         ]);
         $category->update([
             "name" => $request["name"],
-            "parent" => $request["parent"],
+            "parent_id" => $request["parent"],
             "updated_at" => now()
         ]);
         return new CategoriesResource($category);
@@ -63,6 +63,9 @@ class CategoriesController extends Controller
     {
         foreach ($category->posts as $post) {
             $post->delete();
+        }
+        foreach ($category->subs as $sub) {
+            $sub->delete();
         }
         if($category->delete()){
             return response()->json(["success"=>"true"]);

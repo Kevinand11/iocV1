@@ -45,6 +45,7 @@
         "vue-smart-pagination": "^2.0.9",
         "vue-spinner": "^1.0.3",
         "vuetify": "^1.5.16",
-        "vuex": "^3.1.1"
+        "vuex": "^3.1.1",
+        "watch": "^1.0.2"
     }
 }

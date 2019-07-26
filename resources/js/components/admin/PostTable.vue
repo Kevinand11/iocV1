@@ -23,7 +23,6 @@
                 <td>{{post.created_at | myDate}}</td>
                 <td>{{post.updated_at | myDate}}</td>
                 <td>
-                <td>
                     <a @click.prevent="viewModal(post.id)"><i class="fas fa-eye text-blue"></i></a>
                     &nbsp;|&nbsp;
                     <a @click.prevent="emitUpdate(post)"><i class="fas fa-pen text-orange"></i></a>

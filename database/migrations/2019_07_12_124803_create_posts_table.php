@@ -18,8 +18,8 @@ class CreatePostsTable extends Migration
             $table->string("name");
             $table->longText('description')->nullable();
             $table->bigInteger('price')->nullable();
-            $table->integer('user_id');
-            $table->integer('category_id');
+            $table->integer('user_id')->unsigned();
+            $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
     }

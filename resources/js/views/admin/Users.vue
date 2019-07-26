@@ -33,6 +33,7 @@
                     name : '',
                     email: '',
                     password: '',
+                    phone: '',
                     posts: [],
                 },
                 form: new Form({
@@ -40,6 +41,7 @@
                     name : '',
                     email: '',
                     role: 'user',
+                    phone: '',
                     password: '',
                     password_confirmation:"",
                 }),

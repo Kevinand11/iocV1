@@ -34,7 +34,9 @@
                     description: '',
                     price: '',
                     category: {},
-                    user: {}
+                    user: {},
+                    user_id: null,
+                    category_id: null,
                 },
                 form: new Form({
                     id : null,
@@ -43,6 +45,8 @@
                     price: '',
                     user_id: null,
                     category_id: null,
+                    category: {},
+                    user: {},
                 }),
                 submitted: false,
                 editmode:false,

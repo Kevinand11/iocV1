@@ -49,11 +49,13 @@ class UsersController extends Controller
         $this->validate($request,[
             "name" => "required|string|min:3",
             "email" => "required|email|unique:users",
+            "phone" => "required",
             "password" => "required|min:6|string|confirmed"
         ]);
         $user = User::create([
             "name" => $request["name"],
             "email" => $request["email"],
+            "phone" => $request["phone"],
             "password" => Hash::make($request["password"]),
             "role" => $request["role"] ?: "user"
         ]);
@@ -73,11 +75,13 @@ class UsersController extends Controller
         $this->validate($request,[
             "name" => "required|string|min:3",
             "email" => "required|email|unique:users",
+            "phone" => "required",
             "password" => "required|min:6|string|confirmed"
         ]);
         $user = User::create([
             "name" => $request["name"],
             "email" => $request["email"],
+            "phone" => $request["phone"],
             "password" => Hash::make($request["password"]),
             "role" => $request["role"] ?: "user"
         ]);
@@ -95,11 +99,13 @@ class UsersController extends Controller
         $this->validate($request,[
             "name" => "required|string|min:3",
             "email" => "required|email|unique:users,email,".$user->id,
-            "password" => "sometimes|min:6|string|confirmed"
+            "password" => "sometimes|min:6|string|confirmed",
+            "phone" => "required"
         ]);
         $user->update([
             "name" => $request["name"],
             "email" => $request["email"],
+            "phone" => $request["phone"],
             "password" => Hash::make($request["password"]),
             "updated_at" => now()
         ]);

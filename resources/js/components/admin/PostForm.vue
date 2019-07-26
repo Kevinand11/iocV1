@@ -84,7 +84,7 @@
                 this.fetch = true;
                 axios.get(url).then((response)=>{
                     this.fetch = false;
-                    this.categories = response.data;
+                    this.categories = response.data.data;
                 }).catch(error=>{
                     this.fetch = false;
                 })

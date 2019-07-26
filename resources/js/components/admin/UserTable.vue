@@ -4,6 +4,7 @@
             <th>Id</th>
             <th>Name</th>
             <th>Email</th>
+            <th>Phone</th>
             <th>Role</th>
             <th>Created</th>
             <th>Updated</th>
@@ -15,6 +16,7 @@
                 <td>{{user.id}}</td>
                 <td>{{user.name}}</td>
                 <td>{{user.email}}</td>
+                <td>{{user.phone}}</td>
                 <td>{{user.role}}</td>
                 <td>{{user.created_at | myDate}}</td>
                 <td>{{user.updated_at | myDate}}</td>

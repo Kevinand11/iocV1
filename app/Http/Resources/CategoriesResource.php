@@ -17,7 +17,7 @@ class CategoriesResource extends JsonResource
         return [
             "id" => $this->id,
             "name" => $this->name,
-            "parent" => $this->parent,
+            "parent" => $this->parent['name'],
             "posts" => $this->posts,
             "created_at" => $this->created_at,
             "updated_at" => $this->updated_at,

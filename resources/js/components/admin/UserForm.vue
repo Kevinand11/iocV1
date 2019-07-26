@@ -12,6 +12,14 @@
                 <has-error :form="form" field="email"></has-error>
             </div>
             <div class="form-group">
+<!--                <input v-model="form.phone" name="phone" type="text" placeholder="Phone Number" autocomplete="phone"-->
+<!--                       class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">-->
+<!--                <has-error :form="form" field="phone"></has-error>-->
+                <phone-input v-model="form.phone" name="phone" default-country-code="NG" autocomplete="phone"
+                    :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }" />
+                <has-error :form="form" field="phone"></has-error>
+            </div>
+            <div class="form-group">
                 <select v-model="form.role" name="role" class="form-control">
                     <option value="user">user</option>
                     <option value="admin">admin</option>
@@ -34,6 +42,7 @@
 
 <script>
     import { mapGetters } from "vuex"
+    import VuePhoneNumberInput from 'vue-phone-number-input'
     import FormEx from "../Form.vue"
 
     export default {
@@ -52,7 +61,7 @@
                 required:true
             }
         },
-        mounted(){   
+        mounted(){
             Fire.$on('CreateUser',() => {
                this.createUser();
             });
@@ -63,7 +72,7 @@
         computed:{
             ...mapGetters(["usersRoutes"]),
         },
-        methods:{  
+        methods:{
             createUser(){
                 this.submitted = true;
                 this.$Progress.start();
@@ -102,7 +111,8 @@
             },
         },
         components:{
-            "form-extend": FormEx
+            "form-extend": FormEx,
+            "phone-input": VuePhoneNumberInput,
         }
     }
 </script>

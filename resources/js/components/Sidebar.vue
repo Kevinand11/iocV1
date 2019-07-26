@@ -116,12 +116,13 @@
             getManagements(logged,admin){
                 return [
                     {id:21, name:"Admin", icon:"supervised_user_circle", color:"white", model:this.admin,showIf:(logged && admin),subs:[
-                            {id:31, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
-                            {id:32, name:'Users', icon:'group', route:'/admin/users', color:"white"},
-                            {id:33, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
-                            {id:34, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
+                            {id:31, name:'Users', icon:'group', route:'/admin/users', color:"white"},
+                            {id:32, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
+                            {id:33, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
+                            {id:34, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
                         ]
-                    }
+                    },
+                    
                 ];
             },
             testIfLogout(ref){

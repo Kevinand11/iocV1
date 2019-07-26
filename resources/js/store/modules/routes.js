@@ -1,7 +1,7 @@
 const state = {
     auth:{
         login:"/api/users/login",
-        rgister:"/api/users/register",
+        register:"/api/users/register",
         logout:"/api/users/logout"
     },
     users:{

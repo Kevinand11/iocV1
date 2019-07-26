@@ -1,2 +1,3 @@
-Authorization Token is still giving problem, probable cos an object is being returned instead of a string.
-Fix that in login and register controllers
+After auth,the user object is saved to session storage.
+Meaning if someone uses another device to login and change something in their account,
+change is not reflected on their original device until re-authorization

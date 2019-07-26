@@ -24,7 +24,7 @@
             
             <p>{{post.description}}</p><hr>
             <p>Only for #{{ post.price }}</p><hr>
-            <p>Posted by {{post.user.name}} (<a :href="'mailto:'+post.user.email">{{post.user.email}}</a>) on {{post.created_at | myDate}}</p>
+            <p>Posted by {{post.user.name}} (<a :href="'mailto:'+post.user.phone">{{post.user.phone}}</a>) (<a :href="'mailto:'+post.user.email">{{post.user.email}}</a>) on {{post.created_at | myDate}}</p>
             <p>Last updated on {{post.updated_at|myDate}}</p>
             <v-layout row wrap>
                 <v-btn small icon>
@@ -72,7 +72,7 @@
                 this.fetch = true
                 axios.get(this.postsRoutes.show+id).then(response=>{
                     this.fetch = false
-                    this.post = response.data
+                    this.post = response.data.data
                 }).catch(error=>{
                 })
             },
