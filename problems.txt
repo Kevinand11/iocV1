@@ -1,8 +1,6 @@
 After auth,the user object is saved to session storage.
-
-	Meaning if someone uses another device to login and change something in their account,
-	
-change is not reflected on their original device until re-authorization
-
+	Meaning if someone uses another device to login and change something in their account,	
+	change is not reflected on their original device until re-authorization
 
 Figure out best solution to api security - passport
+	On login and register, save user to cookies

@@ -29,8 +29,6 @@ let routes = [
         { path: '/services', name: 'Services', component: Store },
         { path: '/posts/', name: 'Posts', component: NewIn },
         { path: '/posts/:id', name: 'Post', component: Post },
-        { path: '/stores/:id', name: 'Store', component: Post },
-        { path: '/services/:id', name: 'Service', component: Post },
     ]},
     { path: '/admin/developer', name: 'AdminDeveloper', component: Developer },
     { path: '/admin/users', name: 'AdminUsers', component: Users },
@@ -59,14 +57,14 @@ function isAdmin() {
 }
 
 let authRoutes = ['Login','Register'];
-let nonGuardedRoutes = ['Login','Register','NewIn','Stores','Posts','Services','Post','Store','Service'];
+let nonGuardedRoutes = ['Login','Register','NewIn','Stores','Posts','Services','Post'];
 let adminRoutes = ['AdminUsers','AdminPosts','AdminStores','AdminCategories','AdminDeveloper'];
 
 
 router.beforeEach((to, from, next) => {
     if (_.includes(nonGuardedRoutes,to.name)) {
         if (_.includes(authRoutes,to.name)) {
-            if(!isAuth()){
+            if(isAuth()){
                 new toast({
                     type: 'warning',
                     title: 'User already logged in'

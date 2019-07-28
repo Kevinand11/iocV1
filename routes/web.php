@@ -11,19 +11,23 @@
 |
 */
 
-Route::get('/', function () {
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
+
+Route::get('/', static function () {
     return view('home');
 });
 
-Route::get('/{path}',function(){
-    return view("home");
-})->where("path","([A-z\d\/_.]+)?");
+Route::get('/{path}', static function(){
+    return view('home');
+})->where('path',"([A-z\d\/_.]+)?");
 
 
-/*  Auth routes are registered under here so that Vue can control the login and
-    register forms as any get request sent is intercepted by the two defined routes 
+/* Auth routes are registered under here so that Vue can control the login and
+    register forms as any get request sent is intercepted by the two defined routes
     and returns the home page
 */
-
 Auth::routes();
+
 

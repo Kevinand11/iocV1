@@ -35,10 +35,10 @@ class PostsController extends Controller
             'name' => 'required|string|min:3',
             'description' => 'string',
             'price' => 'required|numeric',
-            'category_id' => 'required|numeric'
+            'category_id' => 'required|numeric',
+            'store_id' => 'required|numeric',
         ]);
-        $request->merge([ 'store_id' => auth()->user()->store->id ]);
-        $post =  Post::create($request->all());
+        $post =  Post::create($request->only(['name','description','category_id','price','store_id']));
         return new PostsResource($post);
     }
 
@@ -57,7 +57,7 @@ class PostsController extends Controller
             'price' => 'required|numeric'
         ]);
         $request->merge([ 'updated_at' => now() ]);
-        $post->update($request->all());
+        $post->update($request->only(['name','description','category_id','price','updated_at']));
         return new PostsResource($post);
     }
 

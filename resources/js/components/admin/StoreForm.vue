@@ -9,7 +9,7 @@
                 <label for="image" class="col-sm-3 col-form-label text-sm-right">Photo</label>
                 <div class="col-sm-9">
                     <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
-                           class="form-control" id="image">
+                           class="form-control-file" id="image">
                 </div>
             </div>
             <div class="form-group row">
@@ -86,13 +86,14 @@
             });
         },
         computed:{
-            ...mapGetters(["storesRoutes"]),
+            ...mapGetters(["storesRoutes",'getAuth']),
             decideImage(){return !_.isEmpty(this.form.picture) ? '../'+this.form.picture.filename : '../img/logo.png'},
         },
         methods:{
             createStore(){
                 this.submitted = true;
                 this.$Progress.start();
+                this.form.user_id = this.getAuth.id;
                 this.form.post(this.storesRoutes.store).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');

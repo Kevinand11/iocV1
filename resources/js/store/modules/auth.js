@@ -1,5 +1,5 @@
 const state = {
-    auth: {id:"",name:"",email:"",password:"",role:""},
+    auth: {id:null,name:"",email:"",password:"",role:"",store:null,picture:null},
     token:""
 };
 
@@ -32,7 +32,7 @@ const mutations = {
         state.token = token;
     },
     clearAuth: (state) => {
-        state.auth = {id:"",name:"",email:"",password:"",role:""};
+        state.auth = {id:null,name:"",email:"",password:"",role:"",store:null,picture:null};
     }
 };
 

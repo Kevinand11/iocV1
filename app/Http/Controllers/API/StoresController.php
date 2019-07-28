@@ -37,9 +37,7 @@ class StoresController extends Controller
             'email' => 'required|email|unique:stores',
             'phone' => 'required',
             'link' => 'string',
-        ]);
-        $request->merge([
-            'user_id' => auth()->user()->id,
+            'user_id' => 'required|numeric',
         ]);
         $store = Store::create($request->only(['name','description','email','phone','link','user_id']));
         if($request->image){

@@ -3,11 +3,13 @@
     <app-toolbar />
     <app-sidebar />
     <v-content>
-      <router-view />
-      <vue-progress-bar />
-      <v-btn fab color="light-blue darken-4" bottom right fixed @click="cartFab" v-if="isLoggedIn">
-        <v-icon color="white">shopping_cart</v-icon>
-      </v-btn>
+        <v-container fluid>
+          <router-view />
+          <vue-progress-bar />
+          <v-btn fab color="light-blue darken-4" bottom right fixed @click="cartFab" v-if="isLoggedIn">
+            <v-icon color="white">shopping_cart</v-icon>
+          </v-btn>
+        </v-container>
     </v-content>
     <app-footer />
   </v-app>
@@ -26,7 +28,7 @@ export default {
     "app-toolbar": Toolbar,
     "app-footer": Footer
   },
-  mounted() {
+  beforeMount() {
     this.getCookieToken();
   },
   computed: {

@@ -73,7 +73,7 @@
             }
         },
         computed:{
-            ...mapGetters(["postsRoutes","categoriesRoutes"]),
+            ...mapGetters(["postsRoutes","categoriesRoutes",'getAuth']),
             fetching(){return this.fetch}
         },
         components:{
@@ -101,6 +101,7 @@
             createPost(){
                 this.submitted = true;
                 this.$Progress.start();
+                this.form.store_id = this.getAuth.store.id;
                 this.form.post(this.postsRoutes.store).then((response)=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
