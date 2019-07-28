@@ -1,40 +1,50 @@
 <template>
     <table-extend>
-        <tr slot="headers">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Phone</th>
-            <th>Role</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Modifiers</th>
-        </tr>
-        <tbody slot="rows">
-            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
-            <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
-                <td>{{user.id}}</td>
-                <td>{{user.name}}</td>
-                <td>{{user.email}}</td>
-                <td>{{user.phone}}</td>
-                <td>{{user.role}}</td>
-                <td>{{user.created_at | myDate}}</td>
-                <td>{{user.updated_at | myDate}}</td>
-                <td>
-                    <a @click.prevent="viewModal(user.id)"><i class="fas fa-eye text-blue"></i></a>
-                    &nbsp;|&nbsp;
-                    <a @click.prevent="emitUpdate(user)"><i class="fas fa-pen text-orange"></i></a>
-                    &nbsp;|&nbsp;
-                    <a @click.prevent="emitDelete(user.id)"><i class="fas fa-trash text-red"></i></a>
-                </td>
+        <template slot="headers">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Phone</th>
+                <th>Role</th>
+                <th>Picture</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Modifiers</th>
             </tr>
-        </tbody>
-        <div slot="pagination">
+        </template>
+        <template slot="rows">
+            <tbody>
+                <v-layout row wrap v-if="fetching">
+                    <v-flex xs6 offset-xs3>
+                        <vue-simple-spinner message="Loading" size="large" />
+                    </v-flex>
+                </v-layout>
+                <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
+                    <td>{{user.id}}</td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td>{{user.phone}}</td>
+                    <td>{{user.role}}</td>
+                    <td>{{ user.picture ? user.picture.filename : 'None' }}</td>
+                    <td>{{user.created_at | myDate}}</td>
+                    <td>{{user.updated_at | myDate}}</td>
+                    <td>
+                        <a @click.prevent="viewModal(user.id)"><i class="fas fa-eye text-blue"></i></a>
+                        &nbsp;|&nbsp;
+                        <a @click.prevent="emitUpdate(user)"><i class="fas fa-pen text-orange"></i></a>
+                        &nbsp;|&nbsp;
+                        <a @click.prevent="emitDelete(user.id)"><i class="fas fa-trash text-red"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </template>
+        <template slot="pagination">
             <pagination :data="users" align="center" :limit="limit" @pagination-change-page="getUsers">
                 <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
                 <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
             </pagination>
-        </div>
+        </template>
     </table-extend>
 </template>
 

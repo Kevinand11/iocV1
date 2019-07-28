@@ -133,8 +133,8 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.login).then(response=>{
-                    this.setAuth(response.data.success.user);
-                    this.setToken(response.data.success.token);
+                    this.setAuth(response.data.data);
+                    this.setToken(response.data.data.token);
                     this.$Progress.finish();
                     this.disabled = false;
                     this.$router.push(this.getIntended);

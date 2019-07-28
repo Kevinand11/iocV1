@@ -5,57 +5,53 @@ namespace App\Http\Controllers\API;
 use App\Category;
 use App\Http\Resources\CategoriesResource;
 use App\Http\Controllers\Controller;
+use http\Env\Response;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
 class CategoriesController extends Controller
 {
     public function __construct()
     {
-        $this->middleware("auth:api")->except(["index","paginate","show"]);
+        //$this->middleware('auth:api')->except(['index', 'paginate', 'show']);
     }
 
-    public function index()
+    public function index(): AnonymousResourceCollection
     {
-        $categories = Category::latest()->with("posts.user")->get();
+        $categories = Category::latest()->with('posts.store.user','parent','subs')->get();
         return CategoriesResource::collection($categories);
     }
 
-    public function paginate()
+    public function paginate(): AnonymousResourceCollection
     {
-        $categories = Category::latest()->with("posts.user")->paginate(10);
+        $categories = Category::latest()->with('posts.store.user','parent','subs')->paginate(10);
         return CategoriesResource::collection($categories);
     }
 
-    public function store(Request $request)
+    public function store(Request $request): CategoriesResource
     {
         $this->validate($request,[
-            "name" => "required|string|min:3|unique:categories",
-            "parent" => "number"
+            'name' => 'required|string|min:3|unique:categories',
+            'parent_id' => 'numeric|required'
         ]);
-        $category = Category::create([
-            "name" => $request["name"],
-            "parent_id" => $request["parent"]
-        ]);
+        $category = Category::create($request->all());
         return new CategoriesResource($category);
     }
 
-    public function show(Category $category)
+    public function show(Category $category): CategoriesResource
     {
-        $category = Category::where("id",$category->id)->with("posts.user")->first();
+        $category = Category::where('id',$category->id)->with('posts.store.user','parent','subs')->first();
         return new CategoriesResource($category);
     }
 
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category): CategoriesResource
     {
         $this->validate($request,[
-            "name" => "required|string|min:3|unique:categories,name,".$category->id,
-            "parent" => "string"
+            'name' => 'required|string|min:3|unique:categories,name,' .$category->id,
+            'parent_id' => 'numeric|required'
         ]);
-        $category->update([
-            "name" => $request["name"],
-            "parent_id" => $request["parent"],
-            "updated_at" => now()
-        ]);
+        $request->merge([ 'updated_at' => now() ]);
+        $category->update($request->all());
         return new CategoriesResource($category);
     }
 
@@ -65,11 +61,15 @@ class CategoriesController extends Controller
             $post->delete();
         }
         foreach ($category->subs as $sub) {
+            foreach ($sub->posts as $post) {
+                $post->delete();
+            }
             $sub->delete();
         }
+
         if($category->delete()){
-            return response()->json(["success"=>"true"]);
+            return response()->json(['success' => 'true']);
         }
-        return response()->json(["error"=>"false"]);
+        return response()->json(['error' => 'false']);
     }
 }

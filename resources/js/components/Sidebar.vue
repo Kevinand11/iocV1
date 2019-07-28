@@ -70,12 +70,12 @@
             }
         },
         computed:{
-            ...mapGetters(["getAuth"]),
-            isLoggedIn(){ return this.getAuth.name ? true : false },
-            isAdmin(){ return this.getAuth.role == "admin" ? true : false },
+            ...mapGetters(["getAuth","authRoutes"]),
+            isLoggedIn(){ return this.getAuth.name },
+            isAdmin(){ return this.getAuth.role === "admin" },
         },
         methods:{
-            ...mapActions(["logout","authRoutes"]),
+            ...mapActions(["logout"]),
             logoutUser(){
                 new swal({
                     title: 'Logout?',
@@ -86,10 +86,10 @@
                     confirmButtonText: 'Yes, logout!'
                 }).then((result) => {
                     if (result.value) {
-                        this.logout();
-                        axios.post(this.authRoutes.logout).then(response=>{
-                            this.drawer = !(this.drawer)
-                            this.$router.push("/login")
+                        axios.post(this.authRoutes.logout,{}).then(response=>{
+                            this.logout();
+                            this.drawer = !(this.drawer);
+                            this.$router.push("/login");
                             new toast({
                                 type: 'success',
                                 title: 'Logged out successfully'
@@ -117,9 +117,10 @@
                 return [
                     {id:21, name:"Admin", icon:"supervised_user_circle", color:"white", model:this.admin,showIf:(logged && admin),subs:[
                             {id:31, name:'Users', icon:'group', route:'/admin/users', color:"white"},
-                            {id:32, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
-                            {id:33, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
-                            {id:34, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
+                            {id:32, name:'Stores', icon:'stores', route:'/admin/stores', color:"white"},
+                            {id:33, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
+                            {id:34, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
+                            {id:35, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
                         ]
                     },
                     

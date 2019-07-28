@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection ALL */
 
 namespace App\Http\Resources;
 
@@ -12,19 +12,19 @@ class PostsResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): Array
     {
         return [
-            "id" => $this->id,
-            "name" => $this->name,
-            "description" => $this->description,
-            "price" => $this->price,
-            "user" => $this->user,
-            "category" => $this->category,
-            "user_id" => $this->user_id,
-            "category_id" => $this->category_id,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at,
+            'id' => $this->id,
+            'name' => $this->name,
+            'description' => $this->description,
+            'price' => $this->price,
+            'store' => $this->store,
+            'category' => $this->category,
+            'category_id' => $this->category_id,
+            'pictures' => $this->pictures,
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

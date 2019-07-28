@@ -3,23 +3,25 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\HasOne;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 
 class Category extends Model
 {
     protected $guarded = [];
 
-    public function posts(){
+    public function posts(): HasMany
+    {
         return $this->hasMany(Post::class);
     }
 
-    public function subs()
+    public function subs(): HasMany
     {
-        return $this->hasMany('App\Category','parent_id',"id");
+        return $this->hasMany(__CLASS__,'parent_id','id');
     }
 
-    public function parent()
+    public function parent(): HasOne
     {
-        return $this->hasOne('App\Category', 'id', 'parent_id');
-    }    
-    
+        return $this->hasOne(__CLASS__, 'id', 'parent_id');
+    }
 }

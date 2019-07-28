@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card-header my-3">
-                    <h3 class="card-title">Categories Table</h3>
-                    <div class="card-tools">
+                    <span class="card-title">Categories Table</span>
+                    <span class="card-tools">
                         <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-plus-square fa-fw"></i></button>
-                    </div>
+                    </span>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <category-table />
@@ -31,14 +31,14 @@
                 category : {
                     id : null,
                     name : '',
-                    parent: '',
-                    posts: []
+                    parent: {},
+                    parent_id: null,
+                    posts: [],
                 },
                 form: new Form({
-                    id : null,
+                    id: null,
                     name : '',
-                    parent: 'None',
-                    posts: {},
+                    parent_id: 0,
                 }),
                 submitted: false,
                 editmode:false,

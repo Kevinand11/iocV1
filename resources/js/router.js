@@ -12,6 +12,7 @@ import NotFound from "./views/NotFound.vue";
 import Developer from "./views/Admin/Developer.vue";
 import Posts from "./views/Admin/Posts.vue";
 import Users from "./views/Admin/Users.vue";
+import Stores from "./views/Admin/Stores.vue";
 import Categories from "./views/Admin/Categories.vue";
 
 import Login from "./views/Auth/Login.vue";
@@ -23,22 +24,24 @@ Vue.use(Router);
 
 let routes = [
     { path: '/', component: Dashboard, children: [
-        { path: '/', component: NewIn },
-        { path: '/stores', component: Store },
-        { path: '/trending', component: Store },
-        { path: '/services', component: Store },
-        { path: '/posts/', component: NewIn },
-        { path: '/posts/:id', component: Post },
+        { path: '/', name: 'NewIn',component: NewIn },
+        { path: '/stores', name: 'Stores', component: Store },
+        { path: '/services', name: 'Services', component: Store },
+        { path: '/posts/', name: 'Posts', component: NewIn },
+        { path: '/posts/:id', name: 'Post', component: Post },
+        { path: '/stores/:id', name: 'Store', component: Post },
+        { path: '/services/:id', name: 'Service', component: Post },
     ]},
-    { path: '/admin/developer', component: Developer },
-    { path: '/admin/users', component: Users },
-    { path: '/admin/posts', component: Posts },
-    { path: '/admin/categories', component: Categories },
-    { path: '/store', component: Store },
-    { path: '/profile', component: Profile },
-    { path: '/login', component: Login },
-    { path: '/register', component: Register },
-    { path: '*', component: NotFound }
+    { path: '/admin/developer', name: 'AdminDeveloper', component: Developer },
+    { path: '/admin/users', name: 'AdminUsers', component: Users },
+    { path: '/admin/stores', name: 'AdminStores', component: Stores },
+    { path: '/admin/posts', name: 'AdminPosts', component: Posts },
+    { path: '/admin/categories', name: 'AdminCategories', component: Categories },
+    { path: '/store', name: 'MyStore', component: Store },
+    { path: '/profile', name: 'Profile', component: Profile },
+    { path: '/login', name: 'Login', component: Login },
+    { path: '/register', name: 'Register', component: Register },
+    { path: '*', name: 'NotFound', component: NotFound }
 ];
 
 const router = new Router({
@@ -47,30 +50,32 @@ const router = new Router({
 });
 
 function isAuth() {
-    let cookies = VuexStore._vm.$cookies
-    if(cookies.isKey("user") && cookies.isKey("oauth")){
-        return true
-    }
-    return false
+    let cookies = VuexStore._vm.$cookies;
+    return (cookies.isKey("user") && cookies.isKey("oauth"));
 }
 function isAdmin() {
-    let cookies = VuexStore._vm.$cookies
-    if(cookies.isKey("user") && cookies.get("user").role == "admin"){
-        return true
-    }
-    return false
+    let cookies = VuexStore._vm.$cookies;
+    return (cookies.isKey("user") && cookies.get("user").role === "admin");
 }
 
+let authRoutes = ['Login','Register'];
+let nonGuardedRoutes = ['Login','Register','NewIn','Stores','Posts','Services','Post','Store','Service'];
+let adminRoutes = ['AdminUsers','AdminPosts','AdminStores','AdminCategories','AdminDeveloper'];
+
+
 router.beforeEach((to, from, next) => {
-    if (to.path == "/login" || to.path == "/register") {
-        if (!isAuth()) {
+    if (_.includes(nonGuardedRoutes,to.name)) {
+        if (_.includes(authRoutes,to.name)) {
+            if(!isAuth()){
+                new toast({
+                    type: 'warning',
+                    title: 'User already logged in'
+                });
+                next(VuexStore.getters.getLastNonAuthRoute);
+            }
             next();
         } else {
-            new toast({
-                type: 'warning',
-                title: 'User already logged in'
-            });
-            next(VuexStore.getters.getLastNonAuthRoute);
+            next()
         }
     } else {
         if (!isAuth()) {
@@ -81,13 +86,13 @@ router.beforeEach((to, from, next) => {
             VuexStore.dispatch("setIntended",to.path);
             next("/login");
         } else {
-            if(to.path == "/users" || to.path == "/posts" || to.path == "/categories" || to.path == "/developer"){
+            if(_.includes(adminRoutes,to.name)){
                 if(isAdmin()){
                     next()
                 }else{
                     new toast({
                         type: 'error',
-                        title: 'Access deneid. Unauthorised user'
+                        title: 'Access denied. Unauthorised user'
                     });
                     next(VuexStore.getters.getLastNonAuthRoute);
                 }
@@ -96,10 +101,10 @@ router.beforeEach((to, from, next) => {
             }
         }
     }
-})
+});
 
 router.afterEach( route => {
     VuexStore.dispatch("appendHistory",route.path);
-})
+});
 
 export default router;

@@ -1,36 +1,44 @@
 <template>
     <table-extend>
-        <tr slot="headers">
-            <th>Id</th>
-            <th>Name</th>
-            <th>Parent</th>
-            <th>Created</th>
-            <th>Updated</th>
-            <th>Modifiers</th>
-        </tr>
-        <tbody slot="rows">
-            <vue-simple-spinner message="Loading" size="big" v-if="fetching" class="text-center" />
-            <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
-                <td>{{category.id}}</td>
-                <td>{{category.name}}</td>
-                <td>{{category.parent}}</td>
-                <td>{{category.created_at | myDate}}</td>
-                <td>{{category.updated_at | myDate}}</td>
-                <td>
-                    <a @click.prevent="viewModal(category.id)"><i class="fas fa-eye text-blue"></i></a>
-                    &nbsp;|&nbsp;
-                    <a @click.prevent="emitUpdate(category)"><i class="fas fa-pen text-orange"></i></a>
-                    &nbsp;|&nbsp;
-                    <a @click.prevent="emitDelete(category.id)"><i class="fas fa-trash text-red"></i></a>
-                </td>
+        <template slot="headers">
+            <tr>
+                <th>Id</th>
+                <th>Name</th>
+                <th>Parent</th>
+                <th>Created</th>
+                <th>Updated</th>
+                <th>Modifiers</th>
             </tr>
-        </tbody>
-        <div slot="pagination">
+        </template>
+        <template slot="rows">
+            <tbody>
+                <v-layout row wrap v-if="fetching">
+                    <v-flex xs6 offset-xs3>
+                        <vue-simple-spinner message="Loading" size="large" />
+                    </v-flex>
+                </v-layout>
+                <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
+                    <td>{{category.id}}</td>
+                    <td>{{category.name}}</td>
+                    <td>{{category.parent ? category.parent.name : ''}}</td>
+                    <td>{{category.created_at | myDate}}</td>
+                    <td>{{category.updated_at | myDate}}</td>
+                    <td>
+                        <a @click.prevent="viewModal(category.id)"><i class="fas fa-eye text-blue"></i></a>
+                        &nbsp;|&nbsp;
+                        <a @click.prevent="emitUpdate(category)"><i class="fas fa-pen text-orange"></i></a>
+                        &nbsp;|&nbsp;
+                        <a @click.prevent="emitDelete(category.id)"><i class="fas fa-trash text-red"></i></a>
+                    </td>
+                </tr>
+            </tbody>
+        </template>
+        <template slot="pagination">
             <pagination :data="categories" align="center" :limit="limit" @pagination-change-page="getCategories">
                 <span slot="prev-nav"><i class="fas fa-angle-left"></i></span>
                 <span slot="next-nav"><i class="fas fa-angle-right"></i></span>
             </pagination>
-        </div>
+        </template>
     </table-extend>
 </template>
 

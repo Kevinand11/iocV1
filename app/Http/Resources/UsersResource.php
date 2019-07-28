@@ -1,4 +1,4 @@
-<?php
+<?php /** @noinspection PhpUndefinedFieldInspection */
 
 namespace App\Http\Resources;
 
@@ -12,17 +12,20 @@ class UsersResource extends JsonResource
      * @param  \Illuminate\Http\Request  $request
      * @return array
      */
-    public function toArray($request)
+    public function toArray($request): Array
     {
         return [
-            "id" => $this->id,
-            "name" => $this->name,
-            "email" => $this->email,
-            "role" => $this->role,
-            "phone" => $this->phone,
-            "posts" => $this->posts,
-            "created_at" => $this->created_at,
-            "updated_at" => $this->updated_at,
+            'id' => $this->id,
+            'name' => $this->name,
+            'email' => $this->email,
+            'email_verified_at' => $this->email_verified_at,
+            'role' => $this->role,
+            'phone' => $this->phone,
+            'store' => $this->store,
+            'picture' => $this->picture,
+            'token' => $this->apiToken ?: '',
+            'created_at' => $this->created_at,
+            'updated_at' => $this->updated_at,
         ];
     }
 }

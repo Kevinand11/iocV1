@@ -6,14 +6,9 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateCategoriesTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function up(): Void
     {
-        Schema::create('categories', function (Blueprint $table) {
+        Schema::create('categories', static function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
             $table->integer('parent_id')->default(0)->unsigned();
@@ -21,12 +16,7 @@ class CreateCategoriesTable extends Migration
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function down(): Void
     {
         Schema::dropIfExists('categories');
     }

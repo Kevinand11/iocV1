@@ -2,7 +2,7 @@
     <v-toolbar app color="light-blue darken-4" dark class="horizontal-scroll">
         <v-toolbar-side-icon  @click.stop="emitToggle" class=""></v-toolbar-side-icon>
         <v-list-tile-avatar>
-            <img src="../img/logo.png">
+            <img src="../img/logo.png" alt="">
         </v-list-tile-avatar>
         <v-toolbar-title class="white--text hidden-xs-only">IOCMart</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -23,10 +23,9 @@
             return {
                 search: "",
                 navlinks:[
-                    {id:51, name:'Trending', icon:'local_offer', route:'/trending', color:"white"},
-                    {id:52, name:'New In', icon:'new_releases', route:'/', color:"white"},
-                    {id:53, name:'Store', icon:'shop_two', route:'/stores', color:"white"},
-                    {id:54, name:'Services', icon:'event', route:'/services', color:"white"},
+                    {id:1, name:'New In', icon:'new_releases', route:'/', color:"white"},
+                    {id:2, name:'Store', icon:'shop_two', route:'/stores', color:"white"},
+                    {id:3, name:'Services', icon:'event', route:'/services', color:"white"},
                 ],
             }
         },

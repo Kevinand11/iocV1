@@ -6,30 +6,20 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreatePostsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
-    public function up()
+    public function up(): Void
     {
-        Schema::create('posts', function (Blueprint $table) {
+        Schema::create('posts', static function (Blueprint $table) {
             $table->bigIncrements('id');
-            $table->string("name");
+            $table->string('name');
             $table->longText('description')->nullable();
             $table->bigInteger('price')->nullable();
-            $table->integer('user_id')->unsigned();
+            $table->integer('store_id')->unsigned();
             $table->integer('category_id')->unsigned();
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
-    public function down()
+    public function down(): Void
     {
         Schema::dropIfExists('posts');
     }

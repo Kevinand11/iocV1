@@ -9,8 +9,8 @@
         <v-container v-if="!fetching">
             <v-layout row wrap>
                 <v-carousel>
-                    <v-carousel-item :src="img" :key="i"
-                        v-for="(img,i) in ['../../../img/logo.png','../../../img/logo.png','../../../img/logo.png','../../../img/logo.png']"
+                    <v-carousel-item :src="img.filename" :key="img.id"
+                        v-for="img in post.pictures"
                     ></v-carousel-item>
                 </v-carousel>
             </v-layout>
@@ -20,13 +20,13 @@
                 <span class="float-right">Category:{{post.category.name}}</span>
             </v-layout>
             <v-divider ma-0></v-divider>
-            
-            
+
             <p>{{post.description}}</p><hr>
-            <p>Only for #{{ post.price }}</p><hr>
-            <p>Posted by {{post.user.name}} (<a :href="'mailto:'+post.user.phone">{{post.user.phone}}</a>) (<a :href="'mailto:'+post.user.email">{{post.user.email}}</a>) on {{post.created_at | myDate}}</p>
+            <p>Only for {{ post.price | addNairaSign}}</p><hr>
+            <p>Posted from {{post.store.name}} ({{post.store.user.name}}) on {{post.created_at | myDate}}</p>
+            <p>Contact them at <a :href="'mailto:'+post.store.phone">{{post.store.phone}}</a> or <a :href="'mailto:'+post.store.email">{{post.store.email}}</a></p>
             <p>Last updated on {{post.updated_at|myDate}}</p>
-            <v-layout row wrap>
+            <v-layout row wrap v-if="isMyPost">
                 <v-btn small icon>
                     <v-icon color="warning" @click="editModal">fas fa-pen</v-icon>
                 </v-btn>
@@ -51,11 +51,11 @@
                 fetch:false,
                 post:{
                     id:"",name:"",description:"",price:"",
-                    user:{},category:{},created_at:"",updated_at:""
+                    store:{user:{}},category:{},category_id:null,pictures:[],created_at:"",updated_at:""
                 },
                 form: new Form({
                     id : null, name : '', description: '',
-                    price: '', user_id: null, category_id: null,
+                    price: '', category_id: null,
                 }),
             }
         },
@@ -65,7 +65,7 @@
         computed: {
             ...mapGetters(["getAuth","getPreviousNonAuthRoute","postsRoutes"]),
             fetching(){ return this.fetch },
-            isMyPost(){ return this.getAuth.id == this.post.id }
+            isMyPost(){ return this.getAuth.id == this.post.store.user.id }
         },
         methods: {
             getPost(id){
