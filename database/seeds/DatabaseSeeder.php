@@ -1,18 +1,20 @@
 <?php
 
+use App\Category;
+use App\Picture;
+use App\Post;
+use App\Store;
+use App\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
 {
-    /**
-     * Seed the application's database.
-     *
-     * @return void
-     */
-    public function run()
+    public function run(): Void
     {
-        $this->call(UsersTableSeeder::class);
-        $this->call(PostsTableSeeder::class);
-        $this->call(CategoriesTableSeeder::class);
+        factory(User::class,20)->create();
+        factory(Store::class,20)->create();
+        factory(Post::class,100)->create();
+        factory(Picture::class,100)->create();
+        factory(Category::class,20)->create();
     }
 }

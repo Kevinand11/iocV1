@@ -5,7 +5,17 @@
                 <div class="card">
                     <h3 class="card-header">Register</h3>
                     <div class="card-body">
-                        <form method="POST" action="/register" @submit.prevent="regUser">
+                        <form method="POST" @submit.prevent="regUser">
+                            <div class="text-center">
+                                <img src="img/profile.png" id="profile" alt='' width="80px" height="80px"/>
+                            </div>
+                            <div class="form-group row">
+                                <label for="image" class="col-md-4 col-form-label text-md-right">Profile Photo</label>
+                                <div class="col-md-6">
+                                    <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
+                                        class="form-control" id="image">
+                                </div>
+                            </div>
                             <div class="form-group row">
                                 <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
                                 <div class="col-md-6">
@@ -20,6 +30,14 @@
                                     <input id="email" type="email" class="form-control" name="email" :class="{ 'is-valid': !form.errors.has('email') && isSubmitted,'is-invalid': form.errors.has('email') }"
                                         v-model="form.email" autocomplete="email" autofocus>
                                     <has-error :form="form" field="email"></has-error>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
+                                <div class="col-md-6">
+                                    <phone-input v-model="form.phone" name="phone" default-country-code="NG" autocomplete="phone"
+                                        :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }" />
+                                    <has-error :form="form" field="phone"></has-error>
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -56,18 +74,24 @@
 
 <<script>
     import { mapActions,mapGetters } from "vuex"
+    import VuePhoneNumberInput from 'vue-phone-number-input'
 
     export default {
         name:"Register",
+        components: {
+            'phone-input': VuePhoneNumberInput
+        },
         data(){
             return {
                 csrf: document.querySelector("meta[name='csrf-token']").getAttribute("content"),
                 form: new Form({
                     name: '',
                     email: '',
+                    phone: '',
                     password: '',
                     password_confirmation:'',
                     _token:this.csrf,
+                    image: ''
                 }),
                 submitted:false,
                 disabled:false,
@@ -86,8 +110,8 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.register).then(response=>{
-                    this.setAuth(response.data.success.user);
-                    this.setToken(response.data.success.token);
+                    this.setAuth(response.data.data);
+                    this.setToken(response.data.data.token);
                     this.$Progress.finish();
                     this.disabled = false;
                     this.$router.push(this.getIntended);
@@ -97,6 +121,26 @@
                     this.disabled = false;
                 })
             },
+            setPicture(e){
+                let file = e.target.files[0];
+                if(file){
+                    let reader = new FileReader();
+                    let limit = 1024 * 1024 * 2;
+                    if(file['size'] > limit){
+                        swal({
+                            type: 'error',
+                            title: 'Oops...',
+                            text: 'File shouldnt be more than 2MB',
+                        })
+                        return false;
+                    }
+                    reader.onloadend = (file) => {
+                        this.form.image = reader.result;
+                        $('#profile').attr('src',reader.result);
+                    }
+                    reader.readAsDataURL(file);
+                }
+            }
         }
     }
 </script>

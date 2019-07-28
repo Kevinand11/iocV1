@@ -1,39 +1,48 @@
 <template>
     <form-extend data-name="Post" :mode="mode">
-        <div slot="inputFields">
-            <vue-simple-spinner message="Loading" size="medium" v-if="fetching" class="text-center" />
+        <template slot="inputFields">
+            <v-layout row wrap v-if="fetching">
+                <v-flex xs6 offset-xs3>
+                    <vue-simple-spinner message="Loading" size="large" />
+                </v-flex>
+            </v-layout>
             <div v-if="!fetching">
-                <div class="form-group">
-                    <input v-model="form.name" type="text" name="name" placeholder="Name" autocomplete="name"
-                        class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
-                    <has-error :form="form" field="name"></has-error>
-                </div>
-                <div class="form-group">
-                    <div class="input-group mb-3">
-                        <div class="input-group-prepend">
-                            <span class="input-group-text">#</span>
-                        </div>
-                        <input v-model="form.price" name="price" type="number" placeholder="Price" autocomplete="price"
-                            class="form-control" :class="{ 'is-valid': !form.errors.has('price') && isSubmitted,'is-invalid': form.errors.has('price') }">
-                        <div class="input-group-append">
-                            <span class="input-group-text">.00</span>
-                        </div>
+                <div class="form-group row">
+                    <label for="name" class="col-sm-3 col-form-label text-sm-right">Name</label>
+                    <div class="col-sm-9">
+                        <input v-model="form.name" type="text" id="name" name="name" placeholder="Name" autocomplete="name"
+                            class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
+                        <has-error :form="form" field="name"></has-error>
                     </div>
-                    <has-error :form="form" field="price"></has-error>
                 </div>
-                <div class="form-group">
-                    <textarea v-model="form.description" name="description" placeholder="Description" autocomplete="description"
-                        class="form-control" :class="{ 'is-valid': !form.errors.has('description') && isSubmitted,'is-invalid': form.errors.has('description') }"></textarea>
+                <div class="form-group row">
+                    <label for="price" class="col-sm-3 col-form-label text-sm-right">Price</label>
+                    <div class="col-sm-9">
+                        <input id="price" v-model="form.price" name="price" type="number" placeholder="Price" autocomplete="price"
+                             class="form-control" :class="{ 'is-valid': !form.errors.has('price') && isSubmitted,'is-invalid': form.errors.has('price') }">
+                        <has-error :form="form" field="price"></has-error>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label for="desc" class="col-sm-3 col-form-label text-sm-right">Description</label>
+                    <div class="col-sm-9">
+                        <textarea id="desc" v-model="form.description" name="description" placeholder="Description" autocomplete="description"
+                            class="form-control" :class="{ 'is-valid': !form.errors.has('description') && isSubmitted,'is-invalid': form.errors.has('description') }"></textarea>
+                        <has-error :form="form" field="description"></has-error>
+                    </div>
                     <has-error :form="form" field="description"></has-error>
                 </div>
-                <div class="form-group">
-                    <select v-model="form.category_id" name="category_id" class="form-control" :class="{ 'is-valid': !form.errors.has('category_id') && isSubmitted,'is-invalid': form.errors.has('category_id') }">
-                        <option v-for="category in categories" :value="category.id">{{category.name}}</option>
-                    </select>
-                    <has-error :form="form" field="category_id"></has-error>
+                <div class="form-group row">
+                    <label for="category" class="col-sm-3 col-form-label text-sm-right">Category</label>
+                    <div class="col-sm-9">
+                        <select v-model="form.category_id" id='category' name="category_id" class="form-control" :class="{ 'is-valid': !form.errors.has('category_id') && isSubmitted,'is-invalid': form.errors.has('category_id') }">
+                            <option v-for="category in categories" :value="category.id">{{category.name}}</option>
+                        </select>
+                        <has-error :form="form" field="category_id"></has-error>
+                    </div>
                 </div>
             </div>
-        </div>
+        </template>
     </form-extend>
 </template>
 

@@ -3,10 +3,10 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card-header my-3">
-                    <h3 class="card-title">Users Table</h3>
-                    <div class="card-tools">
+                    <span class="card-title">Users Table</span>
+                    <span class="card-tools">
                         <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-user-plus fa-fw"></i></button>
-                    </div>
+                    </span>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <user-table/>
@@ -34,16 +34,18 @@
                     email: '',
                     password: '',
                     phone: '',
-                    posts: [],
+                    store: {},
+                    picture: {},
                 },
                 form: new Form({
-                    id : null,
+                    id: null,
                     name : '',
                     email: '',
                     role: 'user',
                     phone: '',
                     password: '',
                     password_confirmation:"",
+                    picture:{},
                 }),
                 submitted: false,
                 editmode:false,
@@ -70,6 +72,8 @@
             newModal(){
                 this.editmode = false;
                 this.form.reset();
+                $('#image').val('');
+                $('#profile').attr('src','../img/profile.png');
                 this.submitted = false;
                 this.form.errors.errors = {};
                 $('#form').modal('show');
@@ -77,6 +81,8 @@
             editModal(user){
                 this.editmode = true;
                 this.form.reset();
+                $('#image').val('');
+                $('#profile').attr('src','../'+(!_.isEmpty(this.form.picture) ? this.picture.filename : "img/profile.png"));
                 this.submitted = false;
                 this.form.errors.errors = {};
                 this.form.fill(user);

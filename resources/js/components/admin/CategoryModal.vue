@@ -1,10 +1,10 @@
 <template>
     <modal dataName="Category">
-        <div class="card-title" slot="name">
+        <template class="card-title" slot="name">
             <span class="lead">{{ category.name }}</span>
             <span class="small float-right">Parent:{{category.parent}}</span>
-        </div>
-        <div slot="body">
+        </template>
+        <template slot="body">
             <p class="lead">Posts Under {{category.name}}</p>
             <table class="table table-striped table-hover mb-4">
                 <thead>
@@ -20,16 +20,17 @@
                         <td>{{post.id}}</td>
                         <td>{{post.name}}</td>
                         <td>{{post.price | addNairaSign}}</td>
-                        <td>{{post.user.name}}</td>
+                        <td>{{post.store.name}}</td>
                     </tr>
                 </tbody>
             </table>
-        </div>
+        </template>
     </modal>
 </template>
 
 <script>
     import Modal from "../Modal.vue"
+
     export default {
         name:"CategoryModal",
         props:{

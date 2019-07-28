@@ -12,6 +12,14 @@ const state = {
         update:"/api/users/",
         delete:"/api/users/"
     },
+    stores:{
+        index:"/api/stores",
+        paginate:"/api/stores/paginate?page=",
+        store:"/api/stores/",
+        show:"/api/stores/",
+        update:"/api/stores/",
+        delete:"/api/stores/"
+    },
     posts:{
         index:"/api/posts",
         paginate:"/api/posts/paginate?page=",
@@ -33,6 +41,7 @@ const state = {
 const getters = {
     authRoutes: state => state.auth,
     usersRoutes: state => state.users,
+    storesRoutes: state => state.stores,
     postsRoutes: state => state.posts,
     categoriesRoutes: state => state.categories,
 };

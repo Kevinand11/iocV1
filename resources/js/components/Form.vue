@@ -9,7 +9,7 @@
                     <span> {{dataName}}</span>
                 </h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
+                    <span aria-hidden="true">&times;</span>
                 </button>
             </div>
             <form @submit.prevent="submit">
@@ -17,10 +17,10 @@
                     <slot name="inputFields"></slot>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary" :disabled="isDisabled">
-                        <span v-if="!isDisabled && mode=='create'">Create</span>
-                        <span v-if="!isDisabled && mode=='edit'">Update</span>
+                        <span v-if="!isDisabled && mode==='create'">Create</span>
+                        <span v-if="!isDisabled && mode==='edit'">Update</span>
                         <i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
                     </button>
                 </div>
