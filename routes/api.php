@@ -13,10 +13,10 @@ Route::get('categories/paginate', "API\CategoriesController@paginate");
 Route::get('stores/paginate', "API\StoresController@paginate");
 Route::get('pictures/paginate', "API\PicturesController@paginate");
 
-Route::get('users/profile',"API\UsersController@profile");
-Route::post('users/login',"API\UsersController@login");
-Route::post('users/register',"API\UsersController@register");
-Route::post('users/logout',"API\UsersController@logout");
+Route::get('auth/profile',"API\AuthController@profile");
+Route::post('auth/login',"API\AuthController@login");
+Route::post('auth/register',"API\AuthController@register");
+Route::post('auth/logout',"API\AuthController@logout");
 
 Route::apiResources([
     'categories' => "API\CategoriesController",

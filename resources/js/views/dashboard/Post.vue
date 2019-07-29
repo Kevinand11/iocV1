@@ -7,11 +7,9 @@
             </v-flex>
         </v-layout>
         <v-container v-if="!fetching">
-            <v-layout row wrap>
+            <v-layout row wrap v-if='anyPictures'>
                 <v-carousel>
-                    <v-carousel-item :src="img.filename" :key="img.id"
-                        v-for="img in post.pictures"
-                    ></v-carousel-item>
+                    <v-carousel-item v-for="img in post.pictures" :src="img.filename" :key="img.id"></v-carousel-item>
                 </v-carousel>
             </v-layout>
             <v-layout row wrap mt-2>
@@ -23,9 +21,9 @@
 
             <p>{{post.description}}</p><hr>
             <p>Only for {{ post.price | addNairaSign}}</p><hr>
-            <p>Posted from {{post.store.name}} ({{post.store.user.name}}) on {{post.created_at | myDate}}</p>
-            <p>Contact them at <a :href="'mailto:'+post.store.phone">{{post.store.phone}}</a> or <a :href="'mailto:'+post.store.email">{{post.store.email}}</a></p>
-            <p>Last updated on {{post.updated_at|myDate}}</p>
+            <p>Posted from {{ post.store.name }} ({{ post.store.user.name }}) on {{ post.created_at | myDate }}</p>
+            <p>Contact them at <a :href="'mailto:'+post.store.phone">{{ post.store.phone }}</a> or <a :href="'mailto:'+post.store.email">{{ post.store.email }}</a></p>
+            <p>Last updated on {{ post.updated_at|myDate }}</p>
             <v-layout row wrap v-if="isMyPost">
                 <v-btn small icon>
                     <v-icon color="warning" @click="editModal">fas fa-pen</v-icon>
@@ -35,7 +33,7 @@
                     <v-icon color="error">fas fa-trash</v-icon>
                 </V-btn>
             </v-layout>
-            <post-form mode="edit" :form="this.form" :isSubmitted="false" />
+            <!-- <post-form mode="edit" :form="this.form" :isSubmitted="false" />-->
         </v-container>
     </v-container>
 </template>
@@ -65,6 +63,7 @@
         computed: {
             ...mapGetters(["getAuth","getPreviousNonAuthRoute","postsRoutes"]),
             fetching(){ return this.fetch },
+            anyPictures(){ return !_.isEmpty(this.post.pictures) },
             isMyPost(){ return this.getAuth.id == this.post.store.user.id }
         },
         methods: {
@@ -74,6 +73,10 @@
                     this.fetch = false
                     this.post = response.data.data
                 }).catch(error=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch post details'
+                    });
                 })
             },
             goBack(){

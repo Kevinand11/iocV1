@@ -57,16 +57,6 @@ class CategoriesController extends Controller
 
     public function destroy(Category $category)
     {
-        foreach ($category->posts as $post) {
-            $post->delete();
-        }
-        foreach ($category->subs as $sub) {
-            foreach ($sub->posts as $post) {
-                $post->delete();
-            }
-            $sub->delete();
-        }
-
         if($category->delete()){
             return response()->json(['success' => 'true']);
         }

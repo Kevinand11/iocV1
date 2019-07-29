@@ -3,20 +3,17 @@ window._ = require("lodash");
 window.Popper = require('popper.js').default;
 
 require("bootstrap");
-require("admin-lte");
 
 import Vue from "vue";
 import _ from "@fortawesome/fontawesome-free";
 import Moment from "moment";
-import {Form,HasError,AlertError} from "vform";
+import {Form,HasError} from "vform";
 import VueProgressBar from "vue-progressbar";
 import Spinner from "vue-simple-spinner"
 import swal from 'sweetalert2'
-import VuexStore from "./store/index";
 import Pagination from 'laravel-vue-pagination'
 
 Vue.component(HasError.name,HasError);
-Vue.component(AlertError.name,AlertError);
 Vue.component(Spinner.name,Spinner);
 Vue.component("pagination",Pagination);
 

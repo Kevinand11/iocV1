@@ -1,0 +1,1 @@
+Write gates/policices to protect backend from deletion or update of a store or post by a non-owner or admin

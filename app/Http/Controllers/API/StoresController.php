@@ -43,7 +43,7 @@ class StoresController extends Controller
         if($request->image){
             $name = time().'.'.explode('/',explode(':',substr($request->image,0,
                     strpos($request->image,';')))[1])[1];
-            $filename = public_path('img\\stores\\').$name;
+            $filename = public_path('img/stores/').$name;
             Image::make($request->image)->save($filename);
             Picture::create([
                 'imageable_id' => $store->id,
@@ -75,8 +75,8 @@ class StoresController extends Controller
         $store->update($request->only(['name','description','email','phone','link','updated_at']));
         if($request->image){
             $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img\\stores\\').$name;
+                        strpos($request->image,';')))[1])[1];
+            $filename = public_path('img/stores/').$name;
             Image::make($request->image)->save($filename);
             if($store->picture){
                 $store->picture->update(['filename' => 'img/stores/'.$name]);
@@ -93,10 +93,6 @@ class StoresController extends Controller
 
     public function destroy(Store $store)
     {
-        foreach ($store->posts as $post) {
-            $post->delete();
-        }
-
         if($store->delete()){
             return response()->json(['success' => 'true']);
         }
