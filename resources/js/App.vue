@@ -40,6 +40,7 @@ export default {
     getCookieToken() {
       if (this.$cookies.isKey("oauth") && this.$cookies.isKey("user")) {
         this.setToken(this.$cookies.get("oauth"));
+        window.axios.defaults.headers.common['Authorization'] = "Bearer " + this.$cookies.get("oauth");
         this.setAuth(this.$cookies.get("user"));
         axios.get(this.authRoutes.profile).then(response=>{
             this.setAuth(response.data.data);

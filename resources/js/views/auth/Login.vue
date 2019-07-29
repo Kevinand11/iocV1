@@ -134,6 +134,7 @@
                 this.$Progress.start();
                 this.form.post(this.authRoutes.login).then(response=>{
                     this.setToken(response.data.data);
+                    window.axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.data;
                     axios.get(this.authRoutes.profile).then(response=>{
                         this.setAuth(response.data.data);
                         this.$Progress.finish();

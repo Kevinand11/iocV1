@@ -21,7 +21,7 @@ class AuthController extends Controller
     public function profile(): UsersResource
     {
         $user = auth('api')->user();
-        return  new UsersResource($user);
+        return new UsersResource($user);
     }
 
     public function login(Request $request)
