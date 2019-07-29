@@ -19,6 +19,7 @@ class PicturesResource extends JsonResource
             'filename' => $this->filename,
             'imageable_type' => $this->imageable_type,
             'imageable_id' => $this->imageable_id,
+            'imageable' => $this->imageable,
         ];
     }
 }

@@ -16,7 +16,7 @@ class UsersController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api')->only(['store','update','destroy']);
+        $this->middleware('auth:api')->only(['store','update','destroy']);
     }
 
     public function index(): AnonymousResourceCollection
@@ -29,54 +29,6 @@ class UsersController extends Controller
     {
         $users = User::latest()->with('store.posts.category', 'picture')->paginate(10);
         return UsersResource::collection($users);
-    }
-
-    public function login(Request $request)
-    {
-        $this->validate($request, [
-            'email' => 'required|string|email',
-            'password' => 'required|string',
-        ]);
-        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
-            $user = Auth::user();
-            //$user->merge(['apiToken' => $user->createToken('Auth Token')->accessToken]);
-            return new UsersResource($user);
-        }
-        return response()->json(['password' => trans('auth.failed')],422);
-    }
-
-    public function register(Request $request): UsersResource
-    {
-        $this->validate($request,[
-            'name' => 'required|string|min:3',
-            'email' => 'required|email|unique:users',
-            'phone' => 'required',
-            'password' => 'required|min:6|string|confirmed'
-        ]);
-        $request->merge([
-            'password' => Hash::make($request['password']),
-            'role' => $request['role'] ?: 'user'
-        ]);
-        $user = User::create($request->only(['name','email','password','phone','role']));
-        if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img\\users\\').$name;
-            Image::make($request->image)->save($filename);
-            Picture::create([
-                'imageable_id' => $user->id,
-                'imageable_type' => 'App\User',
-                'filename' => 'img/users/'.$name
-            ]);
-        }
-        Auth::login($user);
-        //$user->merge(['apiToken' => $user->createToken('Auth Token')->accessToken]);
-        return new UsersResource($user);
-    }
-
-    public function logout(){
-        Auth::logout();
-        return response()->json(['success' => 'true']);
     }
 
     public function store(Request $request): UsersResource
@@ -103,6 +55,7 @@ class UsersController extends Controller
                 'filename' => 'img/users/'.$name
             ]);
         }
+        $user->merge(['apiToken' => $user->createToken('Auth Token')->accessToken]);
         return new UsersResource($user);
     }
 
@@ -159,5 +112,57 @@ class UsersController extends Controller
             return response()->json(['success' => 'true']);
         }
         return response()->json(['error' => 'false']);
+    }
+
+    public function login(Request $request)
+    {
+        $this->validate($request, [
+            'email' => 'required|string|email',
+            'password' => 'required|string',
+        ]);
+        if(Auth::attempt(['email' => request('email'), 'password' => request('password')])){
+            return response()->json(['data' => Auth::user()->createToken('Auth Token')->accessToken ]);
+        }
+        return response()->json(['password' => trans('auth.failed')],422);
+    }
+
+    public function register(Request $request)
+    {
+        $this->validate($request,[
+            'name' => 'required|string|min:3',
+            'email' => 'required|email|unique:users',
+            'phone' => 'required',
+            'password' => 'required|min:6|string|confirmed'
+        ]);
+        $request->merge([
+            'password' => Hash::make($request['password']),
+            'role' => $request['role'] ?: 'user'
+        ]);
+        $user = User::create($request->only(['name','email','password','phone','role']));
+        if($request->image){
+            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
+                    strpos($request->image,';')))[1])[1];
+            $filename = public_path('img\\users\\').$name;
+            Image::make($request->image)->save($filename);
+            Picture::create([
+                'imageable_id' => $user->id,
+                'imageable_type' => 'App\User',
+                'filename' => 'img/users/'.$name
+            ]);
+        }
+        Auth::login($user);
+        return response()->json(['data' => $user->createToken('Auth Token')->accessToken ]);
+    }
+
+    public function logout()
+    {
+        Auth::logout();
+        return response()->json(['success' => 'true']);
+    }
+
+    public function profile()
+    {
+        $user = auth('api')->user();
+        return  $user ? new UsersResource($user) : response()->json(['error' => 'Unauthorized'],422);
     }
 }

@@ -38,7 +38,6 @@
                     posts: [],
                     picture: {},
                     user: {},
-                    user_id: null,
                 },
                 form: new Form({
                     id : null,
@@ -48,7 +47,6 @@
                     phone: '',
                     description: '',
                     picture: '',
-                    user_id: null,
                 }),
                 submitted: false,
                 editmode:false,

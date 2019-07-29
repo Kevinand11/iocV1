@@ -12,49 +12,49 @@ class PicturesController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api')->only(['store','update','destroy']);
+        $this->middleware('auth:api')->only(['store','update','destroy']);
     }
 
     public function index(): AnonymousResourceCollection
     {
-        $pictures = Picture::latest()->get();
+        $pictures = Picture::latest()->with('imageable')->get();
         return PicturesResource::collection($pictures);
     }
 
     public function paginate(): AnonymousResourceCollection
     {
-        $pictures = Picture::latest()->paginate(10);
+        $pictures = Picture::latest()->with('imageable')->paginate(10);
         return PicturesResource::collection($pictures);
     }
 
     public function store(Request $request): PicturesResource
     {
         $this->validate($request,[
-            'file_name' => 'required|string',
+            'filename' => 'required|string',
             'imageable_type' => 'required|string',
             'imageable_id' => 'required|numeric',
         ]);
-        $picture = Picture::create($request->all());
+        $picture = Picture::create($request->only(['filename', 'imageable_type', 'imageable_id']));
         return new PicturesResource($picture);
     }
 
     public function show(Picture $picture): PicturesResource
     {
-        $picture = Picture::where('id',$picture->id)->first();
+        $picture = Picture::where('id',$picture->id)->with('imageable')->first();
         return new PicturesResource($picture);
     }
 
     public function update(Request $request, Picture $picture): PicturesResource
     {
         $this->validate($request,[
-            'file_name' => 'required|string',
+            'filename' => 'required|string',
             'imageable_type' => 'required|string',
             'imageable_id' => 'required|numeric',
         ]);
         $request->merge([
             'updated_at' => now(),
         ]);
-        $picture->update($request->all());
+        $picture->update($request->only(['filename', 'imageable_type', 'imageable_id', 'updated_at']));
         return new PicturesResource($picture);
     }
 

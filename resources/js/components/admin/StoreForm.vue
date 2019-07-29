@@ -59,7 +59,7 @@
 <script>
     import { mapGetters } from "vuex"
     import VuePhoneNumberInput from 'vue-phone-number-input'
-    import FormEx from "../Form.vue"
+    import FormEx from "./extensions/Form.vue"
 
     export default {
         name:"StoreForm",
@@ -93,8 +93,7 @@
             createStore(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.user_id = this.getAuth.id;
-                this.form.post(this.storesRoutes.store).then((response)=>{
+                this.form.post(this.storesRoutes.store).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -103,16 +102,20 @@
                         title: 'Store created successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error creating store'
+                    });
                 })
             },
             updateStore(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch(this.storesRoutes.update+id).then((response)=>{
+                this.form.patch(this.storesRoutes.update+id).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -121,10 +124,14 @@
                         title: 'Store updated successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error updating store'
+                    });
                 })
             },
             setPicture(e){
@@ -140,7 +147,7 @@
                         })
                         return false;
                     }
-                    reader.onloadend = (file) => {
+                    reader.onloadend = () => {
                         this.form.image = reader.result;
                         $('#profile').attr('src',reader.result);
                     };

@@ -1,11 +1,15 @@
 const state = {
     auth: {id:null,name:"",email:"",password:"",role:"",store:null,picture:null},
-    token:""
+    token:"",
+    loggedIn: false,
+    admin: false,
 };
 
 const getters = {
     getAuth: state => state.auth,
-    getToken: state => state.token
+    getToken: state => state.token,
+    isLoggedIn: state => state.auth.name !== '',
+    isAdmin: state => state.auth.role === 'admin',
 };
 
 const actions = {
@@ -33,6 +37,7 @@ const mutations = {
     },
     clearAuth: (state) => {
         state.auth = {id:null,name:"",email:"",password:"",role:"",store:null,picture:null};
+        state.token = '';
     }
 };
 

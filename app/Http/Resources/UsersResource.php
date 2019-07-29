@@ -23,7 +23,6 @@ class UsersResource extends JsonResource
             'phone' => $this->phone,
             'store' => $this->store,
             'picture' => $this->picture,
-            'token' => $this->apiToken ?: '',
             'created_at' => $this->created_at,
             'updated_at' => $this->updated_at,
         ];

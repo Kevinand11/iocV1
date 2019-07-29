@@ -16,9 +16,9 @@
 </template>
 
 <script>
-import Toolbar from "./components/Toolbar";
-import Sidebar from "./components/Sidebar";
-import Footer from "./components/Footer";
+import Toolbar from "./components/app/Toolbar";
+import Sidebar from "./components/app/Sidebar";
+import Footer from "./components/app/Footer";
 import { mapGetters,mapActions } from "vuex";
 
 export default {
@@ -32,15 +32,24 @@ export default {
     this.getCookieToken();
   },
   computed: {
-    ...mapGetters(["getAuth"]),
+    ...mapGetters(["getAuth","authRoutes"]),
     isLoggedIn(){ return this.getAuth.name !== "" }
   },
   methods: {
-    ...mapActions(["setAuth", "setToken"]),
+    ...mapActions(["setAuth", "setToken","logout"]),
     getCookieToken() {
       if (this.$cookies.isKey("oauth") && this.$cookies.isKey("user")) {
         this.setToken(this.$cookies.get("oauth"));
         this.setAuth(this.$cookies.get("user"));
+        axios.get(this.authRoutes.profile).then(response=>{
+            this.setAuth(response.data.data);
+        }).catch(()=>{
+            new toast({
+                type : 'error',
+                title: 'Failed to login automatically'
+            });
+            this.logout();
+        });
       }
     },
     cartFab(){

@@ -6,11 +6,11 @@
             </v-flex>
         </v-layout>
         <v-layout row wrap v-if="!fetching">
-            <v-flex xs6 v-for="post in posts.data" :key="post.id">
+            <v-flex xs12 sm6 md3 v-for="post in posts.data" :key="post.id" class="pa-1">
                <v-card  @click="viewPost(post)">
-                    <v-img src="../../img/logo.png" height="100%"></v-img>
+                    <v-img src="../../img/logo.png" height="100px" width="100px"></v-img>
                     <v-card-text primary-title>
-                        <span class="lead">{{ post.name }}</span>
+                        <span>{{ post.name }}</span>
                         <v-spacer></v-spacer>
                         <span>{{post.price | addNairaSign}}</span>
                     </v-card-text>
@@ -61,7 +61,11 @@
                 .then((response)=>{
                     this.fetch = false
                     this.posts = response.data;
-                }).catch(error=>{
+                }).catch(()=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch data'
+                    });
                     this.fetch = false
                 })
             },

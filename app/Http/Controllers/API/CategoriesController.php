@@ -13,7 +13,7 @@ class CategoriesController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api')->except(['index', 'paginate', 'show']);
+        $this->middleware('auth:api')->except(['index', 'paginate', 'show']);
     }
 
     public function index(): AnonymousResourceCollection
@@ -34,7 +34,7 @@ class CategoriesController extends Controller
             'name' => 'required|string|min:3|unique:categories',
             'parent_id' => 'numeric|required'
         ]);
-        $category = Category::create($request->all());
+        $category = Category::create($request->only(['name', 'parent_id']));
         return new CategoriesResource($category);
     }
 
@@ -51,7 +51,7 @@ class CategoriesController extends Controller
             'parent_id' => 'numeric|required'
         ]);
         $request->merge([ 'updated_at' => now() ]);
-        $category->update($request->all());
+        $category->update($request->only(['name', 'parent_id', 'updated_at']));
         return new CategoriesResource($category);
     }
 

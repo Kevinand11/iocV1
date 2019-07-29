@@ -69,7 +69,7 @@
 <script>
     import { mapGetters } from "vuex"
     import VuePhoneNumberInput from 'vue-phone-number-input'
-    import FormEx from "../Form.vue"
+    import FormEx from "./extensions/Form.vue"
 
     export default {
         name:"UserForm",
@@ -103,7 +103,7 @@
             createUser(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post(this.usersRoutes.store).then((response)=>{
+                this.form.post(this.usersRoutes.store).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -112,16 +112,20 @@
                         title: 'User created successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error creating user'
+                    });
                 })
             },
             updateUser(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch(this.usersRoutes.update+id).then((response)=>{
+                this.form.patch(this.usersRoutes.update+id).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -130,10 +134,14 @@
                         title: 'User updated successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error updating user'
+                    });
                 })
             },
             setPicture(e){
@@ -146,7 +154,7 @@
                             type: 'error',
                             title: 'Oops...',
                             text: 'File shouldnt be more than 2MB',
-                        })
+                        });
                         return false;
                     }
                     reader.onloadend = (file) => {

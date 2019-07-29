@@ -54,7 +54,7 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import TableEx from "../Table.vue"
+    import TableEx from "./extensions/Table.vue"
 
     export default {
         name:"PostTable",
@@ -89,7 +89,11 @@
                 .then((response)=>{
                     this.fetch = false;
                     this.posts = response.data;
-                }).catch(error=>{
+                }).catch(()=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch data'
+                    });
                     this.fetch = false;
                 })
             },

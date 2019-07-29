@@ -32,7 +32,7 @@
                                     <has-error :form="form" field="email"></has-error>
                                 </div>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                 <div class="col-md-6">
                                     <phone-input v-model="form.phone" name="phone" default-country-code="NG" autocomplete="phone"
@@ -110,16 +110,21 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.register).then(response=>{
-                    this.setAuth(response.data.data);
-                    this.setToken(response.data.data.token);
-                    this.$Progress.finish();
-                    this.disabled = false;
-                    this.$router.push(this.getIntended);
-                    this.clearIntended();
-                }).catch(error=>{
+                    this.setToken(response.data.data);
+                    axios.get(this.authRoutes.profile).then(response=>{
+                        this.setAuth(response.data.data);
+                        this.$Progress.finish();
+                        this.disabled = false;
+                        this.$router.push(this.getIntended);
+                        this.clearIntended();
+                    }).catch(()=>{
+                        this.$Progress.fail();
+                        this.disabled = false;
+                    });
+                }).catch(()=>{
                     this.$Progress.fail();
                     this.disabled = false;
-                })
+                });
             },
             setPicture(e){
                 let file = e.target.files[0];

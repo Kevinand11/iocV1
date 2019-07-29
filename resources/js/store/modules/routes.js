@@ -2,7 +2,8 @@ const state = {
     auth:{
         login:"/api/users/login",
         register:"/api/users/register",
-        logout:"/api/users/logout"
+        logout:"/api/users/logout",
+        profile: '/api/users/profile'
     },
     users:{
         index:"/api/users",

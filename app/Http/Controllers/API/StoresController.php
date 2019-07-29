@@ -14,7 +14,7 @@ class StoresController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api')->only(['store','update','destroy']);
+        $this->middleware('auth:api')->only(['store','update','destroy']);
     }
 
     public function index(): AnonymousResourceCollection
@@ -37,8 +37,8 @@ class StoresController extends Controller
             'email' => 'required|email|unique:stores',
             'phone' => 'required',
             'link' => 'string',
-            'user_id' => 'required|numeric',
         ]);
+        $request->merge(['user_id' => auth('api')->user()->id ?: 0 ]);
         $store = Store::create($request->only(['name','description','email','phone','link','user_id']));
         if($request->image){
             $name = time().'.'.explode('/',explode(':',substr($request->image,0,

@@ -48,7 +48,7 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import FormEx from "../Form.vue"
+    import FormEx from "./extensions/Form.vue"
 
     export default {
         name:"PostForm",
@@ -94,15 +94,18 @@
                 axios.get(url).then((response)=>{
                     this.fetch = false;
                     this.categories = response.data.data;
-                }).catch(error=>{
+                }).catch(()=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch data'
+                    });
                     this.fetch = false;
                 })
             },
             createPost(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.store_id = this.getAuth.store.id;
-                this.form.post(this.postsRoutes.store).then((response)=>{
+                this.form.post(this.postsRoutes.store).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -111,16 +114,20 @@
                         title: 'Post created successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error creating post'
+                    });
                 })
             },
             updatePost(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch(this.postsRoutes.update+id).then((response)=>{
+                this.form.patch(this.postsRoutes.update+id).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -129,10 +136,14 @@
                         title: 'Post updated successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error updating post'
+                    });
                 })
             },
         }

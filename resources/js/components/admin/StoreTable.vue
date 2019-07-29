@@ -52,7 +52,7 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import TableEx from "../Table.vue"
+    import TableEx from "./extensions/Table.vue"
 
     export default {
         name:"StoreTable",
@@ -87,7 +87,11 @@
                     .then((response)=>{
                         this.fetch = false;
                         this.stores = response.data;
-                    }).catch(error=>{
+                    }).catch(()=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch data'
+                    });
                     this.fetch = false;
                 })
             },

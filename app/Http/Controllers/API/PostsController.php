@@ -14,7 +14,7 @@ class PostsController extends Controller
 {
     public function __construct()
     {
-        //$this->middleware('auth:api')->except(['index', 'paginate', 'show']);
+        $this->middleware('auth:api')->except(['index', 'paginate', 'show']);
     }
 
     public function index(): AnonymousResourceCollection
@@ -36,8 +36,8 @@ class PostsController extends Controller
             'description' => 'string',
             'price' => 'required|numeric',
             'category_id' => 'required|numeric',
-            'store_id' => 'required|numeric',
         ]);
+        $request->merge(['store_id' => auth('api')->user()->store->id ?: 0 ]);
         $post =  Post::create($request->only(['name','description','category_id','price','store_id']));
         return new PostsResource($post);
     }

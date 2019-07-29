@@ -133,16 +133,21 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.login).then(response=>{
-                    this.setAuth(response.data.data);
-                    this.setToken(response.data.data.token);
-                    this.$Progress.finish();
-                    this.disabled = false;
-                    this.$router.push(this.getIntended);
-                    this.clearIntended();
-                }).catch(error=>{
+                    this.setToken(response.data.data);
+                    axios.get(this.authRoutes.profile).then(response=>{
+                        this.setAuth(response.data.data);
+                        this.$Progress.finish();
+                        this.disabled = false;
+                        this.$router.push(this.getIntended);
+                        this.clearIntended();
+                    }).catch(()=>{
+                        this.$Progress.fail();
+                        this.disabled = false;
+                    });
+                }).catch(()=>{
                     this.$Progress.fail();
                     this.disabled = false;
-                })
+                });
             }, 
             hasErrors(field){
                 return this.form.errors.has(field)

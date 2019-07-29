@@ -89,7 +89,7 @@
                 $('#form').modal('show');
             },
             deleteUser(id){      
-                this.form.delete(this.usersRoutes.delete +id).then((response)=>{
+                this.form.delete(this.usersRoutes.delete +id).then(()=>{
                     new swal('Deleted!','User deleted.','success');
                     Fire.$emit('Reload');
                 }).catch(()=> {

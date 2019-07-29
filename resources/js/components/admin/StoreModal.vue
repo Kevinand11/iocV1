@@ -34,7 +34,7 @@
 </template>
 
 <script>
-    import Modal from "../Modal.vue"
+    import Modal from "./extensions/Modal.vue"
 
     export default {
         name:"StoreModal",

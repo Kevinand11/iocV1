@@ -33,7 +33,7 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import FormEx from "../Form.vue"
+    import FormEx from "./extensions/Form.vue"
 
     export default {
         name:"CategoryForm",
@@ -80,13 +80,17 @@
                     this.fetch = false;
                     this.categories = response.data.data;
                 }).catch(error=>{
+                    new toast({
+                        type: 'error',
+                        title: 'Unable to fetch data'
+                    });
                     this.fetch = false;
                 })
             },
             createCategory(){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.post(this.categoriesRoutes.store).then((response)=>{
+                this.form.post(this.categoriesRoutes.store).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -95,16 +99,20 @@
                         title: 'Category created successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error creating category'
+                    });
                 })
             },
             updateCategory(id){
                 this.submitted = true;
                 this.$Progress.start();
-                this.form.patch(this.categoriesRoutes.update+id).then((response)=>{
+                this.form.patch(this.categoriesRoutes.update+id).then(()=>{
                     Fire.$emit('Reload');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
@@ -113,10 +121,14 @@
                         title: 'Category updated successfully'
                     });
                     this.$Progress.finish();
-                }).catch((error)=>{
+                }).catch(()=>{
                     Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
+                    new toast({
+                        type: 'error',
+                        title: 'Error updating category'
+                    });
                 })
             },
         }
