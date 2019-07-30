@@ -4,9 +4,7 @@ namespace App\Http\Controllers\API;
 
 use App\Post;
 use App\Http\Resources\PostsResource;
-use App\Http\Resources\PostsCollection;
 use App\Http\Controllers\Controller;
-use function GuzzleHttp\Promise\all;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -57,12 +55,14 @@ class PostsController extends Controller
             'price' => 'required|numeric'
         ]);
         $request->merge([ 'updated_at' => now() ]);
+        $this->authorize('canEditPost', $post);
         $post->update($request->only(['name','description','category_id','price','updated_at']));
         return new PostsResource($post);
     }
 
     public function destroy(Post $post)
     {
+        $this->authorize('canEditPost', $post);
         if($post->delete()){
             return response()->json(['success' => 'true']);
         }

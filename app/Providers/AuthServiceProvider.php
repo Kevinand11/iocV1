@@ -26,5 +26,9 @@ class AuthServiceProvider extends ServiceProvider
     {
         $this->registerPolicies();
         Passport::routes();
+        Gate::define('canEditUser','App\Policies\EditPolicy@canEditUser');
+        Gate::define('canEditStore','App\Policies\EditPolicy@canEditStore');
+        Gate::define('canEditPost','App\Policies\EditPolicy@canEditPost');
+        Gate::define('canEditCategory','App\Policies\EditPolicy@canEditCategory');
     }
 }

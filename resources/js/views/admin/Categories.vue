@@ -4,9 +4,7 @@
             <div class="col-md-12">
                 <div class="card-header my-3">
                     <span class="card-title">Categories Table</span>
-                    <span class="card-tools">
-                        <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-plus-square fa-fw"></i></button>
-                    </span>
+                    <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-plus-square fa-fw"></i></button>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <category-table />

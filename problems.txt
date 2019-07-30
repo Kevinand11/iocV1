@@ -1,1 +1,5 @@
-Write gates/policices to protect backend from deletion or update of a store or post by a non-owner or admin
+Fix the phone number issue for user and store models on the front end
+
+Also fix the picture factory to generate for all models on seeding
+
+Fix the remember me issue on login

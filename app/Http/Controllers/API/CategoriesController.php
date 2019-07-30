@@ -5,7 +5,6 @@ namespace App\Http\Controllers\API;
 use App\Category;
 use App\Http\Resources\CategoriesResource;
 use App\Http\Controllers\Controller;
-use http\Env\Response;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 
@@ -51,12 +50,14 @@ class CategoriesController extends Controller
             'parent_id' => 'numeric|required'
         ]);
         $request->merge([ 'updated_at' => now() ]);
+        $this->authorize('canEditCategory');
         $category->update($request->only(['name', 'parent_id', 'updated_at']));
         return new CategoriesResource($category);
     }
 
     public function destroy(Category $category)
     {
+        $this->authorize('canEditCategory');
         if($category->delete()){
             return response()->json(['success' => 'true']);
         }

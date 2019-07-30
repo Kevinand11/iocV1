@@ -72,6 +72,7 @@ class StoresController extends Controller
         $request->merge([
             'updated_at' => now(),
         ]);
+        $this->authorize('canEditStore', $store);
         $store->update($request->only(['name','description','email','phone','link','updated_at']));
         if($request->image){
             $name = time().'.'.explode('/',explode(':',substr($request->image,0,
@@ -93,6 +94,7 @@ class StoresController extends Controller
 
     public function destroy(Store $store)
     {
+        $this->authorize('canEditStore', $store);
         if($store->delete()){
             return response()->json(['success' => 'true']);
         }

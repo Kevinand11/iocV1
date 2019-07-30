@@ -75,6 +75,7 @@ class UsersController extends Controller
             'role' => $request['role'] ?: $user->role,
             'updated_at' => now()
         ]);
+        $this->authorize('canEditUser', $user);
         $user->update($request->only(['name','email','phone','role','updated_at']));
         if($request->password){
             $user->update(['password' => Hash::make($request['password'])]);
@@ -99,6 +100,7 @@ class UsersController extends Controller
 
     public function destroy(User $user)
     {
+        $this->authorize('canEditUser', $user);
         if($user->delete()){
             return response()->json(['success' => 'true']);
         }

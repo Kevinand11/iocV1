@@ -6,17 +6,18 @@ use App\User;
 
 class UserObserver
 {
-    public function created(User $user)
+    public function created(User $user): void
+    {
+        $user->passportToken = $user->createToken('Auth Token')->accessToken;
+        $user->save();
+    }
+
+    public function updated(User $user): void
     {
         //
     }
 
-    public function updated(User $user)
-    {
-        //
-    }
-
-    public function deleting(User $user)
+    public function deleting(User $user): void
     {
         if($user->store) {
             $user->store->delete();
@@ -27,12 +28,12 @@ class UserObserver
         }
     }
 
-    public function restored(User $user)
+    public function restored(User $user): void
     {
         //
     }
 
-    public function forceDeleted(User $user)
+    public function forceDeleted(User $user): void
     {
         //
     }
