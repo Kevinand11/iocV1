@@ -112,7 +112,7 @@
                 form: new Form({
                     email: '',
                     password: '',
-                    remember:false,
+                    remember:true,
                     _token:this.csrf,
                 }),
                 submitted:false,
@@ -133,10 +133,9 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.login).then(response=>{
-                    this.setToken(response.data.data);
-                    window.axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.data;
+                    this.setToken({token:response.data.data,remember:this.form.remember});
                     axios.get(this.authRoutes.profile).then(response=>{
-                        this.setAuth(response.data.data);
+                        this.setAuth({user:response.data.data,remember:this.form.remember});
                         this.$Progress.finish();
                         this.disabled = false;
                         this.$router.push(this.getIntended);
@@ -149,7 +148,7 @@
                     this.$Progress.fail();
                     this.disabled = false;
                 });
-            }, 
+            },
             hasErrors(field){
                 return this.form.errors.has(field)
             }

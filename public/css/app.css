@@ -2642,11 +2642,13 @@
 .router-link-exact-active {
   background-color: #027;
   color: #fff;
+  border-radius: 10px;
 }
 
 .v-list__tile--active {
   background-color: #027;
   color: #fff;
+  border-radius: 10px;
 }
 
 .v-btn--active {

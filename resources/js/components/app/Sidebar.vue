@@ -1,5 +1,5 @@
 <template>
-    <v-navigation-drawer v-model="drawer" app temporary dark class="light-blue darken-4" width="200">
+    <v-navigation-drawer v-model="drawer" app temporary dark class="light-blue darken-4 pa-2" width="200">
         <v-list class="pa-1">
             <v-list-tile avatar>
                 <v-list-tile-avatar>
@@ -53,7 +53,7 @@
                 <v-list-tile-content>
                     <v-list-tile-title>{{auth.name}}</v-list-tile-title>
                 </v-list-tile-content>
-            </v-list-tile> 
+            </v-list-tile>
         </v-list>
     </v-navigation-drawer>
 </template>

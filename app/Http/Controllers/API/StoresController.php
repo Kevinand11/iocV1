@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\API;
 
+use App\Events\NewImageUploadedEvent;
 use App\Http\Resources\StoresResource;
 use App\Picture;
 use App\Store;
@@ -40,17 +41,15 @@ class StoresController extends Controller
         ]);
         $request->merge(['user_id' => auth('api')->user()->id ?: 0 ]);
         $store = Store::create($request->only(['name','description','email','phone','link','user_id']));
-        if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img/stores/').$name;
-            Image::make($request->image)->save($filename);
-            Picture::create([
-                'imageable_id' => $store->id,
-                'imageable_type' => 'App\Store',
-                'filename' => 'img/stores/'.$name
-            ]);
-        }
+		if($request->image){
+			$params = [
+				'image' => $request->image,
+				'object' => $store,
+				'path' => 'img/stores/',
+				'type' => 'App\Store',
+			];
+			event(new NewImageUploadedEvent($params));
+		}
         return new StoresResource($store);
     }
 
@@ -74,21 +73,15 @@ class StoresController extends Controller
         ]);
         $this->authorize('canEditStore', $store);
         $store->update($request->only(['name','description','email','phone','link','updated_at']));
-        if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                        strpos($request->image,';')))[1])[1];
-            $filename = public_path('img/stores/').$name;
-            Image::make($request->image)->save($filename);
-            if($store->picture){
-                $store->picture->update(['filename' => 'img/stores/'.$name]);
-            }else{
-                Picture::create([
-                    'imageable_id' => $store->id,
-                    'imageable_type' => 'App\Store',
-                    'filename' => 'img/stores/'.$name
-                ]);
-            }
-        }
+		if($request->image){
+			$params = [
+				'image' => $request->image,
+				'object' => $store,
+				'path' => 'img/stores/',
+				'type' => 'App\Store',
+			];
+			event(new NewImageUploadedEvent($params));
+		}
         return new StoresResource($store);
     }
 

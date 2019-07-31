@@ -2,6 +2,8 @@
 
 namespace App\Observers;
 
+use App\Events\NewOrChangedEmailEvent;
+use App\Events\NewUserRegisteredEvent;
 use App\User;
 
 class UserObserver
@@ -10,11 +12,15 @@ class UserObserver
     {
         $user->passportToken = $user->createToken('Auth Token')->accessToken;
         $user->save();
+		event(new NewUserRegisteredEvent($user));
+		event(new NewOrChangedEmailEvent($user));
     }
 
     public function updated(User $user): void
     {
-        //
+		if($user->isDirty('email')){
+			event(new NewOrChangedEmailEvent($user));
+		}
     }
 
     public function deleting(User $user): void

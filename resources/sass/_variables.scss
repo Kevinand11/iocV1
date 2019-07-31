@@ -52,10 +52,12 @@ $active_text: #fff;
 .router-link-exact-active{
     background-color: $active;
     color: $active_text;
+    border-radius: 10px;
 }
 .v-list__tile--active{
     background-color: $active;
     color: $active_text;
+    border-radius: 10px;
 }
 .v-btn--active{
     background-color: $active;

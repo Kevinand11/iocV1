@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Picture;
+use App\Events\NewImageUploadedEvent;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UsersResource;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class UsersController extends Controller
 {
@@ -43,17 +42,15 @@ class UsersController extends Controller
             'role' => $request['role'] ?: 'user'
         ]);
         $user = User::create($request->only(['name','email','password','phone','role']));
-        if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img/users/').$name;
-            Image::make($request->image)->save($filename);
-            Picture::create([
-                'imageable_id' => $user->id,
-                'imageable_type' => 'App\User',
-                'filename' => 'img/users/'.$name
-            ]);
-        }
+		if($request->image){
+			$params = [
+				'image' => $request->image,
+				'object' => $user,
+				'path' => 'img/users/',
+				'type' => 'App\User',
+			];
+			event(new NewImageUploadedEvent($params));
+		}
         return new UsersResource($user);
     }
 
@@ -80,21 +77,15 @@ class UsersController extends Controller
         if($request->password){
             $user->update(['password' => Hash::make($request['password'])]);
         }
-        if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img/users/').$name;
-            Image::make($request->image)->save($filename);
-            if($user->picture){
-                $user->picture->update(['filename' => 'img/users/'.$name]);
-            }else{
-                Picture::create([
-                    'imageable_id' => $user->id,
-                    'imageable_type' => 'App\User',
-                    'filename' => 'img/users/'.$name
-                ]);
-            }
-        }
+		if($request->image){
+			$params = [
+				'image' => $request->image,
+				'object' => $user,
+				'path' => 'img/users/',
+				'type' => 'App\User',
+			];
+			event(new NewImageUploadedEvent($params));
+		}
         return new UsersResource($user);
     }
 

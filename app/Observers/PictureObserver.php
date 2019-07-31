@@ -6,12 +6,12 @@ use App\Picture;
 
 class PictureObserver
 {
-    public function created(Picture $picture)
+    public function created(Picture $picture): void
     {
         //
     }
 
-    public function updating(Picture $picture)
+    public function updating(Picture $picture): void
     {
         if($picture->isDirty('filename')){
             $filename = $picture->getOriginal('filename');
@@ -22,12 +22,12 @@ class PictureObserver
         }
     }
 
-    public function updated(Picture $picture)
+    public function updated(Picture $picture): void
     {
         //
     }
 
-    public function deleting(Picture $picture)
+    public function deleting(Picture $picture): void
     {
         $filename = $picture->filename;
         
@@ -36,12 +36,12 @@ class PictureObserver
         }
     }
 
-    public function restored(Picture $picture)
+    public function restored(Picture $picture): void
     {
         //
     }
     
-    public function forceDeleted(Picture $picture)
+    public function forceDeleted(Picture $picture): void
     {
         //
     }

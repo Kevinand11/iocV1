@@ -1,3 +1,3 @@
 Fix the phone number issue for user and store models on the front end
 
-Fix the remember me issue on login
+Consider moving login and register views to a modal. Note - Remember to try this out on another git branch

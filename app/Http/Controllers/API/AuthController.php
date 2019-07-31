@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\API;
 
-use App\Picture;
+use App\Events\NewImageUploadedEvent;
 use App\User;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\UsersResource;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Http\Request;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class AuthController extends Controller
 {
@@ -50,15 +49,13 @@ class AuthController extends Controller
         ]);
         $user = User::create($request->only(['name','email','password','phone','role']));
         if($request->image){
-            $name = time().'.'.explode('/',explode(':',substr($request->image,0,
-                    strpos($request->image,';')))[1])[1];
-            $filename = public_path('img/users/').$name;
-            Image::make($request->image)->save($filename);
-            Picture::create([
-                'imageable_id' => $user->id,
-                'imageable_type' => 'App\User',
-                'filename' => 'img/users/'.$name
-            ]);
+        	$params = [
+				'image' => $request->image,
+				'object' => $user,
+				'path' => 'img/users/',
+				'type' => 'App\User',
+			];
+        	event(new NewImageUploadedEvent($params));
         }
         auth()->login($user);
         return response()->json([ 'data' => $user->passportToken ]);

@@ -6,17 +6,17 @@ use App\Category;
 
 class CategoryObserver
 {
-    public function created(Category $category)
+    public function created(Category $category): void
     {
         //
     }
 
-    public function updated(Category $category)
+    public function updated(Category $category): void
     {
         //
     }
 
-    public function deleting(Category $category)
+    public function deleting(Category $category): void
     {
         foreach ($category->posts as $post) {
             $post->delete();
@@ -28,12 +28,12 @@ class CategoryObserver
 
     }
 
-    public function restored(Category $category)
+    public function restored(Category $category): void
     {
         //
     }
 
-    public function forceDeleted(Category $category)
+    public function forceDeleted(Category $category): void
     {
         //
     }

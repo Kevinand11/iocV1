@@ -110,10 +110,9 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.authRoutes.register).then(response=>{
-                    this.setToken(response.data.data);
-                    window.axios.defaults.headers.common['Authorization'] = "Bearer " + response.data.data;
+                    this.setToken({token:response.data.data,remember:true});
                     axios.get(this.authRoutes.profile).then(response=>{
-                        this.setAuth(response.data.data);
+                        this.setAuth({user:response.data.data,remember:true});
                         this.$Progress.finish();
                         this.disabled = false;
                         this.$router.push(this.getIntended);

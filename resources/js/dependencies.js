@@ -1,11 +1,11 @@
 window.$ = window.jQuery = require("jquery");
-window._ = require("lodash");
+window._ = window.lodash = require("lodash");
 window.Popper = require('popper.js').default;
 
 require("bootstrap");
+require("@fortawesome/fontawesome-free");
 
 import Vue from "vue";
-import _ from "@fortawesome/fontawesome-free";
 import Moment from "moment";
 import {Form,HasError} from "vform";
 import VueProgressBar from "vue-progressbar";
@@ -21,7 +21,7 @@ Vue.use(VueProgressBar,{
     color: "rgb(143,255,199)",
     failedColor: "red",
     height: "6px",
-})
+});
 
 window.moment = Moment;
 window.Form = Form;
