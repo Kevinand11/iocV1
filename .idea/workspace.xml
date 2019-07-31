@@ -1,34 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.editorconfig" beforeDir="false" afterPath="$PROJECT_DIR$/.editorconfig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/Sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sample.iml" afterDir="false" />
+    <list default="true" id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="" />
+    <list id="c579e31d-3d1a-4097-8b19-a6d12c81349a" name="hbjnk" comment="">
+      <change afterPath="$PROJECT_DIR$/public/img/boy.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/boy2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/boy3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/girl2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/girl3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/21.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/22.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/23.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/24.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/25.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/26.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/27.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/28.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/29.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/30.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/31.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/32.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/33.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/34.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/35.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/36.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/37.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/38.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/39.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/40.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/41.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/42.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/43.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/44.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/45.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/46.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/47.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/48.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/49.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/50.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/posts/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/store2.jpg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/stores/9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/10.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/11.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/12.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/13.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/14.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/15.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/1564608707.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/1564608923.jpeg" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/16.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/17.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/18.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/19.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/20.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/4.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/5.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/6.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/7.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/8.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/public/img/users/9.png" afterDir="false" />
+    </list>
+    <list id="d655dae0-2249-4aba-a043-3bbe8c4cfe92" name="Modified Picture Seeders And added toasts after login and register" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/dataSources.local.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/1bad7015-7d1c-4df1-9fe3-931e3c73d081.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/StoresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/CategoryObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/CategoryObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/PictureObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/PictureObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/PostObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/PostObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/StoreObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/StoreObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/UserObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/UserObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/problems.txt" beforeDir="false" afterPath="$PROJECT_DIR$/problems.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/store.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/store.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/users/1564580479.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/public/img/users/1564580920.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/auth.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" afterDir="false" />
+    </list>
+    <list id="44524e8a-3e43-4271-b3fe-64c540481c40" name="Modified pictures seeders and add progress bars on login and register" comment="" />
+    <list id="710ad387-ac97-4850-9b6d-e8e59d72a869" name="Modified pictures seeders and added progress bars on login and register" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    </list>
+    <list id="7d506f89-0351-403d-af60-6339d1d1f824" name="Revert &quot;Modified Picture Seeders And added toasts after login and register&quot;" comment="" />
+    <list id="19ffc712-9319-47f6-b014-7d2f105ee883" name="Revert &quot;Modified pictures seeders and add progress bars on login and register&quot;" comment="Revert &quot;Modified pictures seeders and add progress bars on login and register&quot;&#10;&#10;This reverts commit ae1d8e0e" />
+    <list id="7b8c3425-b400-4081-a977-22945e01dee6" name="Revert &quot;Revert &quot;Modified Picture Seeders And added toasts after login and register&quot;&quot;" comment="">
+      <change beforePath="$PROJECT_DIR$/public/img/stores/1564381754.png" beforeDir="false" afterPath="$PROJECT_DIR$/public/img/logo2.png" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -63,6 +159,12 @@
         <item name="Mart DB" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Mart DB" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+      </path>
     </expand>
     <select />
   </component>
@@ -71,20 +173,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/verify-email.blade.php">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/.gitignore">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+            <state relative-caret-position="144">
+              <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/emails/welcome-new-user.blade.php">
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Login.vue">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="288">
-              <caret line="12" lean-forward="true" selection-end-line="12" />
+            <state relative-caret-position="361">
+              <caret line="160" column="50" lean-forward="true" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
             </state>
           </provider>
         </entry>
@@ -97,6 +199,7 @@
       <find>user</find>
       <find>picture</find>
       <find>x</find>
+      <find>Kevin</find>
     </findStrings>
     <replaceStrings>
       <replace>Store</replace>
@@ -116,10 +219,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/database/factories/StoreFactory.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_07_26_161750_create_stores_table.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/StoresResource.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" />
         <option value="$PROJECT_DIR$/app/User.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/PostsController.php" />
         <option value="$PROJECT_DIR$/app/Policies/EditPolicy.php" />
@@ -130,26 +229,20 @@
         <option value="$PROJECT_DIR$/resources/js/views/admin/Users.vue" />
         <option value="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" />
         <option value="$PROJECT_DIR$/node_modules/sweetalert2/src/variables.scss" />
-        <option value="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" />
         <option value="$PROJECT_DIR$/resources/sass/_variables.scss" />
         <option value="$PROJECT_DIR$/composer.json" />
         <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
-        <option value="$PROJECT_DIR$/resources/js/views/auth/Login.vue" />
-        <option value="$PROJECT_DIR$/resources/js/views/auth/Register.vue" />
         <option value="$PROJECT_DIR$/.editorconfig" />
         <option value="$PROJECT_DIR$/resources/js/App.vue" />
         <option value="$PROJECT_DIR$/resources/js/dependencies.js" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b5ed1666-ce91-4c3b-853b-358ad239d6ac/console.sql" />
-        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
         <option value="$PROJECT_DIR$/app/Events/NewUserRegistered.php" />
         <option value="$PROJECT_DIR$/app/Events/NewImageUploaded.php" />
         <option value="$PROJECT_DIR$/app/Events/NewImageUploadedEvent.php" />
         <option value="$PROJECT_DIR$/app/Listeners/CreateNewImageFileListener.php" />
         <option value="$PROJECT_DIR$/app/Listeners/CreateNewImageForUserAndStoreListener.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/StoresController.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/emails/welcome-new-user.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" />
@@ -167,6 +260,16 @@
         <option value="$PROJECT_DIR$/app/Listeners/SendVerificationEmailListener.php" />
         <option value="$PROJECT_DIR$/app/Mail/VerificationMail.php" />
         <option value="$PROJECT_DIR$/resources/views/emails/verify-email.blade.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
+        <option value="$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
+        <option value="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" />
+        <option value="$PROJECT_DIR$/app/Providers/AuthServiceProvider.php" />
+        <option value="$PROJECT_DIR$/resources/js/views/auth/Register.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/auth/Login.vue" />
+        <option value="$PROJECT_DIR$/.gitignore" />
       </list>
     </option>
   </component>
@@ -1119,7 +1222,7 @@
       <path value="$PROJECT_DIR$/vendor/sebastian/version" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -1136,6 +1239,17 @@
             <path>
               <item name="Mart" type="b2602c69:ProjectViewProjectNode" />
               <item name="Mart" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mart" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Mart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mart" type="462c0819:PsiDirectoryNode" />
+              <item name="resources" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1234,6 +1348,12 @@
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
       <changelist id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="" />
+      <changelist id="44524e8a-3e43-4271-b3fe-64c540481c40" name="Modified pictures seeders and add progress bars on login and register" comment="" />
+      <changelist id="7b8c3425-b400-4081-a977-22945e01dee6" name="Revert &quot;Revert &quot;Modified Picture Seeders And added toasts after login and register&quot;&quot;" comment="" />
+      <changelist id="c579e31d-3d1a-4097-8b19-a6d12c81349a" name="hbjnk" comment="" />
+      <changelist id="7d506f89-0351-403d-af60-6339d1d1f824" name="Revert &quot;Modified Picture Seeders And added toasts after login and register&quot;" comment="" />
+      <changelist id="d655dae0-2249-4aba-a043-3bbe8c4cfe92" name="Modified Picture Seeders And added toasts after login and register" comment="" />
+      <changelist id="710ad387-ac97-4850-9b6d-e8e59d72a869" name="Modified pictures seeders and added progress bars on login and register" comment="" />
       <created>1562801882654</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
@@ -1255,12 +1375,27 @@
       <workItem from="1564445091620" duration="7716000" />
       <workItem from="1564513314250" duration="13502000" />
       <workItem from="1564574601447" duration="18009000" />
-      <workItem from="1564598703679" duration="3742000" />
+      <workItem from="1564598703679" duration="15404000" />
     </task>
+    <task id="LOCAL-00001" summary="Modified pictures seeders and add progress bars on login and register">
+      <created>1564615061964</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1564615061964</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Modified pictures seeders and added progress bars on login and register">
+      <created>1564616588130</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1564616588130</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="147888000" />
+    <option name="totallyTimeSpent" value="159550000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1272,35 +1407,36 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-6" y="0" width="781" height="830" extended-state="0" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
     <editor active="true" />
     <layout>
       <window_info id="Structure" order="0" side_tool="true" weight="0.24930748" />
-      <window_info id="npm" order="1" sideWeight="0.068571426" side_tool="true" weight="0.5127517" />
+      <window_info id="npm" order="1" sideWeight="0.068571426" side_tool="true" weight="0.5117892" />
       <window_info id="Favorites" order="2" side_tool="true" weight="0.32963988" />
-      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.9306358" weight="0.32177532" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.9306358" weight="0.32147652" />
+      <window_info anchor="bottom" id="Messages" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.32225433" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.32142857" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" weight="0.32756132" />
       <window_info anchor="bottom" id="Database Changes" order="7" show_stripe_button="false" weight="0.32756132" />
-      <window_info anchor="bottom" id="Version Control" order="8" weight="0.32658958" />
-      <window_info anchor="bottom" id="Terminal" order="9" weight="0.6734104" />
-      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.3251445" />
-      <window_info anchor="bottom" id="Code comment" order="11" weight="0.32658958" />
+      <window_info anchor="bottom" id="Version Control" order="8" weight="0.3257143" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.67285717" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32428572" />
+      <window_info anchor="bottom" id="Code comment" order="11" weight="0.3257143" />
       <window_info anchor="bottom" id="GraphQL" order="12" weight="0.32857144" />
       <window_info anchor="bottom" id="Docker" order="13" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Console" order="14" weight="0.32900432" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.08187919" />
+      <window_info anchor="right" id="Database" order="3" weight="0.1671141" />
       <window_info anchor="right" id="Nativescript Palette" order="4" />
       <window_info anchor="right" id="Key Promoter X" order="5" weight="0.32825485" />
-      <window_info anchor="right" id="Json Parser" order="6" weight="0.32963988" />
+      <window_info anchor="right" id="Json Parser" order="6" weight="0.3295302" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -1346,6 +1482,11 @@
       </map>
     </option>
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Modified pictures seeders and add progress bars on login and register" />
+    <MESSAGE value="Modified pictures seeders and added progress bars on login and register" />
+    <option name="LAST_COMMIT_MESSAGE" value="Modified pictures seeders and added progress bars on login and register" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
@@ -1358,89 +1499,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Sidebar.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2833">
-          <caret line="8" column="77" lean-forward="true" selection-start-line="8" selection-start-column="77" selection-end-line="8" selection-end-column="77" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="253">
-          <caret line="11" column="35" lean-forward="true" selection-start-line="11" selection-start-column="35" selection-end-line="11" selection-end-column="35" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/composer.lock">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-3358" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Login.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="140" column="60" lean-forward="true" selection-start-line="140" selection-start-column="60" selection-end-line="140" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="213">
-          <caret line="114" column="78" lean-forward="true" selection-start-line="114" selection-start-column="78" selection-end-line="114" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.editorconfig">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="18" lean-forward="true" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="275">
-          <caret line="21" column="42" selection-start-line="21" selection-start-column="42" selection-end-line="21" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/dependencies.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-399">
-          <caret line="5" column="41" lean-forward="true" selection-start-line="5" selection-start-column="41" selection-end-line="5" selection-end-column="41" />
-          <folding>
-            <element signature="e#188#210#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/js/app.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="n#!!doc" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://1bad7015-7d1c-4df1-9fe3-931e3c73d081/collation/BINARY" />
     <entry file="das://1bad7015-7d1c-4df1-9fe3-931e3c73d081/collation/NOCASE" />
     <entry file="das://1bad7015-7d1c-4df1-9fe3-931e3c73d081/collation/RTRIM" />
     <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/collation/BINARY">
@@ -1448,15 +1506,6 @@
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b5ed1666-ce91-4c3b-853b-358ad239d6ac/console.sql">
       <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="49c2a74e-f0e5-49ac-88ce-d11dbf6aa422">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Providers/BroadcastServiceProvider.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -1514,16 +1563,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="433">
-          <caret line="27" column="20" selection-start-line="27" selection-start-column="20" selection-end-line="27" selection-end-column="20" />
-          <folding>
-            <element signature="e#33#63#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_131645_create_jobs_table.php">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -1541,13 +1580,6 @@
           <folding>
             <element signature="e#44#81#0#PHP" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="28" column="25" selection-start-line="28" selection-start-column="25" selection-end-line="28" selection-end-column="25" />
         </state>
       </provider>
     </entry>
@@ -1589,26 +1621,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="376">
           <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="64">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
-          <folding>
-            <element signature="e#33#70#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/SendWelcomeMailListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#33#71#0#PHP" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1681,16 +1693,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/SendVerificationEmailListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="384">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
-          <folding>
-            <element signature="e#33#71#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Mail/WelcomeNewUserMail.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="335">
@@ -1716,6 +1718,152 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
           <caret line="5" column="82" selection-start-line="5" selection-start-column="82" selection-end-line="5" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SendVerificationEmailListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#33#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/SendWelcomeMailListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+          <folding>
+            <element signature="e#33#71#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/bootstrap/cache/config.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="202">
+          <caret line="225" column="39" selection-start-line="225" selection-start-column="34" selection-end-line="225" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="178">
+          <caret line="14" column="25" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-472">
+          <caret line="11" column="26" selection-start-line="11" selection-start-column="26" selection-end-line="11" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/pictures">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8840fe93-c240-4c6d-8c66-9d30599251cb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/stores">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8840fe93-c240-4c6d-8c66-9d30599251cb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/migrations/2019_07_31_210441_create_jobs_table.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="14" column="55" selection-start-line="14" selection-start-column="55" selection-end-line="14" selection-end-column="55" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/jobs">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8840fe93-c240-4c6d-8c66-9d30599251cb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="8840fe93-c240-4c6d-8c66-9d30599251cb">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/Post.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="262">
+          <caret line="11" column="73" lean-forward="true" selection-start-line="11" selection-start-column="73" selection-end-line="11" selection-end-column="81" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Sidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="323">
+          <caret line="73" column="45" selection-start-line="73" selection-start-column="45" selection-end-line="73" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Providers/AuthServiceProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="538">
+          <caret line="34" lean-forward="true" selection-start-line="34" selection-end-line="34" />
+          <folding>
+            <element signature="e#33#63#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="433">
+          <caret line="20" column="66" lean-forward="true" selection-start-line="20" selection-start-column="66" selection-end-line="20" selection-end-column="66" />
+          <folding>
+            <element signature="e#33#70#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="123" column="34" lean-forward="true" selection-start-line="123" selection-start-column="34" selection-end-line="123" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="144">
+          <caret line="6" column="11" lean-forward="true" selection-start-line="6" selection-start-column="11" selection-end-line="6" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="361">
+          <caret line="160" column="50" lean-forward="true" selection-start-line="160" selection-start-column="50" selection-end-line="160" selection-end-column="50" />
         </state>
       </provider>
     </entry>

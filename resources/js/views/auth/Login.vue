@@ -136,17 +136,25 @@
                     this.setToken({token:response.data.data,remember:this.form.remember});
                     axios.get(this.authRoutes.profile).then(response=>{
                         this.setAuth({user:response.data.data,remember:this.form.remember});
-                        this.$Progress.finish();
                         this.disabled = false;
-                        this.$router.push(this.getIntended);
-                        this.clearIntended();
-                    }).catch(()=>{
-                        this.$Progress.fail();
+						this.$router.push(this.getIntended);
+						this.clearIntended();
+						this.$Progress.finish();
+						new toast({
+							type: 'success',
+							title: 'Logged in successfully'
+						});
+					}).catch(()=>{
                         this.disabled = false;
-                    });
+						this.$Progress.fail();
+						new toast({
+							type: 'error',
+							title: 'Error logging in'
+						});
+					});
                 }).catch(()=>{
-                    this.$Progress.fail();
-                    this.disabled = false;
+					this.disabled = false;
+					this.$Progress.fail();
                 });
             },
             hasErrors(field){

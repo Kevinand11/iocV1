@@ -22,6 +22,8 @@ class CreateImageForUserAndStoreListener
 		}else{
 			Picture::create([
 				'imageable_id' => $object->id,
+				'imageable_type' => $type,
+				'filename' => $path.$name
 			]);
 		}
     }

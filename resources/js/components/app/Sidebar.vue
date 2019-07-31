@@ -3,7 +3,7 @@
         <v-list class="pa-1">
             <v-list-tile avatar>
                 <v-list-tile-avatar>
-                    <img src="../../img/logo.png" alt="">
+                    <img :src="getLogo" alt="">
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ appInfo.name }}</v-list-tile-title>
@@ -12,7 +12,7 @@
             <v-divider></v-divider>
             <v-list-tile avatar>
                 <v-list-tile-avatar>
-                    <img src="../../img/profile.png" alt="">
+                    <img :src="getProfile" alt="">
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ isLoggedIn ? getAuth.name : "Anonymous" }}</v-list-tile-title>
@@ -71,6 +71,8 @@
         },
         computed:{
             ...mapGetters(['appInfo',"getAuth",'isLoggedIn','isAdmin',"authRoutes"]),
+			getLogo(){ return '../../img/logo.png' },
+			getProfile(){ return '../../' + (this.getAuth ? this.getAuth.picture.filename : 'img/profile.png') },
         },
         methods:{
             ...mapActions(["logout"]),
@@ -84,15 +86,18 @@
                     confirmButtonText: 'Yes, logout!'
                 }).then((result) => {
                     if (result.value) {
+                    	this.$Progress.start();
                         axios.post(this.authRoutes.logout,{}).then(()=>{
                             this.logout();
                             this.drawer = !(this.drawer);
                             this.$router.push("/login");
-                            new toast({
+							this.$Progress.finish();
+							new toast({
                                 type: 'success',
                                 title: 'Logged out successfully'
                             });
                         }).catch(()=>{
+                        	this.$Progress.fail();
                             new toast({
                                 type: 'error',
                                 title: 'Something went wrong!'

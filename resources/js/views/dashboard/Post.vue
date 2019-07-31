@@ -9,7 +9,7 @@
         <v-container v-if="!fetching">
             <v-layout row wrap v-if='anyPictures'>
                 <v-carousel>
-                    <v-carousel-item v-for="img in post.pictures" :src="img.filename" :key="img.id"></v-carousel-item>
+                    <v-carousel-item v-for="img in post.pictures" :src=" '../' + img.filename" :key="img.id"></v-carousel-item>
                 </v-carousel>
             </v-layout>
             <v-layout row wrap mt-2>

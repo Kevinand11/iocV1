@@ -25,7 +25,7 @@ class AuthServiceProvider extends ServiceProvider
     public function boot(): Void
     {
         $this->registerPolicies();
-        Passport::routes();
+        Passport::routes(null,['middleware'=>'auth:api']);
         Gate::define('canEditUser','App\Policies\EditPolicy@canEditUser');
         Gate::define('canEditStore','App\Policies\EditPolicy@canEditStore');
         Gate::define('canEditPost','App\Policies\EditPolicy@canEditPost');
