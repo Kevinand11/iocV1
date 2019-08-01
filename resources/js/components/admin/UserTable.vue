@@ -70,7 +70,7 @@
         },
         mounted(){
             this.getUsers();
-            Fire.$on('Reload',() => {
+            Fire.$on('ReloadUsers',() => {
                this.getUsers();
             });
         },

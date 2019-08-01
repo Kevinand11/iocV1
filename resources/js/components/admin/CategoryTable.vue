@@ -64,7 +64,7 @@
         },
         mounted(){
             this.getCategories();
-            Fire.$on('Reload',() => {
+            Fire.$on('ReloadCategories',() => {
                this.getCategories();
             });
         },

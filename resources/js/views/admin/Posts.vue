@@ -85,7 +85,7 @@
             deletePost(id){
                 this.form.delete(this.postsRoutes.delete+id).then((response)=>{
                     new swal('Deleted!','Post deleted.','success');
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadPosts');
                 }).catch(()=> {
                     new swal("Failed!", "Unable to delete. Something went wrong", "warning");
                 });

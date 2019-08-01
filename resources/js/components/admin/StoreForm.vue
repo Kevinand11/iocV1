@@ -31,20 +31,20 @@
             <div class="form-group row">
                 <label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
                 <div class="col-sm-9">
-                    <phone-input v-model="form.phone" id="phone" name="phone" default-country-code="NG" autocomplete="business_phone"
-                                 :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }" />
-                    <has-error :form="form" field="phone"></has-error>
-                </div>
-            </div>
-            <div class="form-group row">
+					<input v-model="form.phone" id="phone" type="tel" name="phone" placeholder="Business Phone" autocomplete="business_phone"
+						   class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">
+					<has-error :form="form" field="phone"></has-error>
+				</div>
+			</div>
+			<div class="form-group row">
                 <label for="link" class="col-sm-3 col-form-label text-sm-right">Link</label>
                 <div class="col-sm-9">
-                    <input v-model="form.link" id="link" type="url" name="link" placeholder="Business Website" autocomplete="business_link"
+					<input v-model="form.link" id="link" type="url" name="link" placeholder="Business Website" autocomplete="business_link"
                            class="form-control" :class="{ 'is-valid': !form.errors.has('link') && isSubmitted,'is-invalid': form.errors.has('link') }">
                     <has-error :form="form" field="link"></has-error>
                 </div>
             </div>
-            <div class="form-group row">
+			<div class="form-group row">
                 <label for="desc" class="col-sm-3 col-form-label text-sm-right">Description</label>
                 <div class="col-sm-9">
                     <textarea v-model="form.description" id="desc" type="text" name="description" placeholder="More About Your Business" autocomplete="business_description"
@@ -63,7 +63,7 @@
 
     export default {
         name:"StoreForm",
-        props:{
+		props:{
             "form":{
                 type:Object,
                 required:true
@@ -90,11 +90,11 @@
             decideImage(){return !_.isEmpty(this.form.picture) ? '../'+this.form.picture.filename : '../img/logo.png'},
         },
         methods:{
-            createStore(){
+        	createStore(){
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.storesRoutes.store).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadStores');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -103,7 +103,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({
@@ -116,7 +115,7 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.patch(this.storesRoutes.update+id).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadStores');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -125,7 +124,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({

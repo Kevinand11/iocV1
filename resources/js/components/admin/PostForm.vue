@@ -106,7 +106,7 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.postsRoutes.store).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadPosts');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -115,7 +115,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({
@@ -128,7 +127,7 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.patch(this.postsRoutes.update+id).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadPosts');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -137,7 +136,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({

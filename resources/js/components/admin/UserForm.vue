@@ -31,8 +31,8 @@
             <div class="form-group row">
                 <label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
                 <div class="col-sm-9">
-                    <phone-input v-model="form.phone" id="phone" name="phone" default-country-code="NG" autocomplete="phone"
-                        :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }" />
+					<input v-model="form.phone" id="phone" type="tel" name="phone" placeholder="Business Phone" autocomplete="phone"
+						   class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">
                     <has-error :form="form" field="phone"></has-error>
                 </div>
             </div>
@@ -104,7 +104,7 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.post(this.usersRoutes.store).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadUsers');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -113,7 +113,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({
@@ -126,7 +125,7 @@
                 this.submitted = true;
                 this.$Progress.start();
                 this.form.patch(this.usersRoutes.update+id).then(()=>{
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadUsers');
                     Fire.$emit('Enable');
                     $('#form').modal('hide');
                     new toast({
@@ -135,7 +134,6 @@
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
-                    Fire.$emit('AfterCreate');
                     Fire.$emit('Enable');
                     this.$Progress.fail();
                     new toast({

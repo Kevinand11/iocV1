@@ -2,7 +2,9 @@
 
 namespace App\Policies;
 
+use App\Post;
 use App\User;
+use App\Store;
 use Illuminate\Auth\Access\HandlesAuthorization;
 
 class EditPolicy
@@ -14,26 +16,22 @@ class EditPolicy
         //
     }
 
-    public function canEditUser($user): bool
+    public function canEditUser(User $auth, User $user): bool
     {
-        $auth = auth('api')->user();
         return $user->id === $auth->id || $auth->role === 'admin';
     }
-    public function canEditStore($store): bool
+    public function canEditStore(User $auth, Store $store): bool
     {
-        $auth = auth('api')->user();
         return $store->user->id === $auth->id || $auth->role === 'admin';
     }
 
-    public function canEditPost($post): bool
+    public function canEditPost(User $auth, Post $post): bool
     {
-        $auth = auth('api')->user();
         return $post->store->user->id === $auth->id || $auth->role === 'admin';
     }
 
-    public function canEditCategory(): bool
+    public function canEditCategory(User $auth): bool
     {
-        $auth = auth('api')->user();
         return $auth->role === 'admin';
     }
 }

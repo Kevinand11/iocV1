@@ -34,7 +34,7 @@ class UsersController extends Controller
         $this->validate($request,[
             'name' => 'required|string|min:3',
             'email' => 'required|email|unique:users',
-            'phone' => 'required',
+            'phone' => 'required|phone:AUTO',
             'password' => 'required|min:6|string|confirmed'
         ]);
         $request->merge([
@@ -66,7 +66,7 @@ class UsersController extends Controller
             'name' => 'required|string|min:3',
             'email' => 'required|email|unique:users,email,' .$user->id,
             'password' => 'sometimes|min:6|string|confirmed',
-            'phone' => 'required'
+            'phone' => 'required|phone:AUTO'
         ]);
         $request->merge([
             'role' => $request['role'] ?: $user->role,

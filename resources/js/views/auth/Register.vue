@@ -13,7 +13,7 @@
                                 <label for="image" class="col-md-4 col-form-label text-md-right">Profile Photo</label>
                                 <div class="col-md-6">
                                     <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
-                                        class="form-control" id="image">
+                                        class="form-control-file" id="image">
                                 </div>
                             </div>
                             <div class="form-group row">
@@ -35,8 +35,8 @@
                             <div class="form-group row">
                                 <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
                                 <div class="col-md-6">
-                                    <phone-input v-model="form.phone" name="phone" default-country-code="NG" autocomplete="phone"
-                                        :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }" />
+									<input v-model="form.phone" id="phone" type="tel" name="phone" placeholder="Business Phone" autocomplete="phone"
+										   class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">
                                     <has-error :form="form" field="phone"></has-error>
                                 </div>
                             </div>

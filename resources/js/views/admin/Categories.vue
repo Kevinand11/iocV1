@@ -78,7 +78,7 @@
             deleteCategory(id){
                 this.form.delete(this.categoriesRoutes.delete +id).then((response)=>{
                     new swal('Deleted!','Category deleted.','success');
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadCategories');
                 }).catch(()=> {
                     new swal("Failed!", "Unable to delete. Something went wrong", "warning");
                 });

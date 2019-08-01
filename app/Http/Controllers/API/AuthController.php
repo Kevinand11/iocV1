@@ -40,7 +40,7 @@ class AuthController extends Controller
         $this->validate($request,[
             'name' => 'required|string|min:3',
             'email' => 'required|email|unique:users',
-            'phone' => 'required',
+            'phone' => 'required|phone:AUTO',
             'password' => 'required|min:6|string|confirmed'
         ]);
         $request->merge([

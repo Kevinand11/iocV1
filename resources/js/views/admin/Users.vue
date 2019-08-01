@@ -89,7 +89,7 @@
             deleteUser(id){      
                 this.form.delete(this.usersRoutes.delete +id).then(()=>{
                     new swal('Deleted!','User deleted.','success');
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadUsers');
                 }).catch(()=> {
                     new swal("Failed!", "Unable to delete. Something went wrong", "warning");
                 });

@@ -90,7 +90,7 @@
             deleteStore(id){
                 this.form.delete(this.storesRoutes.delete +id).then((response)=>{
                     new swal('Deleted!','Store deleted.','success');
-                    Fire.$emit('Reload');
+                    Fire.$emit('ReloadStores');
                 }).catch(()=> {
                     new swal("Failed!", "Unable to delete. Something went wrong", "warning");
                 });

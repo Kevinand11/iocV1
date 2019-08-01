@@ -74,7 +74,7 @@
         },
         mounted(){
             this.getPosts();
-            Fire.$on('Reload',() => {
+            Fire.$on('ReloadPosts',() => {
                this.getPosts();
             });
         },

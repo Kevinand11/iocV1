@@ -12,7 +12,7 @@
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
-            <form @submit.prevent="submit">
+            <form @submit.prevent="submit" method="POST">
                 <div class="modal-body">
                     <slot name="inputFields"></slot>
                 </div>
@@ -59,7 +59,7 @@
         methods: {
             submit(){
                 this.disabled = true;
-                if(this.mode == "create"){
+                if(this.mode === "create"){
                     Fire.$emit('Create'+this.dataName);
                 }else{
                     Fire.$emit('Update'+this.dataName);

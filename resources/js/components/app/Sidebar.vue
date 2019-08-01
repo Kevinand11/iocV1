@@ -72,7 +72,7 @@
         computed:{
             ...mapGetters(['appInfo',"getAuth",'isLoggedIn','isAdmin',"authRoutes"]),
 			getLogo(){ return '../../img/logo.png' },
-			getProfile(){ return '../../' + (this.getAuth ? this.getAuth.picture.filename : 'img/profile.png') },
+			getProfile(){ return '../../' + (this.getAuth.picture ? this.getAuth.picture.filename : 'img/profile.png') },
         },
         methods:{
             ...mapActions(["logout"]),

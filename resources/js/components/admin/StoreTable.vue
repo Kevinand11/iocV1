@@ -72,7 +72,7 @@
         },
         mounted(){
             this.getStores();
-            Fire.$on('Reload',() => {
+            Fire.$on('ReloadStores',() => {
                 this.getStores();
             });
         },

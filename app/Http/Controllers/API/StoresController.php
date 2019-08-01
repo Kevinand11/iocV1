@@ -4,12 +4,10 @@ namespace App\Http\Controllers\API;
 
 use App\Events\NewImageUploadedEvent;
 use App\Http\Resources\StoresResource;
-use App\Picture;
 use App\Store;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
-use Intervention\Image\ImageManagerStatic as Image;
 
 class StoresController extends Controller
 {
@@ -30,16 +28,19 @@ class StoresController extends Controller
         return StoresResource::collection($stores);
     }
 
-    public function store(Request $request): StoresResource
+    public function store(Request $request)
     {
-        $this->validate($request,[
-            'name' => 'required|string',
-            'description' => 'string',
+		if(auth('api')->user()->store){
+			return response()->json([ 'errors' => [ 'name' => 'User also has an existing store' ] ],422);
+		}
+		$this->validate($request,[
+            'name' => 'required|string|min:3',
+            'description' => 'sometimes|string',
             'email' => 'required|email|unique:stores',
-            'phone' => 'required',
-            'link' => 'string',
+            'phone' => 'required|phone:AUTO',
+            'link' => 'sometimes|url',
         ]);
-        $request->merge(['user_id' => auth('api')->user()->id ?: 0 ]);
+		$request->merge(['user_id' => auth('api')->user()->id ?: 0 ]);
         $store = Store::create($request->only(['name','description','email','phone','link','user_id']));
 		if($request->image){
 			$params = [
@@ -62,11 +63,11 @@ class StoresController extends Controller
     public function update(Request $request, Store $store): StoresResource
     {
         $this->validate($request,[
-            'name' => 'required|string',
-            'description' => 'string',
+            'name' => 'required|string|min:3',
+            'description' => 'sometimes|string',
             'email' => 'required|email|unique:stores,email,' .$store->id,
-            'phone' => 'required',
-            'link' => 'string',
+            'phone' => 'required|phone:AUTO',
+            'link' => 'sometimes|url',
         ]);
         $request->merge([
             'updated_at' => now(),
@@ -88,9 +89,9 @@ class StoresController extends Controller
     public function destroy(Store $store)
     {
         $this->authorize('canEditStore', $store);
-        if($store->delete()){
+        if(Store::destroy($store->id)){
             return response()->json(['success' => 'true']);
         }
-        return response()->json(['error' => 'false']);
+        return response()->json(['errors' => 'Record not found'],422);
     }
 }

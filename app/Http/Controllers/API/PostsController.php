@@ -27,8 +27,11 @@ class PostsController extends Controller
         return PostsResource::collection($posts);
     }
 
-    public function store(Request $request): PostsResource
+    public function store(Request $request)
     {
+		if(!auth('api')->user()->store){
+			return response()->json([ 'errors' => [ 'name' => 'User doesn\'t have an existing store' ] ],422);
+		}
         $this->validate($request,[
             'name' => 'required|string|min:3',
             'description' => 'string',
