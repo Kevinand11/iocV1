@@ -29,6 +29,12 @@ class UserObserver
             $user->store->delete();
         }
 
+        if($user->tokens){
+            $user->tokens->each(function($token){
+                $token->delete();
+            });
+        }
+
         if($user->picture){
             $user->picture->delete();
         }

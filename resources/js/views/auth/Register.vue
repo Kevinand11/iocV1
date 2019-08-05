@@ -32,14 +32,25 @@
                                     <has-error :form="form" field="email"></has-error>
                                 </div>
                             </div>
-                            <div class="form-group row">
-                                <label class="col-md-4 col-form-label text-md-right">Phone Number</label>
-                                <div class="col-md-6">
-									<input v-model="form.phone" id="phone" type="tel" name="phone" placeholder="Business Phone" autocomplete="phone"
-										   class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">
-                                    <has-error :form="form" field="phone"></has-error>
-                                </div>
-                            </div>
+							<div class="form-group row">
+								<label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
+								<div class="col-md-8">
+									<div class="row">
+										<div class="col-sm-4">
+											<select name="country_code" id="country" class="form-control" v-model="form.phone.phone_country"
+													:class="{ 'is-invalid': form.errors.has('phone.phone_country') }" autocomplete="phone_country">
+												<option v-for="(country,code) in getCountries" :value="code" :key="code">{{ country }}</option>
+											</select>
+											<has-error :form="form" field="phone.phone_country"></has-error>
+										</div>
+										<div class="col-sm-8">
+											<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Phone Number"
+												   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="phone">
+											<has-error :form="form" field="phone.phone"></has-error>
+										</div>
+									</div>
+								</div>
+							</div>
                             <div class="form-group row">
                                 <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
                                 <div class="col-md-6">
@@ -87,7 +98,7 @@
                 form: new Form({
                     name: '',
                     email: '',
-                    phone: '',
+					phone: {phone:'',phone_country:'NG'},
                     password: '',
                     password_confirmation:'',
                     _token:this.csrf,
@@ -98,7 +109,7 @@
             }
         },
         computed:{
-            ...mapGetters(["getIntended","authRoutes"]),
+            ...mapGetters(["getIntended","authRoutes",'getCountries']),
             isDisabled(){return this.disabled},
             isSubmitted(){return this.submitted},
             isEmpty(){ return !(this.form.name && this.form.email && this.form.password && this.form.password_confirmation) }

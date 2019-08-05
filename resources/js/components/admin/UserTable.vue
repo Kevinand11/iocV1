@@ -24,7 +24,7 @@
                     <td>{{user.id}}</td>
                     <td>{{user.name}}</td>
                     <td>{{user.email}}</td>
-                    <td>{{user.phone}}</td>
+                    <td>{{user.phone.phone}}<small>{{user.phone.phone_country}}</small></td>
                     <td>{{user.role}}</td>
                     <td>{{ user.picture ? user.picture.filename : 'None' }}</td>
                     <td>{{user.created_at | myDate}}</td>

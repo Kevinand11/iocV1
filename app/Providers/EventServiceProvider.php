@@ -2,10 +2,10 @@
 
 namespace App\Providers;
 
-use App\Events\NewImageUploadedEvent;
+use App\Events\NewSingleImageUploadedEvent;
 use App\Events\NewOrChangedEmailEvent;
 use App\Events\NewUserRegisteredEvent;
-use App\Listeners\CreateImageForUserAndStoreListener;
+use App\Listeners\HandleSingleImageListener;
 use App\Listeners\SendVerificationEmailListener;
 use App\Listeners\SendWelcomeMailListener;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,23 +18,18 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
     protected $listen = [
+		NewSingleImageUploadedEvent::class => [
+			HandleSingleImageListener::class,
+		],
         NewUserRegisteredEvent::class => [
             SendWelcomeMailListener::class,
         ],
 		NewOrChangedEmailEvent::class => [
 			SendVerificationEmailListener::class
 		],
-		NewImageUploadedEvent::class => [
-			CreateImageForUserAndStoreListener::class,
-		],
     ];
 
-    /**
-     * Register any events for your application.
-     *
-     * @return void
-     */
-    public function boot()
+    public function boot(): void
     {
         parent::boot();
 

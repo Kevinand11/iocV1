@@ -4,8 +4,8 @@
             <span class="lead">{{ user.name }}</span>
         </template>
         <template slot="body">
-            <p class="lead">Email:{{user.email}}</p>
-            <p>Phone:{{user.phone}}</p>
+            <p class="lead">Email:{{ user.email }}</p>
+			<p>Phone:{{ user.phone.phone }}<small>{{ user.phone.phone_country }}</small></p>
             <p>Role: {{ user.role }}</p>
             <p>Password:{{ user.password }}</p><hr>
             <p>Store: {{ user.store ? user.store.name : 'None' }}</p>

@@ -1,5 +1,5 @@
 <template>
-    <v-container>
+    <div>
         <table class="table table-striped table-hover">
             <thead>
                 <slot name="headers"></slot>
@@ -7,7 +7,7 @@
             <slot name="rows"></slot>
         </table>
         <slot name="pagination"></slot>
-    </v-container>
+    </div>
 </template>
 
 <script>

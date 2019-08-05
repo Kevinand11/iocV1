@@ -32,7 +32,7 @@
                     description: '',
                     price: '',
                     category: {},
-                    store: {user:{}},
+                    store: {user:{},phone:{}},
                     pictures: [],
                     category_id: null,
                     created_at: {},

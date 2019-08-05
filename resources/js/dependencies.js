@@ -1,16 +1,18 @@
 window.$ = window.jQuery = require("jquery");
-window._ = window.lodash = require("lodash");
 window.Popper = require('popper.js').default;
 
-require("bootstrap");
-require("@fortawesome/fontawesome-free");
+import isEmpty from 'lodash/isEmpty';
+import includes from 'lodash/includes';
+window._ = window.lodash = {isEmpty,includes};
+
+import __ from "bootstrap/dist/js/bootstrap.min";
+import ___ from '@fortawesome/fontawesome-free/js/fontawesome.min'
 
 import Vue from "vue";
-import Moment from "moment";
-import {Form,HasError} from "vform";
+import {Form,HasError} from 'vform/dist/vform.umd.min';
 import VueProgressBar from "vue-progressbar";
 import Spinner from "vue-simple-spinner"
-import swal from 'sweetalert2'
+import swal from 'sweetalert2';
 import Pagination from 'laravel-vue-pagination'
 
 Vue.component(HasError.name,HasError);
@@ -19,11 +21,10 @@ Vue.component("pagination",Pagination);
 
 Vue.use(VueProgressBar,{
     color: "rgb(143,255,199)",
-    failedColor: "red",
+    failedColor: "rgb(255,0,0)",
     height: "6px",
 });
 
-window.moment = Moment;
 window.Form = Form;
 window.Fire = new Vue();
 

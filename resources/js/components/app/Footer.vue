@@ -1,6 +1,6 @@
 <template>
-  <v-footer height="auto" dark class="d-flex">
-    <v-card flat tile class="light-blue darken-4 white--text text-center">
+  <v-footer height="auto" dark class="d-flex" :color="appInfo.color">
+    <v-card flat tile class="white--text text-center" :class="appInfo.color">
         <v-card-text>
             <v-btn v-for="icon in icons" :key="icon.id" class="mx-2" icon small>
                 <v-icon :color="icon.color" small>{{ icon.name }}</v-icon>

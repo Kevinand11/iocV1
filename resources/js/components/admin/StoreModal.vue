@@ -4,10 +4,10 @@
             <span class="lead">{{ store.name }}</span>
         </template>
         <template slot="body">
-            <p class="lead">Email:{{store.email}}</p>
-            <p>Phone:{{store.phone}}</p>
-            <p>Link:{{store.link}}</p>
-            <p>Owner: {{store.user.name}}({{store.user.email}})({{store.user.phone}})</p>
+            <p class="lead">Email:{{ store.email }}</p>
+            <p>Phone:{{ store.phone.phone }}<small>{{ store.phone.phone_country }}</small></p>
+            <p>Link:{{ store.link }}</p>
+            <p>Owner: {{ store.user.name }}({{ store.user.email }})({{ store.user.phone.phone }})</p>
             <p>Description: {{ store.description }}</p>
             <p>Picture: {{ store.picture }}</p>
             <p class="lead">Posts by {{store.name}}</p>

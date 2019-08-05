@@ -1,6 +1,6 @@
 import Vue from "vue";
-import Vuetify from 'vuetify'
-import VueCookies from "vue-cookies";
+import Vuetify from 'vuetify/dist/vuetify.min'
+import VueCookies from "vue-cookies/vue-cookies";
 
 import router from "./router/index";
 import store from "./store/index";

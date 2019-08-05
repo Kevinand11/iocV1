@@ -6,7 +6,7 @@
             <v-container fluid>
                 <router-view />
                 <vue-progress-bar />
-                <v-btn fab color="light-blue darken-4" bottom right fixed @click="cartFab" v-if="isLoggedIn">
+                <v-btn fab :color="appInfo.color" bottom right fixed @click="cartFab" v-if="isLoggedIn">
                     <v-icon color="white">shopping_cart</v-icon>
                 </v-btn>
             </v-container>
@@ -32,7 +32,7 @@ export default {
     this.getCookieToken();
   },
   computed: {
-    ...mapGetters(["getAuth","authRoutes",'isLoggedIn']),
+    ...mapGetters(['appInfo',"getAuth","authRoutes",'isLoggedIn']),
   },
   methods: {
     ...mapActions(["setAuth", "setToken","logout"]),

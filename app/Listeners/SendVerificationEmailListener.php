@@ -11,6 +11,6 @@ class SendVerificationEmailListener implements ShouldQueue
 {
     public function handle(NewOrChangedEmailEvent $event): void
     {
-		Mail::to($event->object->email)->send(new VerificationMail($event->object));
+		  Mail::to($event->object->email)->send(new VerificationMail($event->object));
     }
 }

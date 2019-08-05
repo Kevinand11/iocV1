@@ -26,7 +26,7 @@
                     <td>{{store.name}}</td>
                     <td>{{store.email}}</td>
                     <td>{{store.link}}</td>
-                    <td>{{store.phone}}</td>
+                    <td>{{store.phone.phone}}<small>{{store.phone.phone_country}}</small></td>
                     <td>{{store.description}}</td>
                     <td>{{store.picture ? store.picture.filename : 'None'}}</td>
                     <td>{{store.created_at | myDate}}</td>

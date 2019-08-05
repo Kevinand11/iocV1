@@ -1,9 +1,9 @@
 <template>
-    <v-navigation-drawer v-model="drawer" app temporary dark class="light-blue darken-4 pa-2" width="200">
+    <v-navigation-drawer v-model="drawer" app temporary dark class="pa-2" :class="appInfo.color" :width="appInfo.sidebar_width">
         <v-list class="pa-1">
             <v-list-tile avatar>
                 <v-list-tile-avatar>
-                    <img :src="getLogo" alt="">
+                    <img :src="getLogo | appendURL" alt="">
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ appInfo.name }}</v-list-tile-title>
@@ -12,7 +12,7 @@
             <v-divider></v-divider>
             <v-list-tile avatar>
                 <v-list-tile-avatar>
-                    <img :src="getProfile" alt="">
+                    <img :src="userProfile | appendURL" alt="">
                 </v-list-tile-avatar>
                 <v-list-tile-content>
                     <v-list-tile-title>{{ isLoggedIn ? getAuth.name : "Anonymous" }}</v-list-tile-title>
@@ -70,9 +70,8 @@
             }
         },
         computed:{
-            ...mapGetters(['appInfo',"getAuth",'isLoggedIn','isAdmin',"authRoutes"]),
-			getLogo(){ return '../../img/logo.png' },
-			getProfile(){ return '../../' + (this.getAuth.picture ? this.getAuth.picture.filename : 'img/profile.png') },
+            ...mapGetters(['appInfo',"getAuth",'isLoggedIn','isAdmin',"authRoutes",'getLogo','getProfile']),
+			userProfile(){ return (this.getAuth.picture ? this.getAuth.picture.filename : this.getProfile ) },
         },
         methods:{
             ...mapActions(["logout"]),
@@ -93,7 +92,7 @@
                             this.$router.push("/login");
 							this.$Progress.finish();
 							new toast({
-                                type: 'success',
+								type: 'success',
                                 title: 'Logged out successfully'
                             });
                         }).catch(()=>{
@@ -127,7 +126,7 @@
                             {id:32, name:'Stores', icon:'stores', route:'/admin/stores', color:"white"},
                             {id:33, name:'Posts', icon:'shopping_basket', route:'/admin/posts', color:"white"},
                             {id:34, name:'Categories', icon:'category', route:'/admin/categories', color:"white"},
-                            {id:35, name:'Developer', icon:'laptop', color:"white", route:'/admin/developer'},
+                            {id:35, name:'Developer', icon:'laptop', route:'/admin/developer', color:'white'},
                         ]
                     },
                     

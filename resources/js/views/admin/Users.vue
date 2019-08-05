@@ -30,9 +30,8 @@
                     id : null,
                     name : '',
                     email: '',
-                    password: '',
-                    phone: '',
-                    store: {},
+                    phone: {phone:'',phone_country:'NG'},
+                    store: {phone:{}},
                     picture: {},
                 },
                 form: new Form({
@@ -40,7 +39,7 @@
                     name : '',
                     email: '',
                     role: 'user',
-                    phone: '',
+					phone: {phone:'',phone_country:'NG'},
                     password: '',
                     password_confirmation:"",
                     picture:{},
@@ -50,7 +49,7 @@
             }
         },
         computed:{
-            ...mapGetters(["usersRoutes"]),
+            ...mapGetters(["usersRoutes",'getProfile','appInfo']),
             theForm(){return this.form},
             isEdit(){return this.editmode},
             isSubmitted(){return this.submitted},
@@ -71,7 +70,7 @@
                 this.editmode = false;
                 this.form.reset();
                 $('#image').val('');
-                $('#profile').attr('src','../img/profile.png');
+                $('#profile').attr('src',this.appInfo.url+this.getProfile);
                 this.submitted = false;
                 this.form.errors.errors = {};
                 $('#form').modal('show');
@@ -80,7 +79,7 @@
                 this.editmode = true;
                 this.form.reset();
                 $('#image').val('');
-                $('#profile').attr('src','../'+(!_.isEmpty(this.form.picture) ? this.picture.filename : "img/profile.png"));
+                $('#profile').attr('src',this.appInfo.url+(!_.isEmpty(this.form.picture) ? this.picture.filename : this.getProfile));
                 this.submitted = false;
                 this.form.errors.errors = {};
                 this.form.fill(user);

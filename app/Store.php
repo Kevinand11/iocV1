@@ -11,6 +11,11 @@ class Store extends Model
 {
     protected $guarded = [];
 
+	protected $casts = [
+		'email_verified_at' => 'datetime',
+		'phone' => 'object',
+	];
+
     public function picture(): MorphOne
     {
         return $this->morphOne(Picture::class,'imageable');

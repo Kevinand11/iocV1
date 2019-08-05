@@ -1,8 +1,21 @@
 const state = {
-    auth: {id:null,name:"",email:"",password:"",role:"",store:null,picture:null},
+    auth: {
+    	id:null,
+		name:"",
+		email:"",
+		role:"",
+		store:null,
+		picture:null,
+		phone: {phone:'',phone_country:''},
+	},
     token:"",
     loggedIn: false,
     admin: false,
+	roles: [
+		'admin',
+		'staff',
+		'user',
+	],
 };
 
 const getters = {
@@ -10,6 +23,7 @@ const getters = {
     getToken: state => state.token,
     isLoggedIn: state => state.auth.name !== '',
     isAdmin: state => state.auth.role === 'admin',
+	getRoles: state => state.roles,
 };
 
 const actions = {
@@ -41,7 +55,7 @@ const mutations = {
         state.token = token;
     },
     clearAuth: (state) => {
-        state.auth = {id:null,name:"",email:"",password:"",role:"",store:null,picture:null};
+        state.auth = {id:null,name:"",email:"",password:"",role:"",store:null,picture:null,phone: {phone:'',phone_country:''}};
         state.token = '';
     }
 };

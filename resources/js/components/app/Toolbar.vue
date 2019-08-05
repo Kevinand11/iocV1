@@ -1,8 +1,8 @@
 <template>
-    <v-toolbar app color="light-blue darken-4" dark class="horizontal-scroll">
+    <v-toolbar app :color="appInfo.color" dark class="horizontal-scroll">
         <v-toolbar-side-icon  @click.stop="emitToggle" class=""></v-toolbar-side-icon>
         <v-list-tile-avatar>
-            <img src="../../img/logo.png" alt="">
+            <img :src="getLogo | appendURL" alt="">
         </v-list-tile-avatar>
         <v-toolbar-title class="white--text hidden-xs-only">{{ appInfo.name }}</v-toolbar-title>
         <v-spacer></v-spacer>
@@ -40,7 +40,7 @@
             }
         },
         computed:{
-            ...mapGetters(['appInfo']),
+            ...mapGetters(['appInfo','getLogo']),
         }
     }
 </script>

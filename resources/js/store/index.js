@@ -5,6 +5,7 @@ import app from './modules/appInfo'
 import auth from "./modules/auth";
 import history from "./modules/history";
 import routes from "./modules/routes";
+import countries from "./modules/countries";
 
 Vue.use(Vuex);
 
@@ -14,5 +15,6 @@ export default new Vuex.Store({
         auth,
         routes,
         history,
+		countries,
     },
 })

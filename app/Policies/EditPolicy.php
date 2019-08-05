@@ -34,4 +34,9 @@ class EditPolicy
     {
         return $auth->role === 'admin';
     }
+
+    public function canEditPicture(User $auth, Picture $picture): bool
+    {
+        return ($auth->role === 'admin') || ($picture->imageable === $auth) || ($picture->imageable === $auth->store) || $auth->store->posts->hasItem($picture->imageable);
+    }
 }

@@ -31,18 +31,18 @@
                     name : '',
                     email: '',
                     link: '',
-                    phone: '',
+                    phone: {phone:'',phone_country:'NG'},
                     description: '',
                     posts: [],
                     picture: {},
-                    user: {},
+                    user: {phone:{}},
                 },
                 form: new Form({
                     id : null,
                     name : '',
                     email: '',
                     link: '',
-                    phone: '',
+					phone: {phone:'',phone_country: 'NG'},
                     description: '',
                     picture: '',
                 }),
@@ -51,7 +51,7 @@
             }
         },
         computed:{
-            ...mapGetters(["storesRoutes"]),
+            ...mapGetters(['appInfo',"storesRoutes",'getStoreLogo']),
             theForm(){return this.form},
             isEdit(){return this.editmode},
             isSubmitted(){return this.submitted},
@@ -72,7 +72,7 @@
                 this.editmode = false;
                 this.form.reset();
                 $('#image').val('');
-                $('#profile').attr('src','../img/store.png');
+                $('#profile').attr('src',this.appInfo.url+this.getStoreLogo);
                 this.submitted = false;
                 this.form.errors.errors = {};
                 $('#form').modal('show');
@@ -81,7 +81,7 @@
                 this.editmode = true;
                 this.form.reset();
                 $('#image').val('');
-                $('#profile').attr('src','../'+(!_.isEmpty(this.form.picture) ? this.picture.filename : "img/store.png"));
+                $('#profile').attr('src',this.appInfo.url+(!_.isEmpty(this.form.picture) ? this.picture.filename : this.getStoreLogo));
                 this.submitted = false;
                 this.form.errors.errors = {};
                 this.form.fill(store);

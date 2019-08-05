@@ -10,8 +10,8 @@ $factory->define(App\Store::class, static function (Faker $faker) {
         'description' => $faker->sentence(10),
         'email' => $faker->unique()->companyEmail,
         'email_verified_at' => now(),
-        'phone' => $faker->phoneNumber,
-        'link' => $faker->domainName,
+        'phone' => ['phone'=>$faker->phoneNumber, 'phone_country'=>$faker->countryCode],
+        'link' => $faker->url,
         'user_id' => $faker->unique()->numberBetween(1,20),
     ];
 });

@@ -2,7 +2,7 @@
     <form-extend data-name="User" :mode="mode">
         <template slot="inputFields">
             <div class="text-center">
-                <img :src="decideImage" alt='' id="profile" width="80px" height="80px"/><br>
+                <img :src="decideImage | appendURL" alt='' id="profile" width="80px" height="80px"/><br>
                 <span class="lead">Preview</span>
             </div>
             <div class="form-group row">
@@ -28,21 +28,31 @@
                     <has-error :form="form" field="email"></has-error>
                 </div>
             </div>
-            <div class="form-group row">
-                <label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
-                <div class="col-sm-9">
-					<input v-model="form.phone" id="phone" type="tel" name="phone" placeholder="Business Phone" autocomplete="phone"
-						   class="form-control" :class="{ 'is-valid': !form.errors.has('phone') && isSubmitted,'is-invalid': form.errors.has('phone') }">
-                    <has-error :form="form" field="phone"></has-error>
-                </div>
-            </div>
+			<div class="form-group row">
+				<label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
+				<div class="col-sm-9">
+					<div class="row">
+						<div class="col-sm-4">
+							<select name="country_code" id="country" class="form-control" v-model="form.phone.phone_country"
+									:class="{ 'is-invalid': form.errors.has('phone.country') }" autocomplete="phone_country">
+								<option v-for="(country,code) in getCountries" :value="code" :key="code">{{ country }}</option>
+							</select>
+							<has-error :form="form" field="phone.phone_country"></has-error>
+						</div>
+						<div class="col-sm-8">
+							<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Phone Number"
+								   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="phone">
+							<has-error :form="form" field="phone.phone"></has-error>
+						</div>
+					</div>
+				</div>
+			</div>
             <div class="form-group row">
                 <label for="role" class="col-sm-3 col-form-label text-sm-right">Role</label>
                 <div class="col-sm-9">
-                    <select id="role" v-model="form.role" name="role" class="form-control">
-                        <option value="user">user</option>
-                        <option value="admin">admin</option>
-                    </select>
+					<select id="role" v-model="form.role" name="role" class="form-control">
+						<option v-for='role in getRoles' :key="role" :value="role">{{ role }}</option>
+					</select>
                     <has-error :form="form" field="category_id"></has-error>
                 </div>
             </div>
@@ -96,8 +106,8 @@
             });
         },
         computed:{
-            ...mapGetters(["usersRoutes"]),
-            decideImage(){return !_.isEmpty(this.form.picture) ? '../'+this.form.picture.filename : '../img/profile.png'},
+            ...mapGetters(["usersRoutes",'getCountries','getRoles','getProfile']),
+            decideImage(){return !_.isEmpty(this.form.picture) ? this.form.picture.filename : this.getProfile },
         },
         methods:{
             createUser(){
@@ -151,7 +161,7 @@
                         swal({
                             type: 'error',
                             title: 'Oops...',
-                            text: 'File shouldnt be more than 2MB',
+                            text: 'File should not be more than 2MB',
                         });
                         return false;
                     }

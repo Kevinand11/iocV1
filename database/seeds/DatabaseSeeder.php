@@ -14,30 +14,18 @@ class DatabaseSeeder extends Seeder
     {
         factory(User::class,20)->create()->each(static function($user){
 			$name = $user->id.'.png';
-			Image::canvas(300,300)->save(public_path('img/users/').$name);
-            Picture::create([
-                'imageable_id' => $user->id,
-                'imageable_type' => 'App\User',
-                'filename' => 'img/users/'.$name
-            ]);
+			Image::canvas(300,300)->save(public_path('images/users/').$name);
+            $user->picture()->create([ 'filename' => 'images/users/'.$name ]);
         });
         factory(Store::class,20)->create()->each(static function($store){
 			$name = $store->id.'.png';
-			Image::canvas(300,300)->save(public_path('img/stores/').$name);
-            Picture::create([
-                'imageable_id' => $store->id,
-                'imageable_type' => 'App\Store',
-                'filename' => 'img/stores/'.$name
-            ]);
+			Image::canvas(300,300)->save(public_path('images/stores/').$name);
+            $store->picture()->create([ 'filename' => 'images/stores/'.$name ]);
         });
         factory(Post::class,50)->create()->each(static function($post){
         	$name = $post->id.'.png';
-        	Image::canvas(300,300)->save(public_path('img/posts/').$name);
-            Picture::create([
-                'imageable_id' => $post->id,
-                'imageable_type' => 'App\Post',
-                'filename' => 'img/posts/'.$name
-            ]);
+        	Image::canvas(300,300)->save(public_path('images/posts/').$name);
+            $post->pictures()->create([ 'filename' => 'images/posts/'.$name ]);
         });
         factory(Category::class,20)->create();
     }

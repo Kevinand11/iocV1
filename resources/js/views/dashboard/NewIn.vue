@@ -8,7 +8,7 @@
         <v-layout row wrap v-if="!fetching">
             <v-flex xs12 sm6 md3 v-for="post in posts.data" :key="post.id" class="pa-1">
                <v-card  @click="viewPost(post)">
-                    <v-img src="../../img/logo.png" height="100px" width="100px"></v-img>
+                    <v-img :src="getLogo | appendURL" height="100px" width="100px"></v-img>
                     <v-card-text primary-title>
                         <span>{{ post.name }}</span>
                         <v-spacer></v-spacer>
@@ -50,8 +50,8 @@
             this.getPosts();
         },
         computed:{
-            ...mapGetters(["postsRoutes"]),
-            fetching(){return this.fetch}
+            ...mapGetters(["postsRoutes",'getLogo']),
+            fetching(){return this.fetch},
         },
         methods:{
             loadPosts(url){
