@@ -1,51 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/app/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Footer.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/routes.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/NotFound.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/NotFound.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Categories.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Users.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/user/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/user/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/views/user/Store.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/user/Store.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
-    </list>
+    <list default="true" id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="" />
     <list id="c579e31d-3d1a-4097-8b19-a6d12c81349a" name="hbjnk" comment="" />
     <list id="d655dae0-2249-4aba-a043-3bbe8c4cfe92" name="Modified Picture Seeders And added toasts after login and register" comment="" />
     <list id="44524e8a-3e43-4271-b3fe-64c540481c40" name="Modified pictures seeders and add progress bars on login and register" comment="" />
@@ -106,17 +62,7 @@
     <favorites_list name="Mart" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="327">
-              <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -148,6 +94,11 @@
       </list>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -1097,7 +1048,7 @@
       <path value="$PROJECT_DIR$/vendor/phpoption/phpoption" />
     </include_path>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="952" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -1209,11 +1160,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="npm.watch" />
-        <item itemvalue="npm.prod" />
-        <item itemvalue="npm.production" />
-        <item itemvalue="PHPUnit.ExampleTest" />
         <item itemvalue="PHPUnit.ExampleTest.testBasicTest" />
+        <item itemvalue="PHPUnit.ExampleTest" />
+        <item itemvalue="npm.watch" />
+        <item itemvalue="npm.production" />
+        <item itemvalue="npm.prod" />
       </list>
     </recent_temporary>
   </component>
@@ -1276,7 +1227,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="343423000" />
+    <option name="totallyTimeSpent" value="344375000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1288,8 +1239,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
-    <editor active="true" />
+    <frame x="-7" y="-7" width="1550" height="838" extended-state="7" />
     <layout>
       <window_info id="npm" order="0" sideWeight="0.5231214" side_tool="true" weight="0.2149792" />
       <window_info id="Code comment" order="1" sideWeight="0.5228571" side_tool="true" weight="0.447651" />
@@ -1440,13 +1390,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="513">
           <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="94">
-          <caret line="4" column="67" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="67" />
         </state>
       </provider>
     </entry>
@@ -1708,16 +1651,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/lang/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#22#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="168">
@@ -1746,6 +1679,23 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="327">
           <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/lang/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="96">
+          <caret line="4" column="28" lean-forward="true" selection-start-line="4" selection-start-column="28" selection-end-line="4" selection-end-column="28" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="4" column="67" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="67" />
         </state>
       </provider>
     </entry>
