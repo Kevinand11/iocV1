@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card-header my-3">
-                    <span class="card-title">Posts Table</span>
-                    <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-cart-plus fa-fw"></i></button>
+                    <span class="card-title">{{ $t('postTableHeader') }}</span>
+                    <button class="btn btn-success" @click="newModal">{{ $t('addNewButton') }}<i class="fas fa-cart-plus fa-fw"></i></button>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <post-table/>
@@ -84,10 +84,10 @@
             },
             deletePost(id){
                 this.form.delete(this.postsRoutes.delete+id).then((response)=>{
-                    new swal('Deleted!','Post deleted.','success');
+                    new swal(this.$t('deleted'),this.$t('postDeleted'),'success');
                     Fire.$emit('ReloadPosts');
                 }).catch(()=> {
-                    new swal("Failed!", "Unable to delete. Something went wrong", "warning");
+                    new swal(this.$t('failed'), this.$t('failedDelete'), "warning");
                 });
             },
         },

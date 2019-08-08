@@ -3,11 +3,14 @@ const state = {
         name: "IOCMart",
 		color: 'light-blue darken-4',
 		sidebar_width: '250',
-		url: 'http://localhost:8000/',
+		url: window.location.origin+'/',
     },
 	logo: "images/logo.png",
 	profile: "images/profile.png",
 	storeLogo: "images/store.png",
+	languages:[
+		'us', 'es', 'ng'
+	]
 };
 
 const getters = {
@@ -15,6 +18,7 @@ const getters = {
 	getLogo: state => state.logo,
 	getProfile: state => state.profile,
 	getStoreLogo: state => state.storeLogo,
+	getLanguages: state => state.languages,
 };
 
 const actions = {

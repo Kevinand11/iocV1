@@ -3,13 +3,13 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">404 Error</div>
+                    <div class="card-header">{{ $t('error404') }}</div>
                     <div class="card-body">
-                        Page Not Found<i class="fas fa-exclamation-circle"></i>
+						{{ $t('pageNotFound') }}<i class="fas fa-exclamation-circle"></i>
                     </div>
                     <div class="card-footer">
-                        <button class="btn btn-danger" @click="goBack">Go Back</button>
-                        <button class="btn btn-primary float-right" @click="goHome">Go Home</button>
+                        <button class="btn btn-danger" @click="goBack">{{ $t('goBackButton') }}</button>
+                        <button class="btn btn-primary float-right" @click="goHome">{{ $t('goHomeButton') }}</button>
                     </div>
                 </div>
             </div>
@@ -25,7 +25,7 @@
                 this.$router.go(-1)
             },
             goHome(){
-                this.$router.push("/master/")
+                this.$router.push("/")
             }
         }
     }

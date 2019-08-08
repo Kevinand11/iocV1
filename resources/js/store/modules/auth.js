@@ -12,9 +12,9 @@ const state = {
     loggedIn: false,
     admin: false,
 	roles: [
-		'admin',
-		'staff',
-		'user',
+		{name:'Admin',value:'admin'},
+		{name:'Staff',value:'staff'},
+		{name:'User', value:'user'},
 	],
 };
 

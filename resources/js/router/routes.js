@@ -18,22 +18,22 @@ import NotFound from "../views/NotFound.vue";
 
 export default [
     { path: '/', component: Dashboard, children: [
-            { path: '/', name: 'NewIn',component: NewIn },
-            { path: '/stores', name: 'Stores', component: Store },
-            { path: '/services', name: 'Services', component: Store },
-            { path: '/posts/', name: 'Posts', component: NewIn },
-            { path: '/posts/:id', name: 'Post', component: Post },
-        ]
+            { path: '/', name: 'NewIn',component: NewIn, meta: { showCartFab:true } },
+            { path: '/stores', name: 'Stores', component: Store, meta: { showCartFab:true } },
+            { path: '/services', name: 'Services', component: Store, meta: { showCartFab:true } },
+            { path: '/posts/', name: 'Posts', component: NewIn, meta: { showCartFab:true } },
+            { path: '/posts/:id', name: 'Post', component: Post, meta: { showCartFab:true } },
+        ], meta: { showCartFab:true }
     },
-    { path: '/admin/developer', name: 'AdminDeveloper', component: Developer },
-    { path: '/admin/users', name: 'AdminUsers', component: Users },
-    { path: '/admin/stores', name: 'AdminStores', component: Stores },
-    { path: '/admin/posts', name: 'AdminPosts', component: Posts },
-    { path: '/admin/categories', name: 'AdminCategories', component: Categories },
-    { path: '/store', name: 'MyStore', component: Store },
-    { path: '/profile', name: 'Profile', component: Profile },
-    { path: '/login', name: 'Login', component: Login },
-    { path: '/register', name: 'Register', component: Register },
+    { path: '/admin/developer', name: 'AdminDeveloper', component: Developer , meta: { requiresAuth:true, requiresAdmin: true }},
+    { path: '/admin/users', name: 'AdminUsers', component: Users, meta: { requiresAuth:true, requiresAdmin: true } },
+    { path: '/admin/stores', name: 'AdminStores', component: Stores, meta: { requiresAuth:true, requiresAdmin: true } },
+    { path: '/admin/posts', name: 'AdminPosts', component: Posts, meta: { requiresAuth:true, requiresAdmin: true } },
+    { path: '/admin/categories', name: 'AdminCategories', component: Categories, meta: { requiresAuth:true, requiresAdmin: true } },
+    { path: '/store', name: 'MyStore', component: Store, meta: { requiresAuth:true } },
+    { path: '/profile', name: 'Profile', component: Profile, meta: { requiresAuth:true } },
+    { path: '/login', name: 'Login', component: Login, meta:{ isAuthRoute:true } },
+    { path: '/register', name: 'Register', component: Register, meta:{ isAuthRoute:true } },
     { path: '*', name: 'NotFound', component: NotFound }
 ]
 

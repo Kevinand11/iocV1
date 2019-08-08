@@ -2,22 +2,22 @@
     <table-extend>
         <template slot="headers">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Phone</th>
-                <th>Role</th>
-                <th>Picture</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Modifiers</th>
+                <th>{{ $t('userTableId') }}</th>
+                <th>{{ $t('userTableName') }}</th>
+                <th>{{ $t('userTableEmail') }}</th>
+                <th>{{ $t('userTablePhone') }}</th>
+                <th>{{ $t('userTableRole') }}</th>
+                <th>{{ $t('userTablePicture') }}</th>
+                <th>{{ $t('userTableCreated') }}</th>
+                <th>{{ $t('userTableUpdated') }}</th>
+                <th>{{ $t('userTableModifiers') }}</th>
             </tr>
         </template>
         <template slot="rows">
             <tbody>
                 <v-layout row wrap v-if="fetching">
                     <v-flex xs6 offset-xs3>
-                        <vue-simple-spinner message="Loading" size="large" />
+                        <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
                     </v-flex>
                 </v-layout>
                 <tr v-for="user in users.data" :key="user.id" @click="emitCurr(user)" v-if="!fetching">
@@ -26,7 +26,7 @@
                     <td>{{user.email}}</td>
                     <td>{{user.phone.phone}}<small>{{user.phone.phone_country}}</small></td>
                     <td>{{user.role}}</td>
-                    <td>{{ user.picture ? user.picture.filename : 'None' }}</td>
+                    <td>{{ user.picture ? user.picture.filename : $t('userTableNone') }}</td>
                     <td>{{user.created_at | myDate}}</td>
                     <td>{{user.updated_at | myDate}}</td>
                     <td>
@@ -88,7 +88,7 @@
                 }).catch(()=>{
                     new toast({
                         type: 'error',
-                        title: 'Unable to fetch data'
+                        title: this.$t('userTableError'),
                     });
                     this.fetch = false;
                 })
@@ -107,13 +107,13 @@
             },
             emitDelete(id){
                 new swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: this.$t('deleteConfirmTitle'),
+                    text: this.$t('deleteConfirmText'),
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: this.$t('deleteConfirmButton')
                 }).then((result) => {
                     if (result.value) {
                         Fire.$emit("DeleteUser",id)

@@ -5,70 +5,70 @@
 				<form @submit.prevent="updateProfile">
 					<div class="text-center">
 						<img :src="decideImage" alt='' id="profile" width="80px" height="80px"/><br>
-						<span class="lead">Preview</span>
+						<span class="lead">{{ $t('userFormPreview') }}</span>
 					</div>
 					<div class="form-group row">
-						<label for="image" class="col-sm-2 col-form-label">Photo</label>
-						<div class="col-sm-12">
+						<label for="image" class="col-sm-2 col-form-label">{{ $t('userFormPhotoLabel') }}</label>
+						<div class="col-sm-10">
 							<input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
 								   class="form-control-file" id="image">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="name" class="col-sm-2 col-form-label">Name</label>
-						<div class="col-sm-12">
-							<input type="text" v-model="form.name" class="form-control" id="name" placeholder="Name"
+						<label for="name" class="col-sm-2 col-form-label">{{ $t('userFormNameLabel') }}</label>
+						<div class="col-sm-10">
+							<input type="text" v-model="form.name" class="form-control" id="name" :placeholder="$t('userFormNamePlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('name') }" autocomplete="name">
 							<has-error :form="form" field="name"></has-error>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="email" class="col-sm-2 col-form-label">Email</label>
-						<div class="col-sm-12">
-							<input type="email" v-model="form.email" class="form-control" id="email" placeholder="Email"
+						<label for="email" class="col-sm-2 col-form-label">{{ $t('userFormEmailLabel') }}</label>
+						<div class="col-sm-10">
+							<input type="email" v-model="form.email" class="form-control" id="email" :placeholder="$t('userFormEmailPlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('email') }" autocomplete="email">
 							<has-error :form="form" field="email"></has-error>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="phone" class="col-sm-2 col-form-label">Phone</label>
-						<div class="col-sm-12">
+						<label for="phone" class="col-sm-2 col-form-label">{{ $t('userFormPhoneLabel') }}</label>
+						<div class="col-sm-10">
 							<div class="row">
-								<div class="col-sm-4">
+								<div class="col-sm-5">
 									<select name="country_code" id="country" class="form-control" v-model="form.phone.phone_country"
 											:class="{ 'is-invalid': form.errors.has('phone.phone_country') }" autocomplete="phone_country">
 										<option v-for="(country,code) in getCountries" :value="code" :key="code">{{ country }}</option>
 									</select>
 									<has-error :form="form" field="phone.phone_country"></has-error>
 								</div>
-								<div class="col-sm-8">
-									<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Phone Number"
+								<div class="col-sm-7">
+									<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" :placeholder="$t('userFormPhonePlaceHolder')"
 										   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="phone">
 									<has-error :form="form" field="phone.phone"></has-error>
 								</div>
 							</div>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="password" class="col-sm-12 col-form-label">Password (leave empty if not changing)</label>
-						<div class="col-sm-12">
-							<input type="password" v-model="form.password" class="form-control" id="password" placeholder="Password"
+					<div class="form-group">
+						<label for="password" class="col-form-label">{{ $t('userFormUpdatePasswordLabel') }}</label>
+						<div class="">
+							<input type="password" v-model="form.password" class="form-control" id="password" :placeholder="$t('userFormPasswordPlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('password') }" autocomplete="password">
 							<has-error :form="form" field="password"></has-error>
 						</div>
 					</div>
-					<div class="form-group row">
-						<label for="c_password" class="col-sm-12 col-form-label">Confirm Password (if changing)</label>
-						<div class="col-sm-12">
-							<input type="password" v-model="form.password_confirmation" class="form-control" id="c_password" placeholder="Password confirmation"
+					<div class="form-group">
+						<label for="c_password" class="col-form-label">{{ $t('userFormConfirmUpdatePasswordLabel') }}</label>
+						<div class="">
+							<input type="password" v-model="form.password_confirmation" class="form-control" id="c_password" :placeholder="$t('userFormConfirmPasswordPlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('password_confirmation') }" autocomplete="password_confirmation">
 							<has-error :form="form" field="password_confirmation"></has-error>
 						</div>
 					</div>
-					<div class="form-group">
+					<div class="form-group row">
 						<div class="offset-sm-4 col-sm-4">
 							<button type="submit" class="btn btn-success" @click.prevent="updateProfile">
-								<span v-if="!isDisabled">Update</span>
+								<span v-if="!isDisabled">{{ $t('updateButton') }}</span>
 								<i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
 							</button>
 						</div>
@@ -99,10 +99,10 @@
         	this.form.fill(this.getAuth);
 		},
         computed:{
-            ...mapGetters(['getAuth','authRoutes','getCountries']),
+            ...mapGetters(['getAuth','authRoutes','getCountries','getProfile']),
 			isDisabled(){ return this.disabled },
 			isSubmitted(){ return this.submitted },
-			decideImage(){return !_.isEmpty(this.form.picture) ? this.form.picture.filename : 'img/profile.png'},
+			decideImage(){return !_.isEmpty(this.form.picture) ? this.form.picture.filename : this.getProfile },
         },
 		methods:{
         	...mapActions(['setAuth']),
@@ -117,14 +117,14 @@
 					this.$Progress.finish();
         			new toast({
 						type:'success',
-						title:'Profile updated successfully'
+						title:this.$t('userFormProfileUpdateSuccess'),
 					});
 				}).catch(error=>{
 					this.disabled = false;
 					this.$Progress.fail();
 					new toast({
 						type:'error',
-						title:'Failed to update profile'
+						title:this.$t('userFormProfileUpdateError'),
 					});
 				});
 			},
@@ -136,8 +136,8 @@
 					if(file['size'] > limit){
 						swal({
 							type: 'error',
-							title: 'Oops...',
-							text: 'File should not be more than 2MB',
+							title: this.$t('fileUploadOops'),
+							text: this.$t('fileUploadLimit'),
 						});
 						return false;
 					}

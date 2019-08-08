@@ -2,17 +2,17 @@
     <modal dataName="Category">
         <template class="card-title" slot="name">
             <span class="lead">{{ category.name }}</span>
-            <span class="small float-right">Parent:{{category.parent}}</span>
+            <span class="small float-right">{{ $t('categoryModalParent') }}:{{category.parent ? category.parent.name : $t('categoryModalNone') }}</span>
         </template>
         <template slot="body">
-            <p class="lead">Posts Under {{category.name}}</p>
+            <p class="lead">{{ $t('categoryModalPostsUnder') }}{{category.name}}</p>
             <table class="table table-striped table-hover mb-4">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Posted by</th>
+                        <th>{{ $t('postTableId') }}</th>
+                        <th>{{ $t('postTableName') }}</th>
+                        <th>{{ $t('postTablePrice') }}</th>
+                        <th>{{ $t('postTablePostedBy') }}</th>
                     </tr>
                 </thead>
                 <tbody>

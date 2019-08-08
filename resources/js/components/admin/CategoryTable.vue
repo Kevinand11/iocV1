@@ -2,19 +2,19 @@
     <table-extend>
         <template slot="headers">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Parent</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Modifiers</th>
+                <th>{{ $t('categoryTableId') }}</th>
+                <th>{{ $t('categoryTableName') }}</th>
+                <th>{{ $t('categoryTableParent') }}</th>
+                <th>{{ $t('categoryTableCreated') }}</th>
+                <th>{{ $t('categoryTableUpdated') }}</th>
+                <th>{{ $t('categoryTableModifiers') }}</th>
             </tr>
         </template>
         <template slot="rows">
             <tbody>
                 <v-layout row wrap v-if="fetching">
                     <v-flex xs6 offset-xs3>
-                        <vue-simple-spinner message="Loading" size="large" />
+                        <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
                     </v-flex>
                 </v-layout>
                 <tr v-for="category in categories.data" :key="category.id" @click="emitCurr(category)" v-if="!fetching">
@@ -81,7 +81,7 @@
                 }).catch(()=>{
                     new toast({
                         type: 'error',
-                        title: 'Unable to fetch data'
+                        title: this.$t('categoryTableError'),
                     });
                     this.fetch = false;
                 })
@@ -100,13 +100,13 @@
             },
             emitDelete(id){
                 new swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: this.$t('deleteConfirmTitle'),
+                    text: this.$t('deleteConfirmText'),
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: this.$t('deleteConfirmButton')
                 }).then((result) => {
                     if (result.value) {
                         Fire.$emit("DeleteCategory",id)

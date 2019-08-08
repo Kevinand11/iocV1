@@ -4,20 +4,20 @@
             <span class="lead">{{ store.name }}</span>
         </template>
         <template slot="body">
-            <p class="lead">Email:{{ store.email }}</p>
-            <p>Phone:{{ store.phone.phone }}<small>{{ store.phone.phone_country }}</small></p>
-            <p>Link:{{ store.link }}</p>
-            <p>Owner: {{ store.user.name }}({{ store.user.email }})({{ store.user.phone.phone }})</p>
-            <p>Description: {{ store.description }}</p>
-            <p>Picture: {{ store.picture }}</p>
-            <p class="lead">Posts by {{store.name}}</p>
+            <p class="lead">{{ $t('storeModalEmail') }}:{{ store.email }}</p>
+            <p>{{ $t('storeModalPhone') }}:{{ store.phone.phone }}<small>{{ store.phone.phone_country }}</small></p>
+            <p>{{ $t('storeModalLink') }}:{{ store.link }}</p>
+            <p>{{ $t('storeModalOwner') }}: {{ store.user.name }}({{ store.user.email }})({{ store.user.phone.phone }})</p>
+            <p>{{ $t('storeModalDescription') }}: {{ store.description }}</p>
+            <p>{{ $t('storeModalPictureName') }}: {{ store.picture ? store.picture.filename : $t('storeModalNone') }}</p>
+            <p class="lead">{{ $t('storeModalPostsBy') }} {{store.name}}</p>
             <table class="table table-striped table-hover mb-4">
                 <thead>
                     <tr>
-                        <th>Id</th>
-                        <th>Name</th>
-                        <th>Price</th>
-                        <th>Category</th>
+                        <th>{{ $t('postTableId') }}</th>
+                        <th>{{ $t('postTableName') }}</th>
+                        <th>{{ $t('postTablePrice') }}</th>
+                        <th>{{ $t('postTableCategory') }}</th>
                     </tr>
                 </thead>
                 <tbody>

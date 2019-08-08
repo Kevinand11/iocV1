@@ -1,19 +1,21 @@
 window.$ = window.jQuery = require("jquery");
-window.Popper = require('popper.js').default;
+
+//No need to import since bootstrap bundle file comes bundled with popper
+//window.Popper = require('popper.js/dist/popper.min').default;
 
 import isEmpty from 'lodash/isEmpty';
 import includes from 'lodash/includes';
 window._ = window.lodash = {isEmpty,includes};
 
-import __ from "bootstrap/dist/js/bootstrap.min";
+import __ from "bootstrap/dist/js/bootstrap.bundle.min";
 import ___ from '@fortawesome/fontawesome-free/js/fontawesome.min'
 
 import Vue from "vue";
 import {Form,HasError} from 'vform/dist/vform.umd.min';
 import VueProgressBar from "vue-progressbar";
-import Spinner from "vue-simple-spinner"
-import swal from 'sweetalert2';
-import Pagination from 'laravel-vue-pagination'
+import Spinner from "vue-simple-spinner/dist/vue-simple-spinner.min"
+import swal from 'sweetalert2/dist/sweetalert2.min';
+import Pagination from 'laravel-vue-pagination/dist/laravel-vue-pagination.umd.min'
 
 Vue.component(HasError.name,HasError);
 Vue.component(Spinner.name,Spinner);

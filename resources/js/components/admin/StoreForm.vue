@@ -3,33 +3,33 @@
         <template slot="inputFields">
             <div class="text-center">
                 <img :src="decideImage| appendURL" alt='' id="profile" width="80px" height="80px"/><br>
-                <span class="lead">Preview</span>
+                <span class="lead">{{ $t('storeFormPreview') }}</span>
             </div>
             <div class="form-group row">
-                <label for="image" class="col-sm-3 col-form-label text-sm-right">Photo</label>
+                <label for="image" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormPhotoLabel') }}</label>
                 <div class="col-sm-9">
                     <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
                            class="form-control-file" id="image">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label text-sm-right">Name</label>
+                <label for="name" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormNameLabel') }}</label>
                 <div class="col-sm-9">
-                    <input v-model="form.name" id="name" type="text" name="name" placeholder="Business Name" autocomplete="business_name"
+                    <input v-model="form.name" id="name" type="text" name="name" :placeholder="$t('storeFormNamePlaceHolder')" autocomplete="business_name"
                            class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
                     <has-error :form="form" field="name"></has-error>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="email" class="col-sm-3 col-form-label text-sm-right">Email</label>
+                <label for="email" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormEmailLabel') }}</label>
                 <div class="col-sm-9">
-                    <input v-model="form.email" id="email" name="email" type="email" placeholder="Business Email" autocomplete="business_email"
+                    <input v-model="form.email" id="email" name="email" type="email" :placeholder="$t('storeFormEmailPlaceHolder')" autocomplete="business_email"
                            class="form-control" :class="{ 'is-valid': !form.errors.has('email') && isSubmitted,'is-invalid': form.errors.has('email') }">
                     <has-error :form="form" field="email"></has-error>
                 </div>
             </div>
 			<div class="form-group row">
-				<label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
+				<label for="phone" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormPhoneLabel') }}</label>
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-sm-4">
@@ -40,7 +40,7 @@
 							<has-error :form="form" field="phone.phone_country"></has-error>
 						</div>
 						<div class="col-sm-8">
-							<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Business Line"
+							<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" :placeholder="$t('storeFormPhonePlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="business_phone">
 							<has-error :form="form" field="phone.phone"></has-error>
 						</div>
@@ -48,17 +48,17 @@
 				</div>
 			</div>
 			<div class="form-group row">
-                <label for="link" class="col-sm-3 col-form-label text-sm-right">Link</label>
+                <label for="link" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormLinkLabel') }}</label>
                 <div class="col-sm-9">
-					<input v-model="form.link" id="link" type="url" name="link" placeholder="Business Website" autocomplete="business_link"
+					<input v-model="form.link" id="link" type="url" name="link" :placeholder="$t('storeFormLinkPlaceHolder')" autocomplete="business_link"
                            class="form-control" :class="{ 'is-valid': !form.errors.has('link') && isSubmitted,'is-invalid': form.errors.has('link') }">
                     <has-error :form="form" field="link"></has-error>
                 </div>
             </div>
 			<div class="form-group row">
-                <label for="desc" class="col-sm-3 col-form-label text-sm-right">Description</label>
+                <label for="desc" class="col-sm-3 col-form-label text-sm-right">{{ $t('storeFormDescriptionLabel') }}</label>
                 <div class="col-sm-9">
-                    <textarea v-model="form.description" id="desc" type="text" name="description" placeholder="More About Your Business" autocomplete="business_description"
+                    <textarea v-model="form.description" id="desc" type="text" name="description" :placeholder="$t('storeFormDescriptionPlaceHolder')" autocomplete="business_description"
                         class="form-control" :class="{ 'is-valid': !form.errors.has('description') && isSubmitted,'is-invalid': form.errors.has('description') }"></textarea>
                     <has-error :form="form" field="description"></has-error>
                 </div>
@@ -69,7 +69,6 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import VuePhoneNumberInput from 'vue-phone-number-input'
     import FormEx from "./extensions/Form.vue"
 
     export default {
@@ -110,7 +109,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Store created successfully'
+                        title: this.$t('storeFormCreateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -118,7 +117,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error creating store'
+                        title: this.$t('storeFormCreateError')
                     });
                 })
             },
@@ -131,7 +130,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Store updated successfully'
+                        title: this.$t('storeFormUpdateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -139,7 +138,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error updating store'
+                        title: this.$t('storeFormUpdateError')
                     });
                 })
             },
@@ -151,8 +150,8 @@
                     if(file['size'] > limit){
                         swal({
                             type: 'error',
-                            title: 'Oops...',
-                            text: 'File should not be more than 2MB',
+                            title: this.$t('fileUploadOops'),
+                            text: this.$t('fileUploadLimit')
                         })
                         return false;
                     }
@@ -166,7 +165,6 @@
         },
         components:{
             "form-extend": FormEx,
-            "phone-input": VuePhoneNumberInput,
         }
     }
 </script>

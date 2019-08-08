@@ -3,24 +3,24 @@
         <template slot="inputFields">
             <v-layout row wrap v-if="fetching">
                 <v-flex xs6 offset-xs3>
-                    <vue-simple-spinner message="Loading" size="large" />
+                    <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
                 </v-flex>
             </v-layout>
             <div v-if="!fetching">
                 <div class="form-group row">
-                    <label for="name" class="col-sm-3 col-form-label text-sm-right">Name</label>
+                    <label for="name" class="col-sm-3 col-form-label text-sm-right">{{ $t('categoryFormNameLabel') }}</label>
                     <div class="col-sm-9">
-                        <input v-model="form.name" id="name" type="text" name="name" placeholder="Category Name" autocomplete="name"
+                        <input v-model="form.name" id="name" type="text" name="name" :placeholder="$t('categoryFormNamePlaceHolder')" autocomplete="name"
                             class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
                     </div>
                     <has-error :form="form" field="name"></has-error>
                 </div>
                 <div class="form-group row">
-                    <label for="parent" class="col-sm-3 col-form-label text-sm-right">Parent</label>
+                    <label for="parent" class="col-sm-3 col-form-label text-sm-right">{{ $t('categoryFormParentLabel') }}</label>
                     <div class="col-sm-9">
                         <select v-model="form.parent_id" id="parent" name="parent_id" class="form-control" :class="{ 'is-valid': !form.errors.has('parent') && isSubmitted,'is-invalid': form.errors.has('parent') }">
-                            <option disabled>Select Parent Category</option>
-                            <option value=0>None</option>
+                            <option disabled>{{ $t('categoryFormSelectParentCategory') }}</option>
+                            <option value=0>{{ $t('categoryFormParentNone') }}</option>
                             <option v-for="category in categories" :value="category.id">{{category.name}}</option>
                         </select>
                         <has-error :form="form" field="parent"></has-error>
@@ -82,7 +82,7 @@
                 }).catch(error=>{
                     new toast({
                         type: 'error',
-                        title: 'Unable to fetch data'
+                        title: this.$t('cantFetchData')
                     });
                     this.fetch = false;
                 })
@@ -96,7 +96,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Category created successfully'
+                        title: this.$t('categoryFormCreateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -104,7 +104,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error creating category'
+                        title: this.$t('categoryFormCreateError')
                     });
                 })
             },
@@ -117,7 +117,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Category updated successfully'
+                        title: this.$t('categoryFormUpdateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -125,7 +125,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error updating category'
+                        title: this.$t('categoryFormUpdateError')
                     });
                 })
             },

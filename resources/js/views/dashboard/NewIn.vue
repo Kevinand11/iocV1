@@ -2,17 +2,17 @@
     <v-container grid-list-xs>
         <v-layout row wrap v-if="fetching">
             <v-flex xs6 offset-xs3>
-                <vue-simple-spinner message="Loading" size="large" />
+                <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
             </v-flex>
         </v-layout>
         <v-layout row wrap v-if="!fetching">
             <v-flex xs12 sm6 md3 v-for="post in posts.data" :key="post.id" class="pa-1">
                <v-card  @click="viewPost(post)">
-                    <v-img :src="getLogo | appendURL" height="100px" width="100px"></v-img>
+                    <v-img v-if="post.pictures" :src="post.pictures[0].filename | appendURL" height="100px" width="100px"></v-img>
                     <v-card-text primary-title>
                         <span>{{ post.name }}</span>
                         <v-spacer></v-spacer>
-                        <span>{{post.price | addNairaSign}}</span>
+                        <span>{{ post.price | addNairaSign }}</span>
                     </v-card-text>
                 </v-card> 
             </v-flex>
@@ -62,10 +62,10 @@
                     this.fetch = false
                     this.posts = response.data;
                 }).catch(()=>{
-                    new toast({
-                        type: 'error',
-                        title: 'Unable to fetch data'
-                    });
+					new toast({
+						type: 'error',
+						title: this.$t('cantFetchData'),
+					});
                     this.fetch = false
                 })
             },

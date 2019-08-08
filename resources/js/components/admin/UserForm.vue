@@ -3,33 +3,33 @@
         <template slot="inputFields">
             <div class="text-center">
                 <img :src="decideImage | appendURL" alt='' id="profile" width="80px" height="80px"/><br>
-                <span class="lead">Preview</span>
+                <span class="lead">{{ $t('userFormPreview') }}</span>
             </div>
             <div class="form-group row">
-                <label for="image" class="col-sm-3 col-form-label text-sm-right">Photo</label>
+                <label for="image" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormPhotoLabel') }}</label>
                 <div class="col-sm-9">
                     <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
                        class="form-control-file" id="image">
                 </div>
             </div>
             <div class="form-group row">
-                <label for="name" class="col-sm-3 col-form-label text-sm-right">Name</label>
+                <label for="name" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormNameLabel') }}</label>
                 <div class="col-sm-9">
-                    <input id="name" v-model="form.name" type="text" name="name" placeholder="Name" autocomplete="name"
+                    <input id="name" v-model="form.name" type="text" name="name" :placeholder="$t('userFormNamePlaceHolder')" autocomplete="name"
                         class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
                     <has-error :form="form" field="name"></has-error>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="email" class="col-sm-3 col-form-label text-sm-right">Email</label>
+                <label for="email" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormEmailLabel') }}</label>
                 <div class="col-sm-9">
-                    <input id="email" v-model="form.email" name="email" type="email" placeholder="Email" autocomplete="email"
+                    <input id="email" v-model="form.email" name="email" type="email" :placeholder="$t('userFormEmailPlaceHolder')" autocomplete="email"
                         class="form-control" :class="{ 'is-valid': !form.errors.has('email') && isSubmitted,'is-invalid': form.errors.has('email') }">
                     <has-error :form="form" field="email"></has-error>
                 </div>
             </div>
 			<div class="form-group row">
-				<label for="phone" class="col-sm-3 col-form-label text-sm-right">Phone</label>
+				<label for="phone" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormPhoneLabel') }}</label>
 				<div class="col-sm-9">
 					<div class="row">
 						<div class="col-sm-4">
@@ -40,7 +40,7 @@
 							<has-error :form="form" field="phone.phone_country"></has-error>
 						</div>
 						<div class="col-sm-8">
-							<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Phone Number"
+							<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" :placeholder="$t('userFormPhonePlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="phone">
 							<has-error :form="form" field="phone.phone"></has-error>
 						</div>
@@ -48,27 +48,27 @@
 				</div>
 			</div>
             <div class="form-group row">
-                <label for="role" class="col-sm-3 col-form-label text-sm-right">Role</label>
+                <label for="role" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormRoleLabel') }}</label>
                 <div class="col-sm-9">
 					<select id="role" v-model="form.role" name="role" class="form-control">
-						<option v-for='role in getRoles' :key="role" :value="role">{{ role }}</option>
+						<option v-for='role in getRoles' :key="role.value" :value="role.value">{{ $t(`userFormRole${role.name}`) }}</option>
 					</select>
                     <has-error :form="form" field="category_id"></has-error>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="password" class="col-sm-3 col-form-label text-sm-right">Password</label>
+                <label for="password" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormPasswordLabel') }}</label>
                 <div class="col-sm-9">
-                    <input v-model="form.password" id="password" type="password" name="password" placeholder="Password" autocomplete="password"
+                    <input v-model="form.password" id="password" type="password" name="password" :placeholder="$t('userFormPasswordPlaceHolder')" autocomplete="password"
                            class="form-control" :class="{ 'is-valid': !form.errors.has('password') && isSubmitted,'is-invalid': form.errors.has('password') }">
                     <has-error :form="form" field="password"></has-error>
                 </div>
             </div>
             <div class="form-group row">
-                <label for="confirm" class="col-sm-3 col-form-label text-sm-right">Confirm</label>
+                <label for="confirm" class="col-sm-3 col-form-label text-sm-right">{{ $t('userFormConfirmPasswordLabel') }}</label>
                 <div class="col-sm-9">
-                    <input v-model="form.password_confirmation" id="confirm" type="password" name="password_confirmation" placeholder="Confirm Password" autocomplete="password_confirmation"
-                        class="form-control" :class="{ 'is-valid': !form.errors.has('password_confirmation') && isSubmitted,'is-invalid': form.errors.has('password_confirmation') }">
+                    <input v-model="form.password_confirmation" id="confirm" type="password" name="password_confirmation" :placeholder="$t('userFormConfirmPasswordPlaceHolder')"
+						   autocomplete="password_confirmation" class="form-control" :class="{ 'is-valid': !form.errors.has('password_confirmation') && isSubmitted,'is-invalid': form.errors.has('password_confirmation') }">
                     <has-error :form="form" field="password_confirmation"></has-error>
                 </div>
             </div>
@@ -78,7 +78,6 @@
 
 <script>
     import { mapGetters } from "vuex"
-    import VuePhoneNumberInput from 'vue-phone-number-input'
     import FormEx from "./extensions/Form.vue"
 
     export default {
@@ -119,7 +118,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'User created successfully'
+                        title: this.$t('userFormCreateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -127,7 +126,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error creating user'
+                        title: this.$t('userFormCreateError')
                     });
                 })
             },
@@ -140,7 +139,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'User updated successfully'
+                        title: this.$t('userFormUpdateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -148,7 +147,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error updating user'
+                        title: this.$t('userFormUpdateError')
                     });
                 })
             },
@@ -160,8 +159,8 @@
                     if(file['size'] > limit){
                         swal({
                             type: 'error',
-                            title: 'Oops...',
-                            text: 'File should not be more than 2MB',
+                            title: this.$t('fileUploadOops'),
+                            text: this.$t('fileUploadLimit')
                         });
                         return false;
                     }
@@ -175,7 +174,6 @@
         },
         components:{
             "form-extend": FormEx,
-            "phone-input": VuePhoneNumberInput,
         }
     }
 </script>

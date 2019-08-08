@@ -5,33 +5,33 @@
 				<form @submit.prevent="updateProfile">
 					<div class="text-center">
 						<img :src="decideImage" alt='' id="profile" width="80px" height="80px"/><br>
-						<span class="lead">Preview</span>
+						<span class="lead">{{ $t('storeFormPreview') }}</span>
 					</div>
 					<div class="form-group row">
-						<label for="image" class="col-sm-2 col-form-label">Photo</label>
+						<label for="image" class="col-sm-2 col-form-label">{{ $t('storeFormPhotoLabel') }}</label>
 						<div class="col-sm-12">
 							<input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
 								   class="form-control-file" id="image">
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="name" class="col-sm-2 col-form-label">Name</label>
+						<label for="name" class="col-sm-2 col-form-label">{{ $t('storeFormNameLabel') }}</label>
 						<div class="col-sm-12">
-							<input type="text" v-model="form.name" class="form-control" id="name" placeholder="Name"
+							<input type="text" v-model="form.name" class="form-control" id="name" :placeholder="$t('storeFormNamePlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('name') }" autocomplete="business_name">
 							<has-error :form="form" field="name"></has-error>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="email" class="col-sm-2 col-form-label">Email</label>
+						<label for="email" class="col-sm-2 col-form-label">{{ $t('storeFormEmailLabel') }}</label>
 						<div class="col-sm-12">
-							<input type="email" v-model="form.email" class="form-control" id="email" placeholder="Email"
+							<input type="email" v-model="form.email" class="form-control" id="email" :placeholder="$t('storeFormEmailPlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('email') }" autocomplete="business_email">
 							<has-error :form="form" field="email"></has-error>
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="phone" class="col-sm-2 col-form-label">Phone</label>
+						<label for="phone" class="col-sm-2 col-form-label">{{ $t('storeFormPhoneLabel') }}</label>
 						<div class="col-sm-12">
 							<div class="row">
 								<div class="col-sm-4">
@@ -42,7 +42,7 @@
 									<has-error :form="form" field="phone.phone_country"></has-error>
 								</div>
 								<div class="col-sm-8">
-									<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Business Line"
+									<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" :placeholder="$t('storeFormPhonePlaceHolder')"
 										   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="business_phone">
 									<has-error :form="form" field="phone.phone"></has-error>
 								</div>
@@ -50,16 +50,16 @@
 						</div>
 					</div>
 					<div class="form-group row">
-						<label for="link" class="col-sm-2 col-form-label">Link</label>
+						<label for="link" class="col-sm-2 col-form-label">{{ $t('storeFormLinkLabel') }}</label>
 						<div class="col-sm-12">
-							<input type="url" v-model="form.link" class="form-control" id="link" placeholder="Business Website(optional)"
+							<input type="url" v-model="form.link" class="form-control" id="link" :placeholder="$t('storeFormLinkPlaceHolder')"
 								   :class="{ 'is-invalid': form.errors.has('link') }" autocomplete="business_link">
 							<has-error :form="form" field="phone"></has-error>
 						</div>
 					</div>
-					<div class="form-group row"><label for="description" class="col-sm-2 col-form-label">Description</label>
+					<div class="form-group row"><label for="description" class="col-sm-2 col-form-label">{{ $t('storeFormDescriptionLabel') }}</label>
 						<div class="col-sm-12">
-							<textarea name="description" id="description" v-model="form.description" class="form-control" placeholder="More About Your Business(optional)"
+							<textarea name="description" id="description" v-model="form.description" class="form-control" :placeholder="$t('storeFormDescriptionPlaceHolder')"
 								:class="{ 'is-invalid': form.errors.has('description') }" autocomplete="business_description"></textarea>
 							<has-error :form="form" field="description"></has-error>
 						</div>
@@ -67,7 +67,7 @@
 					<div class="form-group">
 						<div class="offset-sm-4 col-sm-4">
 							<button type="submit" class="btn btn-success" @click.prevent="updateStore">
-								<span v-if="!isDisabled">Update</span>
+								<span v-if="!isDisabled">{{ $t('updateButton') }}</span>
 								<i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
 							</button>
 						</div>
@@ -100,10 +100,10 @@
 			}
 		},
 		computed:{
-			...mapGetters(['getAuth','authRoutes','getCountries']),
+			...mapGetters(['getAuth','authRoutes','getCountries','getStoreLogo']),
 			isDisabled(){ return this.disabled },
 			isSubmitted(){ return this.submitted },
-			decideImage(){return !_.isEmpty(this.form.picture) ? this.form.picture.filename : 'img/store.png'},
+			decideImage(){return !_.isEmpty(this.form.picture) ? this.form.picture.filename : this.getStoreLogo },
 		},
 		methods:{
 			...mapActions(['setAuth']),
@@ -112,23 +112,22 @@
 				this.submitted = true;
 				this.$Progress.start();
 				this.form.put(this.authRoutes.updateStore).then(response=>{
-					/*let user = this.getAuth;
+					let user = this.getAuth;
 					user.store = response.data.data;
-					this.setAuth({user,remember:true});*/
-					console.log(response.data.data);
+					this.setAuth({user,remember:true});
 					this.disabled = false;
 					this.submitted = false;
 					this.$Progress.finish();
 					new toast({
 						type:'success',
-						title:'Store updated successfully'
+						title:this.$t('storeFormUpdatedSuccess'),
 					});
 				}).catch(error=>{
 					this.disabled = false;
 					this.$Progress.fail();
 					new toast({
 						type:'error',
-						title:'Failed to update store'
+						title:this.$t('storeFormUpdatedError'),
 					});
 				});
 			},
@@ -140,8 +139,8 @@
 					if(file['size'] > limit){
 						swal({
 							type: 'error',
-							title: 'Oops...',
-							text: 'File should not be more than 2MB',
+							title: this.$t('fileUploadOops'),
+							text: this.$t('fileUploadLimit'),
 						});
 						return false;
 					}

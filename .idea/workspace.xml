@@ -2,178 +2,49 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="3a6a12d3-d6bd-4d38-8c26-8b02bd3dfd7d" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/Sample.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/Sample.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Events/NewImageUploadedEvent.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Events/NewSingleImageUploadedEvent.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/AuthController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/AuthController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/CategoriesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/CategoriesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PicturesController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/PicturesController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/PostsController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/PostsController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/StoresController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/StoresController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/API/UsersController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/API/v1/UsersController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/CategoriesResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/v1/CategoriesResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PicturesResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/v1/PicturesResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/PostsResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/v1/PostsResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/StoresResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/v1/StoresResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Resources/UsersResource.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Resources/v1/UsersResource.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/CreateImageForUserAndStoreListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/HandleSingleImageListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Listeners/SendVerificationEmailListener.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Listeners/SendVerificationEmailListener.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Observers/UserObserver.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Observers/UserObserver.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Policies/EditPolicy.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Policies/EditPolicy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Store.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Store.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/bash.exe.stackdump" beforeDir="false" afterPath="$PROJECT_DIR$/bash.exe.stackdump" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/StoreFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/StoreFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/factories/UserFactory.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/factories/UserFactory.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/migrations/2019_07_26_161750_create_stores_table.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/migrations/2019_07_26_161750_create_stores_table.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" beforeDir="false" afterPath="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/public/css/app.css" beforeDir="false" afterPath="$PROJECT_DIR$/public/css/app.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/boy.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/boy2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/boy3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/cover.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/girl.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/girl2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/girl3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/logo2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/33.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/34.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/35.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/36.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/37.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/38.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/39.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/40.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/41.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/42.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/43.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/44.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/45.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/46.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/47.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/48.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/49.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/50.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/posts/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/profile.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/store.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/store2.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/stores/9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/1564608707.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/1564608923.jpeg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/img/users/9.png" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/public/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/public/js/app.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/App.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/app.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/PostTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/PostTable.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/extensions/Table.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/extensions/Table.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/app/Footer.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Footer.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/dependencies.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/dependencies.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/filters/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/filters/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/img/profile/1537591603.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/img/profile/1538373812.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/img/profile/1540006192.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/img/user-cover.jpg" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/router/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/router/routes.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/store/modules/auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/js/store/modules/routes.js" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/store/modules/routes.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/NotFound.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/NotFound.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Categories.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Categories.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/admin/Users.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/admin/Users.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Login.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/auth/Register.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/user/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/user/Profile.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/resources/js/views/user/Store.vue" beforeDir="false" afterPath="$PROJECT_DIR$/resources/js/views/user/Store.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/sass/app.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/app.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/api.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/api.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/lang/en/validation.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/lang/en/validation.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/sass/_variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/resources/sass/_variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/webpack.mix.js" beforeDir="false" afterPath="$PROJECT_DIR$/webpack.mix.js" afterDir="false" />
     </list>
     <list id="c579e31d-3d1a-4097-8b19-a6d12c81349a" name="hbjnk" comment="" />
     <list id="d655dae0-2249-4aba-a043-3bbe8c4cfe92" name="Modified Picture Seeders And added toasts after login and register" comment="" />
@@ -221,6 +92,13 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
       </path>
+      <path>
+        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
+        <item name="Mart DB" type="feb32156:DbDataSourceImpl" />
+        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="main: schema" type="981a47c2:SqliteImplModel$Schema" />
+        <item name="users: table" type="3d80ac25:SqliteImplModel$Table" />
+      </path>
     </expand>
     <select />
   </component>
@@ -228,7 +106,17 @@
     <favorites_list name="Mart" />
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="327">
+              <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -241,6 +129,8 @@
       <find>isEdit</find>
       <find>fetching</find>
       <find>inputPasswo</find>
+      <find>isLoggedIn</find>
+      <find>appInfo</find>
     </findStrings>
     <replaceStrings>
       <replace>Store</replace>
@@ -262,57 +152,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/app/Providers/EventServiceProvider.php" />
-        <option value="$PROJECT_DIR$/app/Events/NewSingleImageUploadedEvent.php" />
-        <option value="$PROJECT_DIR$/app/Listeners/HandleSingleImageListener.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/v1/StoresResource.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/v1/PostsResource.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/v1/PicturesResource.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/v1/CategoriesResource.php" />
-        <option value="$PROJECT_DIR$/resources/js/store/index.js" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/names.json" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/v1/StoreUpdateRequest.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2019_07_26_161750_create_stores_table.php" />
-        <option value="$PROJECT_DIR$/database/migrations/2014_10_12_000000_create_users_table.php" />
-        <option value="$PROJECT_DIR$/app/Store.php" />
-        <option value="$PROJECT_DIR$/database/factories/UserFactory.php" />
-        <option value="$PROJECT_DIR$/database/factories/StoreFactory.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/v1/StoreCreateRequest.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" />
-        <option value="$PROJECT_DIR$/app/User.php" />
-        <option value="$PROJECT_DIR$/app/Http/Resources/v1/UsersResource.php" />
-        <option value="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/countries.js" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/v1/UserCreateRequest.php" />
-        <option value="$PROJECT_DIR$/app/Http/Requests/v1/UserUpdateRequest.php" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
-        <option value="$PROJECT_DIR$/resources/js/views/auth/Register.vue" />
-        <option value="$PROJECT_DIR$/resources/js/views/user/Profile.vue" />
-        <option value="$PROJECT_DIR$/resources/js/views/user/Store.vue" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/v1/UsersController.php" />
-        <option value="$PROJECT_DIR$/app/Http/Controllers/API/v1/StoresController.php" />
-        <option value="$PROJECT_DIR$/database/seeds/DatabaseSeeder.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/API/v1/AuthController.php" />
-        <option value="$PROJECT_DIR$/resources/js/components/app/Footer.vue" />
-        <option value="$PROJECT_DIR$/resources/js/App.vue" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/.datagrid/cell" />
         <option value="$PROJECT_DIR$/resources/views/layouts/app.blade.php" />
-        <option value="$PROJECT_DIR$/resources/js/dependencies.js" />
-        <option value="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" />
+        <option value="$PROJECT_DIR$/bootstrap/app.php" />
+        <option value="$PROJECT_DIR$/vendor/giggsey/libphonenumber-for-php/src/prefixmapper/MappingFileProvider.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/app/FloatingButton.vue" />
+        <option value="$PROJECT_DIR$/resources/js/router/routes.js" />
+        <option value="$PROJECT_DIR$/resources/sass/_variables.scss" />
+        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/resources/js/filters/index.js" />
-        <option value="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" />
-        <option value="$PROJECT_DIR$/resources/js/views/admin/Users.vue" />
+        <option value="$PROJECT_DIR$/resources/js/store/index.js" />
+        <option value="$PROJECT_DIR$/vue.config.js" />
+        <option value="$PROJECT_DIR$/webpack.mix.js" />
+        <option value="$PROJECT_DIR$/resources/js/dependencies.js" />
+        <option value="$PROJECT_DIR$/resources/sass/app.scss" />
+        <option value="$PROJECT_DIR$/resources/js/views/admin/Posts.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/NotFound.vue" />
+        <option value="$PROJECT_DIR$/resources/js/router/index.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/app/Sidebar.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/app/Footer.vue" />
         <option value="$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue" />
         <option value="$PROJECT_DIR$/resources/js/views/dashboard/Post.vue" />
-        <option value="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" />
+        <option value="$PROJECT_DIR$/resources/js/app.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/PostModal.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/UserModal.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/PostTable.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue" />
         <option value="$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/UserTable.vue" />
         <option value="$PROJECT_DIR$/resources/js/views/admin/Stores.vue" />
-        <option value="$PROJECT_DIR$/bootstrap/app.php" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/admin/Users.vue" />
+        <option value="$PROJECT_DIR$/resources/js/store/modules/auth.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/UserForm.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/admin/Categories.vue" />
+        <option value="$PROJECT_DIR$/resources/js/components/admin/PostForm.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/user/Profile.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/user/Store.vue" />
+        <option value="$PROJECT_DIR$/resources/js/lang/trans/en.js" />
+        <option value="$PROJECT_DIR$/resources/js/views/auth/Login.vue" />
+        <option value="$PROJECT_DIR$/resources/js/views/auth/Register.vue" />
+        <option value="$PROJECT_DIR$/resources/js/App.vue" />
+        <option value="$PROJECT_DIR$/resources/js/lang/index.js" />
+        <option value="$PROJECT_DIR$/resources/js/store/modules/appInfo.js" />
+        <option value="$PROJECT_DIR$/resources/js/components/app/Toolbar.vue" />
+        <option value="$PROJECT_DIR$/resources/lang/en/validation.php" />
       </list>
     </option>
   </component>
@@ -1218,23 +1108,23 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="Mart" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Mart" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
       <pane id="Scope">
         <subPane subId="Scope 'Tests'; set:Tests; class com.intellij.psi.search.scope.TestsScope">
           <expand>
             <path>
               <item name="Mart" type="3d21c010:ScopeViewTreeModel$ProjectNode" />
               <item name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart" type="442cc68d:ScopeViewTreeModel$RootNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Mart" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Mart" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -1255,11 +1145,11 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart" />
+      <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\resources\js" />
       <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\app\Http\Resources\v1" />
       <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\app\Http\Resources'v1" />
       <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\app\Http\Controllers\API\v1" />
-      <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\resources\js\router" />
-      <recent name="C:\Users\Kevin Izuchukwu\Desktop\sites\Laravel\Mart\resources\js\views\user" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -1319,9 +1209,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.watch" />
         <item itemvalue="npm.prod" />
         <item itemvalue="npm.production" />
-        <item itemvalue="npm.watch" />
         <item itemvalue="PHPUnit.ExampleTest" />
         <item itemvalue="PHPUnit.ExampleTest.testBasicTest" />
       </list>
@@ -1366,6 +1256,7 @@
       <workItem from="1564785939324" duration="661000" />
       <workItem from="1564792101870" duration="7661000" />
       <workItem from="1564836535714" duration="60987000" />
+      <workItem from="1565044678387" duration="75678000" />
     </task>
     <task id="LOCAL-00001" summary="Modified pictures seeders and add progress bars on login and register">
       <created>1564615061964</created>
@@ -1385,7 +1276,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="267745000" />
+    <option name="totallyTimeSpent" value="343423000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1398,16 +1289,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1550" height="838" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="npm" order="0" sideWeight="0.5114286" side_tool="true" weight="0.252349" />
-      <window_info content_ui="combo" id="Project" order="1" sideWeight="0.89884394" weight="0.31744966" />
-      <window_info id="Code comment" order="2" side_tool="true" weight="0.3231623" />
-      <window_info id="GraphQL" order="3" side_tool="true" weight="0.3259362" />
+      <window_info id="npm" order="0" sideWeight="0.5231214" side_tool="true" weight="0.2149792" />
+      <window_info id="Code comment" order="1" sideWeight="0.5228571" side_tool="true" weight="0.447651" />
+      <window_info id="GraphQL" order="2" side_tool="true" weight="0.3259362" />
+      <window_info content_ui="combo" id="Project" order="3" sideWeight="0.8971428" weight="0.3161074" />
       <window_info id="Favorites" order="4" sideWeight="0.10115607" weight="0.31879196" />
-      <window_info id="Run" order="5" sideWeight="0.48857144" weight="0.252349" />
-      <window_info id="Terminal" order="6" sideWeight="0.49566475" weight="0.88322145" />
+      <window_info id="Run" order="5" sideWeight="0.47714287" weight="0.447651" />
+      <window_info id="Terminal" order="6" sideWeight="0.49142858" weight="0.88322145" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Find" order="1" weight="0.32947975" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32857144" />
       <window_info anchor="bottom" id="Debug" order="2" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="4" weight="0.4" />
@@ -1422,7 +1314,7 @@
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Database" order="3" weight="0.1671141" />
+      <window_info anchor="right" id="Database" order="3" weight="0.4479889" />
       <window_info anchor="right" id="Nativescript Palette" order="4" />
       <window_info anchor="right" id="Key Promoter X" order="5" weight="0.32825485" />
       <window_info anchor="right" id="Json Parser" order="6" weight="0.3295302" />
@@ -1465,7 +1357,13 @@
         </entry>
         <entry key="User">
           <value>
-            <list />
+            <list>
+              <RecentGroup>
+                <option name="FILTER_VALUES">
+                  <option value="me" />
+                </option>
+              </RecentGroup>
+            </list>
           </value>
         </entry>
       </map>
@@ -1477,384 +1375,377 @@
     <option name="LAST_COMMIT_MESSAGE" value="Modified pictures seeders and added progress bars on login and register" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/app/Observers/UserObserver.php">
+    <entry file="file://$PROJECT_DIR$/webpack.mix.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-420" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/UserFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="14" column="87" selection-start-line="14" selection-start-column="87" selection-end-line="14" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/factories/StoreFactory.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="264">
-          <caret line="12" column="87" selection-start-line="12" selection-start-column="87" selection-end-line="12" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/v1/StoresResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="8" column="40" selection-start-line="8" selection-start-column="40" selection-end-line="8" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/v1/StoreCreateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="20" column="65" selection-start-line="20" selection-start-column="65" selection-end-line="20" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/v1/StoreUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="497">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="24" selection-end-column="65" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="216">
-          <caret line="9" column="93" selection-start-line="9" selection-start-column="93" selection-end-line="9" selection-end-column="93" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/PostForm.vue">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="141">
-          <caret line="6" column="12" selection-start-line="6" selection-start-column="12" selection-end-line="6" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Store.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="7" column="52" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/User.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="344">
-          <caret line="21" column="8" selection-start-line="21" selection-start-column="8" selection-end-line="21" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Resources/v1/UsersResource.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="386">
-          <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
-          <folding>
-            <element signature="e#90#104#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/PostModal.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-101">
-          <caret line="4" column="78" lean-forward="true" selection-start-line="4" selection-start-column="78" selection-end-line="4" selection-end-column="78" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Posts.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="34" column="43" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/countries.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="209">
-          <caret line="9" column="53" lean-forward="true" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/v1/UserUpdateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="521">
-          <caret line="26" column="48" selection-start-line="26" selection-start-column="48" selection-end-line="26" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/v1/UserCreateRequest.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="451">
-          <caret line="22" column="48" selection-start-line="22" selection-start-column="48" selection-end-line="22" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="355">
-          <caret line="15" column="16" selection-start-line="15" selection-start-column="16" selection-end-line="15" selection-end-column="16" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Register.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="43" column="108" selection-start-line="43" selection-start-column="44" selection-end-line="43" selection-end-column="108" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/user/Profile.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-679">
-          <caret line="46" column="92" lean-forward="true" selection-start-line="46" selection-start-column="92" selection-end-line="46" selection-end-column="92" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/user/Store.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="99" column="13" selection-start-line="99" selection-start-column="13" selection-end-line="99" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Listeners/HandleSingleImageListener.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="359">
-          <caret line="15" column="44" lean-forward="true" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding>
-            <element signature="e#33#76#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/database/seeds/DatabaseSeeder.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="472">
-          <caret line="26" column="60" selection-start-line="26" selection-start-column="60" selection-end-line="26" selection-end-column="60" />
-          <folding>
-            <element signature="e#7#24#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/pictures">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="fd33e9e8-a9ba-4305-b96a-9a041ba2f8be">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/v1/AuthController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="65">
-          <caret line="41" column="33" selection-start-line="41" selection-start-column="33" selection-end-line="41" selection-end-column="33" />
-          <folding>
-            <element signature="e#47#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/v1/StoresController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="42" column="43" selection-start-line="42" selection-start-column="43" selection-end-line="42" selection-end-column="43" />
-          <folding>
-            <element signature="e#47#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/API/v1/UsersController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-194">
-          <caret line="43" column="33" selection-start-line="43" selection-start-column="33" selection-end-line="43" selection-end-column="33" />
-          <folding>
-            <element signature="e#47#90#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Footer.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="63">
-          <caret line="2" column="60" selection-start-line="2" selection-start-column="60" selection-end-line="2" selection-end-column="60" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/App.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="196">
-          <caret line="8" column="104" selection-start-line="8" selection-start-column="104" selection-end-line="8" selection-end-column="104" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/users">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state projectRestartId="fd33e9e8-a9ba-4305-b96a-9a041ba2f8be">
-          <filtering>
-            <filter text="" />
-          </filtering>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="408">
-          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+        <state relative-caret-position="520">
+          <caret line="27" column="3" selection-start-line="27" selection-start-column="3" selection-end-line="27" selection-end-column="3" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/dependencies.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="7" column="9" selection-start-line="7" selection-start-column="9" selection-end-line="7" selection-end-column="9" />
+        <state>
+          <caret column="42" selection-start-column="42" selection-end-column="42" />
           <folding>
-            <element signature="e#93#130#0" expanded="true" />
+            <element signature="e#186#223#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/router/index.js">
+    <entry file="file://$PROJECT_DIR$/resources/sass/app.scss">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="365">
-          <caret line="59" column="62" selection-start-line="59" selection-start-column="25" selection-end-line="59" selection-end-column="62" />
+        <state relative-caret-position="288">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Developer.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/index.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/NotFound.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="27" column="35" selection-start-line="27" selection-start-column="35" selection-end-line="27" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/passport/PersonalAccessTokens.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1147">
+          <caret line="187" column="36" lean-forward="true" selection-start-line="187" selection-start-column="36" selection-end-line="187" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/passport/Clients.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/passport/AuthorizedClients.vue">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Footer.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="193">
+          <caret line="8" column="134" selection-start-line="8" selection-start-column="134" selection-end-line="8" selection-end-column="134" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Sidebar.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="53" column="71" selection-start-line="53" selection-start-column="71" selection-end-line="53" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="94">
+          <caret line="4" column="67" selection-start-line="4" selection-start-column="36" selection-end-line="4" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/Post.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-28">
+          <caret line="5" column="83" lean-forward="true" selection-start-line="5" selection-start-column="83" selection-end-line="5" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/app/FloatingButton.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="385">
+          <caret line="19" column="9" lean-forward="true" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/app.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="458">
+          <caret line="19" column="9" selection-start-line="19" selection-start-column="9" selection-end-line="19" selection-end-column="9" />
           <folding>
             <element signature="e#0#22#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/filters/index.js">
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/extensions/Form.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="264">
+          <caret line="11" column="59" lean-forward="true" selection-start-line="11" selection-start-column="59" selection-end-line="11" selection-end-column="59" />
+          <folding>
+            <element signature="e#710#717#1" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/extensions/Modal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="216">
+          <caret line="9" column="33" lean-forward="true" selection-start-line="9" selection-start-column="33" selection-end-line="9" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/extensions/Table.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="408">
+          <caret line="17" lean-forward="true" selection-start-line="17" selection-end-line="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-475">
+          <caret line="11" column="110" selection-start-line="11" selection-start-column="110" selection-end-line="11" selection-end-column="110" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="314">
+          <caret line="13" column="11" lean-forward="true" selection-start-line="13" selection-start-column="11" selection-end-line="13" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/CategoryTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="381">
+          <caret line="16" column="75" selection-start-line="16" selection-start-column="75" selection-end-line="16" selection-end-column="75" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/PostModal.vue">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="360">
-          <caret line="15" column="43" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
+          <caret line="15" column="71" selection-start-line="15" selection-start-column="71" selection-end-line="15" selection-end-column="71" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/PostTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1010">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="720">
+          <caret line="30" column="85" selection-start-line="30" selection-start-column="85" selection-end-line="30" selection-end-column="85" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserTable.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="247">
+          <caret line="27" column="42" lean-forward="true" selection-start-line="27" selection-start-column="42" selection-end-line="27" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Stores.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="139">
+          <caret line="6" column="99" selection-start-line="6" selection-start-column="99" selection-end-line="6" selection-end-column="99" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/CategoryModal.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="18">
+          <caret line="7" column="84" lean-forward="true" selection-start-line="7" selection-start-column="84" selection-end-line="7" selection-end-column="84" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Users.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="40" column="28" selection-start-line="40" selection-start-column="28" selection-end-line="40" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="369">
+          <caret line="55" column="76" lean-forward="true" selection-start-line="55" selection-start-column="76" selection-end-line="55" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1151">
+          <caret line="50" column="83" selection-start-line="50" selection-start-column="83" selection-end-line="50" selection-end-column="83" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Categories.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="335">
+          <caret line="38" column="32" selection-start-line="38" selection-start-column="32" selection-end-line="38" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Posts.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-505">
+          <caret line="5" column="72" selection-start-line="5" selection-start-column="72" selection-end-line="5" selection-end-column="72" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/CategoryForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="331">
+          <caret line="21" column="98" lean-forward="true" selection-start-line="21" selection-start-column="28" selection-end-line="21" selection-end-column="98" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/PostForm.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="159">
+          <caret line="12" column="126" selection-start-line="12" selection-start-column="126" selection-end-line="12" selection-end-column="126" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/user/Profile.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="342">
+          <caret line="59" column="42" selection-start-line="59" selection-start-column="42" selection-end-line="59" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/user/Store.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-2522">
+          <caret line="10" column="114" selection-start-line="10" selection-start-column="114" selection-end-line="10" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/router/routes.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="16" column="45" lean-forward="true" selection-start-line="16" selection-start-column="45" selection-end-line="16" selection-end-column="45" />
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/filters/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="18" lean-forward="true" selection-start-line="18" selection-end-line="18" />
           <folding>
             <element signature="e#0#21#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserForm.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/store/modules/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="109" column="109" lean-forward="true" selection-start-line="109" selection-start-column="109" selection-end-line="109" selection-end-column="109" />
+        <state relative-caret-position="384">
+          <caret line="16" column="36" selection-start-line="16" selection-start-column="36" selection-end-line="16" selection-end-column="36" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/app/Sidebar.vue">
+    <entry file="file://$PROJECT_DIR$/resources/js/lang/trans/us.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="5" column="50" selection-start-line="5" selection-start-column="50" selection-end-line="5" selection-end-column="50" />
+        <state relative-caret-position="351">
+          <caret line="228" column="46" selection-start-line="228" selection-start-column="46" selection-end-line="228" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Login.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="131">
+          <caret line="27" column="70" selection-start-line="27" selection-start-column="70" selection-end-line="27" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://b5ed1666-ce91-4c3b-853b-358ad239d6ac/schema/main/table/users">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state projectRestartId="36e237dd-9a5c-4dec-bc17-c77206d806da">
+          <filtering>
+            <filter text="" />
+          </filtering>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/views/auth/Register.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="138">
+          <caret line="22" column="63" selection-start-line="22" selection-start-column="63" selection-end-line="22" selection-end-column="63" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/App.vue">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-640">
+          <caret line="7" column="31" selection-start-line="7" selection-start-column="31" selection-end-line="7" selection-end-column="31" />
+          <folding>
+            <element signature="e#293#340#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/router/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="714">
+          <caret line="52" column="65" selection-start-line="52" selection-start-column="65" selection-end-line="52" selection-end-column="65" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/store/modules/appInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="5" column="38" selection-start-line="5" selection-start-column="38" selection-end-line="5" selection-end-column="38" />
+        <state relative-caret-position="375">
+          <caret line="20" column="43" selection-start-line="20" selection-start-column="43" selection-end-line="20" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/js/lang/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" column="6" selection-start-line="7" selection-start-column="6" selection-end-line="7" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#22#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="168">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/layouts/app.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="576">
+          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/resources/js/components/app/Toolbar.vue">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="4" column="32" selection-start-line="4" selection-start-column="32" selection-end-line="4" selection-end-column="32" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/Post.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-13">
-          <caret line="11" column="96" selection-start-line="11" selection-start-column="96" selection-end-line="11" selection-end-column="96" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/dashboard/NewIn.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="10" column="52" selection-start-line="10" selection-start-column="52" selection-end-line="10" selection-end-column="52" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreForm.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-18">
-          <caret line="100" column="111" selection-start-line="100" selection-start-column="111" selection-end-line="100" selection-end-column="111" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/StoreTable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-788">
-          <caret line="28" column="59" selection-start-line="28" selection-start-column="59" selection-end-line="28" selection-end-column="59" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/components/admin/UserTable.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="363">
-          <caret line="26" column="44" selection-start-line="26" selection-start-column="44" selection-end-line="26" selection-end-column="87" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Users.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="692">
-          <caret line="77" column="28" lean-forward="true" selection-start-line="77" selection-start-column="28" selection-end-line="77" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/js/views/admin/Stores.vue">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="217">
-          <caret line="53" column="37" selection-start-line="53" selection-start-column="37" selection-end-line="53" selection-end-column="37" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Category.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="8" column="6" selection-start-line="8" selection-start-column="6" selection-end-line="8" selection-end-column="6" />
+        <state relative-caret-position="128">
+          <caret line="9" column="21" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="21" />
           <folding>
-            <element signature="e#27#66#0#PHP" expanded="true" />
+            <element signature="e#1627#1661#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Kernel.php">
+    <entry file="file://$PROJECT_DIR$/resources/lang/en/validation.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Controller.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="242">
-          <caret line="13" lean-forward="true" selection-start-line="13" selection-end-line="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Middleware/Authenticate.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="6" column="6" selection-start-line="6" selection-start-column="6" selection-end-line="6" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/bootstrap/app.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="158">
-          <caret line="40" column="11" selection-start-line="40" selection-start-column="11" selection-end-line="40" selection-end-column="11" />
+        <state relative-caret-position="327">
+          <caret line="95" column="38" selection-start-line="95" selection-start-column="38" selection-end-line="95" selection-end-column="38" />
         </state>
       </provider>
     </entry>

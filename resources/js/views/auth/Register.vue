@@ -3,37 +3,38 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <h3 class="card-header">Register</h3>
+                    <h3 class="card-header">{{ $t('registerHeader') }}</h3>
                     <div class="card-body">
                         <form method="POST" @submit.prevent="regUser">
                             <div class="text-center">
-                                <img src="img/profile.png" id="profile" alt='' width="80px" height="80px"/>
+                                <img :src="getProfile | appendURL" id="profile" alt='' width="80px" height="80px"/>
+								<span class="lead">{{ $t('userFormPreview') }}</span>
                             </div>
                             <div class="form-group row">
-                                <label for="image" class="col-md-4 col-form-label text-md-right">Profile Photo</label>
+                                <label for="image" class="col-md-4 col-form-label text-md-right">{{ $t('userFormPhotoLabel') }}</label>
                                 <div class="col-md-6">
                                     <input type="file" @change="setPicture" name="image" :class="{ 'is-valid': !form.errors.has('image') && isSubmitted,'is-invalid': form.errors.has('image') }"
                                         class="form-control-file" id="image">
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="name" class="col-md-4 col-form-label text-md-right">Name</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">{{ $t('userFormNameLabel') }}</label>
                                 <div class="col-md-6">
-                                    <input id="name" type="name" class="form-control" name="name" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }"
-                                        v-model="form.name" autocomplete="name" autofocus>
+                                    <input id="name" type="text" class="form-control" name="name" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }"
+                                        v-model="form.name" autocomplete="name" autofocus :placeholder="$t('userFormNamePlaceHolder')">
                                     <has-error :form="form" field="name"></has-error>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Email Address</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">{{ $t('userFormEmailLabel') }}</label>
                                 <div class="col-md-6">
                                     <input id="email" type="email" class="form-control" name="email" :class="{ 'is-valid': !form.errors.has('email') && isSubmitted,'is-invalid': form.errors.has('email') }"
-                                        v-model="form.email" autocomplete="email" autofocus>
+                                        v-model="form.email" autocomplete="email" autofocus :placeholder="$t('userFormEmailPlaceHolder')">
                                     <has-error :form="form" field="email"></has-error>
                                 </div>
                             </div>
 							<div class="form-group row">
-								<label for="phone" class="col-md-4 col-form-label text-md-right">Phone</label>
+								<label for="phone" class="col-md-4 col-form-label text-md-right">{{ $t('userFormPhoneLabel') }}</label>
 								<div class="col-md-8">
 									<div class="row">
 										<div class="col-sm-4">
@@ -44,7 +45,7 @@
 											<has-error :form="form" field="phone.phone_country"></has-error>
 										</div>
 										<div class="col-sm-8">
-											<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" placeholder="Phone Number"
+											<input type="tel" v-model="form.phone.phone" class="form-control" id="phone" :placeholder="$t('userFormPhonePlaceHolder')"
 												   :class="{ 'is-invalid': form.errors.has('phone.phone') }" autocomplete="phone">
 											<has-error :form="form" field="phone.phone"></has-error>
 										</div>
@@ -52,25 +53,25 @@
 								</div>
 							</div>
                             <div class="form-group row">
-                                <label for="password" class="col-md-4 col-form-label text-md-right">Password</label>
+                                <label for="password" class="col-md-4 col-form-label text-md-right">{{ $t('userFormPasswordLabel') }}</label>
                                 <div class="col-md-6">
                                     <input id="password" type="password" class="form-control" name="password" :class="{ 'is-valid': !form.errors.has('password') && isSubmitted,'is-invalid': form.errors.has('password') }"
-                                        v-model="form.password" autocomplete="new-password" autofocus>
+                                        v-model="form.password" autocomplete="new-password" autofocus :placeholder="$t('userFormPasswordPlaceHolder')">
                                     <has-error :form="form" field="password"></has-error>
                                 </div>
                             </div>
                             <div class="form-group row">
-                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">Confirm Password</label>
+                                <label for="password-confirm" class="col-md-4 col-form-label text-md-right">{{ $t('userFormConfirmPasswordLabel') }}</label>
                                 <div class="col-md-6">
                                     <input id="password-confirm" type="password" class="form-control" name="password_confirmation" :class="{ 'is-valid': !form.errors.has('password') && isSubmitted,'is-invalid': form.errors.has('password') }"
-                                        v-model="form.password_confirmation" autocomplete="new-password" autofocus>
+                                        v-model="form.password_confirmation" autocomplete="new-password" autofocus :placeholder="$t('userFormConfirmPasswordPlaceHolder')">
                                     <has-error :form="form" field="password_confirmation"></has-error>
                                 </div>
                             </div>
                             <div class="form-group row mb-0">
                                 <div class="col-md-8 offset-md-4">
                                     <button type="submit" class="btn btn-primary" :disabled="isDisabled || isEmpty">
-                                        <span v-if="!isDisabled">Register</span>
+                                        <span v-if="!isDisabled">{{ $t('registerButton') }}</span>
                                         <i class="fas fa-spinner fa-spin" v-if="isDisabled"></i>
                                     </button>
                                 </div>
@@ -85,23 +86,17 @@
 
 <<script>
     import { mapActions,mapGetters } from "vuex"
-    import VuePhoneNumberInput from 'vue-phone-number-input'
 
     export default {
         name:"Register",
-        components: {
-            'phone-input': VuePhoneNumberInput
-        },
         data(){
             return {
-                csrf: document.querySelector("meta[name='csrf-token']").getAttribute("content"),
                 form: new Form({
                     name: '',
                     email: '',
 					phone: {phone:'',phone_country:'NG'},
                     password: '',
                     password_confirmation:'',
-                    _token:this.csrf,
                     image: ''
                 }),
                 submitted:false,
@@ -109,7 +104,7 @@
             }
         },
         computed:{
-            ...mapGetters(["getIntended","authRoutes",'getCountries']),
+            ...mapGetters(["getIntended","authRoutes",'getCountries','getProfile']),
             isDisabled(){return this.disabled},
             isSubmitted(){return this.submitted},
             isEmpty(){ return !(this.form.name && this.form.email && this.form.password && this.form.password_confirmation) }
@@ -130,14 +125,14 @@
 						this.$Progress.finish();
 						new toast({
 							type: 'success',
-							title: 'User created successfully'
+							title: this.$t('userFormCreateSuccess'),
 						});
 					}).catch(()=>{
                         this.disabled = false;
 						this.$Progress.fail();
 						new toast({
 							type: 'error',
-							title: 'Error creating user'
+							title: this.$t('unexpectedError'),
 						});
 					});
                 }).catch(()=>{
@@ -145,7 +140,7 @@
 					this.$Progress.fail();
 					new toast({
 						type: 'error',
-						title: 'Error creating user'
+						title: this.$t('userFormCreateError'),
 					});
                 });
             },
@@ -157,8 +152,8 @@
                     if(file['size'] > limit){
                         swal({
                             type: 'error',
-                            title: 'Oops...',
-                            text: 'File shouldnt be more than 2MB',
+                            title: this.$t('fileUploadOops'),
+                            text: this.$t('fileUploadLimit'),
                         })
                         return false;
                     }

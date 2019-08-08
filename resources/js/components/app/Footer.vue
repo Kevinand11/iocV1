@@ -6,7 +6,7 @@
                 <v-icon :color="icon.color" small>{{ icon.name }}</v-icon>
             </v-btn>
             <v-divider></v-divider>
-            <strong>Copyright &copy; {{ new Date().getFullYear() }} <a href="/">{{ appInfo.name }}</a>.</strong> All rights reserved.
+            <strong>{{ $t('footerCopyright') }} &copy; {{ new Date().getFullYear() }} <a href="/">{{ appInfo.name }}</a>.</strong> {{ $t('footerAllRightsReserved') }}
         </v-card-text>
     </v-card>
   </v-footer>

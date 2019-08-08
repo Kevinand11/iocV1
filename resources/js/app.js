@@ -4,6 +4,7 @@ import VueCookies from "vue-cookies/vue-cookies";
 
 import router from "./router/index";
 import store from "./store/index";
+import i18n from './lang/index';
 import "./filters/index";
 import "./dependencies";
 
@@ -16,5 +17,6 @@ Vue.use(Vuetify);
 new Vue({
     router,
     store,
+	i18n,
     render: h => h(App)
 }).$mount("#master");

@@ -15,8 +15,8 @@
                     <img :src="userProfile | appendURL" alt="">
                 </v-list-tile-avatar>
                 <v-list-tile-content>
-                    <v-list-tile-title>{{ isLoggedIn ? getAuth.name : "Anonymous" }}</v-list-tile-title>
-                    <small>{{ isLoggedIn ? getAuth.role : "user" }}</small>
+                    <v-list-tile-title>{{ isLoggedIn ? getAuth.name : $t('sidebarAnonymous') }}</v-list-tile-title>
+                    <small>{{ isLoggedIn ? getAuth.role : $t('sidebarUserRole') }}</small>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
@@ -27,14 +27,14 @@
                     <v-icon :color="link.color">{{link.icon}}</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>{{link.name}}</v-list-tile-title>
+                    <v-list-tile-title>{{ $t(`sidebar${link.name}`) }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
             <v-list-group v-model="role.model" v-for="role in getManagements(this.isLoggedIn,this.isAdmin)" value="true" no-action :key="role.id" v-if="role.showIf">
                 <v-icon :color="role.color" slot="prependIcon">{{role.icon}}</v-icon>
                 <template v-slot:activator>
                     <v-list-tile>
-                        <v-list-tile-title>{{role.name}}</v-list-tile-title>
+                        <v-list-tile-title>{{ $t(`sidebar${role.name}`) }}</v-list-tile-title>
                     </v-list-tile>
                 </template>
                 <v-list-tile v-for="sub in role.subs" :key="sub.id" :to="sub.route">
@@ -42,7 +42,7 @@
                         <v-icon :color="sub.color">{{sub.icon}}</v-icon>
                     </v-list-tile-action>
                     <v-list-tile-content>
-                        <v-list-tile-title>{{sub.name}}</v-list-tile-title>
+                        <v-list-tile-title>{{ $t(`sidebar${sub.name}`) }}</v-list-tile-title>
                     </v-list-tile-content>
                 </v-list-tile>
             </v-list-group>
@@ -51,7 +51,7 @@
                     <v-icon :color="auth.color">{{auth.icon}}</v-icon>
                 </v-list-tile-action>
                 <v-list-tile-content>
-                    <v-list-tile-title>{{auth.name}}</v-list-tile-title>
+                    <v-list-tile-title>{{ $t(`sidebar${auth.name}`) }}</v-list-tile-title>
                 </v-list-tile-content>
             </v-list-tile>
         </v-list>
@@ -77,12 +77,12 @@
             ...mapActions(["logout"]),
             logoutUser(){
                 new swal({
-                    title: 'Logout?',
+                    title: this.$t('sidebarAskLogout'),
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, logout!'
+                    confirmButtonText: this.$t('sidebarConfirmLogout'),
                 }).then((result) => {
                     if (result.value) {
                     	this.$Progress.start();
@@ -93,13 +93,13 @@
 							this.$Progress.finish();
 							new toast({
 								type: 'success',
-                                title: 'Logged out successfully'
+                                title: this.$t('logoutSuccess'),
                             });
                         }).catch(()=>{
                         	this.$Progress.fail();
                             new toast({
                                 type: 'error',
-                                title: 'Something went wrong!'
+                                title: this.$t('logoutError'),
                             });
                         });
                     }

@@ -4,12 +4,11 @@
             <span class="lead">{{ user.name }}</span>
         </template>
         <template slot="body">
-            <p class="lead">Email:{{ user.email }}</p>
-			<p>Phone:{{ user.phone.phone }}<small>{{ user.phone.phone_country }}</small></p>
-            <p>Role: {{ user.role }}</p>
-            <p>Password:{{ user.password }}</p><hr>
-            <p>Store: {{ user.store ? user.store.name : 'None' }}</p>
-            <p>Picture: {{ user.picture ? user.picture.filename : 'None' }}</p>
+            <p class="lead">{{ $t('userModalEmail') }}:{{ user.email }}</p>
+			<p>{{ $t('userModalPhone') }}:{{ user.phone.phone }}<small>{{ user.phone.phone_country }}</small></p>
+            <p>{{ $t('userModalRole') }}: {{ user.role }}</p>
+            <p>{{ $t('userModalStore') }}: {{ user.store ? user.store.name : $t('userModalNone') }}</p>
+            <p>{{ $t('userModalPictureName') }}: {{ user.picture ? user.picture.filename : $t('userModalNone') }}</p>
         </template>
     </modal>
 </template>

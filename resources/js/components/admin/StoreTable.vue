@@ -2,23 +2,23 @@
     <table-extend>
         <template slot="headers">
             <tr>
-                <th>Id</th>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Link</th>
-                <th>Phone</th>
-                <th>Description</th>
-                <th>Picture</th>
-                <th>Created</th>
-                <th>Updated</th>
-                <th>Modifiers</th>
+                <th>{{ $t('storeTableId') }}</th>
+                <th>{{ $t('storeTableName') }}</th>
+                <th>{{ $t('storeTableEmail') }}</th>
+                <th>{{ $t('storeTableLink') }}</th>
+                <th>{{ $t('storeTablePhone') }}</th>
+                <th>{{ $t('storeTableDescription') }}</th>
+                <th>{{ $t('storeTablePicture') }}</th>
+                <th>{{ $t('storeTableCreated') }}</th>
+                <th>{{ $t('storeTableUpdated') }}</th>
+                <th>{{ $t('storeTableModifiers') }}</th>
             </tr>
         </template>
         <template slot="rows">
             <tbody>
                 <v-layout row wrap v-if="fetching">
                     <v-flex xs6 offset-xs3>
-                        <vue-simple-spinner message="Loading" size="large" />
+                        <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
                     </v-flex>
                 </v-layout>
                 <tr v-for="store in stores.data" :key="store.id" @click="emitCurr(store)" v-if="!fetching">
@@ -28,7 +28,7 @@
                     <td>{{store.link}}</td>
                     <td>{{store.phone.phone}}<small>{{store.phone.phone_country}}</small></td>
                     <td>{{store.description}}</td>
-                    <td>{{store.picture ? store.picture.filename : 'None'}}</td>
+                    <td>{{store.picture ? store.picture.filename : $t('storeTableNone') }}</td>
                     <td>{{store.created_at | myDate}}</td>
                     <td>{{store.updated_at | myDate}}</td>
                     <td>
@@ -90,7 +90,7 @@
                     }).catch(()=>{
                     new toast({
                         type: 'error',
-                        title: 'Unable to fetch data'
+                        title: this.$t('storeTableError'),
                     });
                     this.fetch = false;
                 })
@@ -109,13 +109,13 @@
             },
             emitDelete(id){
                 new swal({
-                    title: 'Are you sure?',
-                    text: "You won't be able to revert this!",
+                    title: this.$t('deleteConfirmTitle'),
+                    text: this.$t('deleteConfirmText'),
                     type: 'warning',
                     showCancelButton: true,
                     confirmButtonColor: '#3085d6',
                     cancelButtonColor: '#d33',
-                    confirmButtonText: 'Yes, delete it!'
+                    confirmButtonText: this.$t('deleteConfirmButton')
                 }).then((result) => {
                     if (result.value) {
                         Fire.$emit("DeleteStore",id)

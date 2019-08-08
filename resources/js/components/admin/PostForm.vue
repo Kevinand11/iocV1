@@ -3,40 +3,41 @@
         <template slot="inputFields">
             <v-layout row wrap v-if="fetching">
                 <v-flex xs6 offset-xs3>
-                    <vue-simple-spinner message="Loading" size="large" />
+                    <vue-simple-spinner :message="$t('loadingSpinner')" size="large" />
                 </v-flex>
             </v-layout>
             <div v-if="!fetching">
                 <div class="form-group row">
-                    <label for="name" class="col-sm-3 col-form-label text-sm-right">Name</label>
+                    <label for="name" class="col-sm-3 col-form-label text-sm-right">{{ $t('postFormNameLabel') }}</label>
                     <div class="col-sm-9">
-                        <input v-model="form.name" type="text" id="name" name="name" placeholder="Name" autocomplete="name"
+                        <input v-model="form.name" type="text" id="name" name="name" :placeholder="$t('postFormNamePlaceHolder')" autocomplete="name"
                             class="form-control" :class="{ 'is-valid': !form.errors.has('name') && isSubmitted,'is-invalid': form.errors.has('name') }">
                         <has-error :form="form" field="name"></has-error>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="price" class="col-sm-3 col-form-label text-sm-right">Price</label>
+                    <label for="price" class="col-sm-3 col-form-label text-sm-right">{{ $t('postFormPriceLabel') }}</label>
                     <div class="col-sm-9">
-                        <input id="price" v-model="form.price" name="price" type="number" placeholder="Price" autocomplete="price"
+                        <input id="price" v-model="form.price" name="price" type="number" :placeholder="$t('postFormPricePlaceHolder')" autocomplete="price"
                              class="form-control" :class="{ 'is-valid': !form.errors.has('price') && isSubmitted,'is-invalid': form.errors.has('price') }">
                         <has-error :form="form" field="price"></has-error>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="desc" class="col-sm-3 col-form-label text-sm-right">Description</label>
+                    <label for="desc" class="col-sm-3 col-form-label text-sm-right">{{ $t('postFormDescriptionLabel') }}</label>
                     <div class="col-sm-9">
-                        <textarea id="desc" v-model="form.description" name="description" placeholder="Description" autocomplete="description"
+                        <textarea id="desc" v-model="form.description" name="description" :placeholder="$t('postFormDescriptionPlaceHolder')" autocomplete="description"
                             class="form-control" :class="{ 'is-valid': !form.errors.has('description') && isSubmitted,'is-invalid': form.errors.has('description') }"></textarea>
                         <has-error :form="form" field="description"></has-error>
                     </div>
                     <has-error :form="form" field="description"></has-error>
                 </div>
                 <div class="form-group row">
-                    <label for="category" class="col-sm-3 col-form-label text-sm-right">Category</label>
+                    <label for="category" class="col-sm-3 col-form-label text-sm-right">{{ $t('postFormCategoryLabel') }}</label>
                     <div class="col-sm-9">
                         <select v-model="form.category_id" id='category' name="category_id" class="form-control" :class="{ 'is-valid': !form.errors.has('category_id') && isSubmitted,'is-invalid': form.errors.has('category_id') }">
-                            <option v-for="category in categories" :value="category.id">{{category.name}}</option>
+							<option disabled>{{ $t('postFormSelectCategory') }}</option>
+							<option v-for="category in categories" :value="category.id">{{category.name}}</option>
                         </select>
                         <has-error :form="form" field="category_id"></has-error>
                     </div>
@@ -97,7 +98,7 @@
                 }).catch(()=>{
                     new toast({
                         type: 'error',
-                        title: 'Unable to fetch data'
+                        title: this.$t('cantFetchData')
                     });
                     this.fetch = false;
                 })
@@ -111,7 +112,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Post created successfully'
+                        title: this.$t('postFormCreateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -119,7 +120,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error creating post'
+                        title: this.$t('postFormCreateError')
                     });
                 })
             },
@@ -132,7 +133,7 @@
                     $('#form').modal('hide');
                     new toast({
                         type: 'success',
-                        title: 'Post updated successfully'
+                        title: this.$t('postFormUpdateSuccess')
                     });
                     this.$Progress.finish();
                 }).catch(()=>{
@@ -140,7 +141,7 @@
                     this.$Progress.fail();
                     new toast({
                         type: 'error',
-                        title: 'Error updating post'
+                        title: this.$t('postFormUpdateError')
                     });
                 })
             },

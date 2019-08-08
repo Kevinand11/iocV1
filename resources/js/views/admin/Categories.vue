@@ -3,8 +3,8 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <div class="card-header my-3">
-                    <span class="card-title">Categories Table</span>
-                    <button class="btn btn-success" @click="newModal">Add New <i class="fas fa-plus-square fa-fw"></i></button>
+                    <span class="card-title">{{ $t('categoryTableHeader') }}</span>
+                    <button class="btn btn-success" @click="newModal">{{ $t('addNewButton') }} <i class="fas fa-plus-square fa-fw"></i></button>
                 </div>
                 <div class="card-body table-responsive p-0">
                     <category-table />
@@ -77,10 +77,10 @@
             },
             deleteCategory(id){
                 this.form.delete(this.categoriesRoutes.delete +id).then((response)=>{
-                    new swal('Deleted!','Category deleted.','success');
+                    new swal(this.$t('deleted'),this.$t('categoryDeleted'),'success');
                     Fire.$emit('ReloadCategories');
                 }).catch(()=> {
-                    new swal("Failed!", "Unable to delete. Something went wrong", "warning");
+                    new swal(this.$t('failed'), this.$t('failedDelete'), "warning");
                 });
             },
         },
